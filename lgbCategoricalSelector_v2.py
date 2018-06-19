@@ -75,7 +75,7 @@ def eval_lgb_sets(X, y, cvlist, param_sets):
 if __name__ == "__main__":
     
     ############ Models to try ################################################
-    LOGGER_FILE = "lgbCategoricalSelector.log"
+    LOGGER_FILE = "lgbCategoricalSelector_100k1fold.log"
     CAT_COLS = ['user_id', 
                 'region', 
                 'city', 
@@ -131,7 +131,7 @@ if __name__ == "__main__":
     
     BASE_ENC_THRESH = [1, 2 , 5 , 8]
     COMB_ENC_THRESH = [3, 8]
-    TARGET_ENC_BASE_THRESH = [1, 5]
+    TARGET_ENC_BASE_THRESH = [1, 3]
     TARGET_ENC_COMB_THRESH = [3, 8]
 
     LGB_PARAMS1 = {
@@ -147,46 +147,8 @@ if __name__ == "__main__":
             "verbose":0
             }
     
-    LGB_PARAMS2 = {
-            "n_estimators":5000,
-            'learning_rate': 0.02,
-            "num_leaves":127,
-            "colsample_bytree": 0.7,
-            "subsample": 0.7,
-            "reg_alpha": 0,
-            "reg_lambda": 0,
-            "min_data_in_leaf": 200,
-            "max_bin": 512,
-            "verbose":0
-            }
     
-    LGB_PARAMS3 = {
-            "n_estimators":5000,
-            'learning_rate': 0.02,
-            "num_leaves":63,
-            "colsample_bytree": 0.5,
-            "subsample": 0.8,
-            "reg_alpha": 0,
-            "reg_lambda": 0,
-            "min_data_in_leaf": 500,
-            "max_bin": 255,
-            "verbose":0
-            }
-    
-    LGB_PARAMS4 = {
-            "n_estimators":5000,
-            'learning_rate': 0.02,
-            "num_leaves":255,
-            "colsample_bytree": 0.6,
-            "subsample": 0.9,
-            "reg_alpha": 1,
-            "reg_lambda": 1,
-            "min_data_in_leaf": 1000,
-            "max_bin": 255,
-            "verbose":0
-            }
-    
-    LGB_PARAMS = [LGB_PARAMS1, LGB_PARAMS2, LGB_PARAMS3, LGB_PARAMS4]
+    LGB_PARAMS = [LGB_PARAMS1]
     
     
     ######################   Logger   #########################################
@@ -201,8 +163,8 @@ if __name__ == "__main__":
     
     ###################### Read data ##########################################
     logger.info("Reading data")
-    train = pd.read_csv("../input/train.csv", parse_dates=['activation_date'], nrows=10000)
-    test = pd.read_csv("../input/test.csv", parse_dates=['activation_date'], nrows=10000)
+    train = pd.read_csv("../input/train.csv", parse_dates=['activation_date'], nrows=100000)
+    test = pd.read_csv("../input/test.csv", parse_dates=['activation_date'], nrows=100000)
     test['deal_probability'] = -1
     
     #City correction
@@ -231,19 +193,17 @@ if __name__ == "__main__":
     final_feats = []
     final_score = []
     for (b_thresh, tenc_thresh, comb_thresh, tenc_comb_thresh) in  [(1, 1, 3, 3),
-                                                                  (2, 1, 3, 3), 
-                                                                  (2, 5, 8, 8), 
-                                                                  (5, 5, 8, 8), 
-                                                                  (8, 5, 8, 8)]:
+                                                                  (2, 3, 8, 8), 
+                                                                  ]:
 
         
         base_cols = [col+'_lbenc_'+str(b_thresh) for col in CAT_COLS]           
         columns_to_try = [col+'_trenc_'+str(tenc_thresh) for col in CAT_COLS] + \
-                            ["_".join(list(col)) +'_trenc_'+str(tenc_comb_thresh) for col in COMB_COLS] + \
-                            ["_".join(list(col)) +'_lbenc_'+str(comb_thresh) for col in COMB_COLS]
+                            ["_".join(list(col)) +'_trenc_'+str(tenc_comb_thresh) for col in COMB_COLS]
+                           
         
         features = base_cols[:]
-        X = np.vstack([np.load("../utility/X_train_{}.npy".format(col), mmap_mode='r') for col in base_cols]).T
+        X = np.vstack([np.load("../utility/X_train_{}.npy".format(col), mmap_mode='r') for col in base_cols]).T[:100000, :]
         print("Shape for base dataset is ", X.shape)
         
         best_rmse_lgb, y_preds_lgb = eval_lgb_sets(X, y, cvlist, LGB_PARAMS)
@@ -255,7 +215,7 @@ if __name__ == "__main__":
             logger.info("#######################################")
             logger.info("Adding column {} and checking".format(col))
             try:
-                X_col = np.load("../utility/X_train_{}.npy".format(col)).reshape(-1,1) 
+                X_col = np.load("../utility/X_train_{}.npy".format(col)).reshape(-1,1)[:100000, :]
                 #print(X_col[:5])
                 X = np.hstack((X, X_col))
                 print(X.shape)
@@ -272,30 +232,8 @@ if __name__ == "__main__":
             except:
                 logger.info("Skipping {}".format(col))
                 continue
+            logger.info("Current set of features are : {}".format(features))            
             
-        for i, col in enumerate(base_cols):
-            logger.info("Remove column {} and checking".format(col))
-            try:
-                #X_col = np.load("../utility/X_train_{}.npy".format(col)).reshape(-1,1) 
-                #print(X_col[:5])
-                X_col = X[:, 0].reshape(-1,1)
-                X = X[:, 1:]
-                print(X.shape)
-                best_rmse_lgb, y_preds_lgb = eval_lgb_sets(X, y, cvlist, LGB_PARAMS)
-                
-                if best_rmse_lgb < best_rmse:
-                    best_rmse = best_rmse_lgb
-                    y_preds_best = y_preds_lgb 
-                    logger.info("REMOVING {} resulted in improvement".format(col))
-                    features.remove(col)
-                else:
-                    X = np.hstack((X_col, X))
-                    
-                logger.info("")
-            except:
-                logger.info("Skipping {}".format(col))
-                continue
-        
         final_feats.append(features)
         final_score.append(rmse(y, y_preds_best))
 

@@ -70,9 +70,7 @@ if __name__ == "__main__":
                 'image_top_1',
                 'user_type']
     
-    COMB_COLS = [('user_id', 'parent_category_name'),
-                 ('user_id', 'category_name'),
-                 ('user_id', 'image_top_1'),
+    COMB_COLS = [
                  ('region', 'parent_category_name'),
                  ('region', 'category_name'),
                  ('region', 'param_1'),
@@ -114,7 +112,7 @@ if __name__ == "__main__":
     
     BASE_ENC_THRESH = [1,2,5,8]
     COMB_ENC_THRESH = [3, 8]
-    TARGET_ENC_BASE_THRESH = [1, 5]
+    TARGET_ENC_BASE_THRESH = [1, 3]
     TARGET_ENC_COMB_THRESH = [3, 8]
 
     handler = logging.FileHandler(LOGGER_FILE)
@@ -131,17 +129,19 @@ if __name__ == "__main__":
     ##  Read data                                          ##
     #########################################################
     logger.info("Reading data")
-    train = pd.read_csv("../input/train.csv", parse_dates=['activation_date'], nrows=10000)
-    test = pd.read_csv("../input/test.csv", parse_dates=['activation_date'], nrows=10000)
+    train = pd.read_csv("../input/train.csv", parse_dates=['activation_date'])
+    test = pd.read_csv("../input/test.csv", parse_dates=['activation_date'])
     test['deal_probability'] = -1
     
+    train["image_top_1"] = train["image_top_1"].astype(str)
+    test["image_top_1"] = test["image_top_1"].astype(str)    
     #City correction
     for df in train, test:
         df['city'] = df['region'].astype(str) + "_" + df["city"].astype(str)
         df = df.fillna(-1)
         
     y = train['deal_probability'].values
-    cvlist = list(KFold(10, random_state=123).split(y))
+    cvlist = list(KFold(5, random_state=123).split(y))
     
     logger.info("Done. Read data with shape {} and {}".format(train.shape, test.shape))
     
@@ -151,7 +151,7 @@ if __name__ == "__main__":
     #########################################################
     logger.info("Generating base label encoding features")
     for (col, thresh) in list(itertools.product(CAT_COLS, BASE_ENC_THRESH)):
-        #print(col, thresh)
+        print(col, thresh)
         fs = FeatureSelector(col)
         lbenc = LabelEncodeWithThreshold(thresh = thresh, logger = logger)
         pipe = make_pipeline(fs, lbenc)
@@ -172,7 +172,7 @@ if __name__ == "__main__":
     #########################################################
     logger.info("Generating combination label encoding features")
     for cols, thresh in list(itertools.product(COMB_COLS, COMB_ENC_THRESH)):
-        #print(cols, thresh)
+        print(cols, thresh)
         col = "_".join(cols)
         for df in train, test:
             df[col] = df[list(cols)].apply(lambda x: "_".join([str(cc) for cc in x ]), axis=1)
@@ -196,22 +196,36 @@ if __name__ == "__main__":
     ##  Target Mean Encode categorical features            ##
     #########################################################
     logger.info("Generating target encoding features")
+    #train = train.fillna(-1)
+    #test = test.fillna(-1)
     for (col, thresh) in list(itertools.product(CAT_COLS, TARGET_ENC_BASE_THRESH)):
         #print(col, thresh)
-        trenc = TargetEncoderWithThresh(cols = [col], targetcol= 'deal_probability',
-                                        thresh = thresh, func = 'mean')
-        try:
-            X_train = cross_val_predict(trenc, train, y, cv = cvlist, method = 'transform')
-            X_test = trenc.fit(train).transform(test)
+        if col != "user_id":
+            trenc = TargetEncoderWithThresh(cols = [col], targetcol= 'deal_probability',
+                                            thresh = thresh, func = 'mean')
+            try:
+                X_train = cross_val_predict(trenc, train, y, cv = cvlist, method = 'transform', n_jobs=1)
+                X_test = trenc.fit(train).transform(test)
+                
+                logger.info("Saving target encoded features for {}, thresh: {}".format(col, thresh))
+                np.save("../utility/X_train_{}_trenc_{}.npy".format(col, thresh), X_train)
+                np.save("../utility/X_test_{}_trenc_{}.npy".format(col, thresh), X_test)
+            except:
+                logger.info("Could not find a valid transformation")
+                continue 
+        else:
+            tmp = train.sort_values(by="activation_date")
+            X_train = tmp.groupby("user_id")["deal_probability"].apply(lambda x: x.expanding().mean().shift().fillna(-1)).sort_index()
             
+            trenc = TargetEncoderWithThresh(cols = [col], targetcol= 'deal_probability',
+                                            thresh = 1, func = 'mean')
+            X_test = trenc.fit(train).transform(test)
+            X_test[np.isnan(X_test)] = -1
             logger.info("Saving target encoded features for {}, thresh: {}".format(col, thresh))
             np.save("../utility/X_train_{}_trenc_{}.npy".format(col, thresh), X_train)
             np.save("../utility/X_test_{}_trenc_{}.npy".format(col, thresh), X_test)
-        except:
-            logger.info("Could not find a valid transformation")
-            continue 
-
-
+            del tmp
+            #break
     #########################################################
     ##  Target Mean Encode categorical combination features##
     #########################################################
@@ -221,7 +235,7 @@ if __name__ == "__main__":
         trenc = TargetEncoderWithThresh(cols = list(cols), targetcol= 'deal_probability',
                                         thresh = thresh, func = 'mean')
         try:
-            X_train = cross_val_predict(trenc, train, y, cv = cvlist, method = 'transform')
+            X_train = cross_val_predict(trenc, train, y, cv = cvlist, method = 'transform', n_jobs=1)
             X_test = trenc.fit(train).transform(test)
             
             logger.info("Saving label encoded features for {} and thresh {}".format(col, thresh))
@@ -237,10 +251,13 @@ if __name__ == "__main__":
     #########################################################
     logger.info("Generating target encoding features")
     for (col, thresh) in list(itertools.product(CAT_COLS, TARGET_ENC_BASE_THRESH)):
+        
+        if col == "user_id":
+            continue
         trenc = TargetEncoderWithThresh(cols = [col], targetcol= 'deal_probability',
                                         thresh = thresh, func = 'std')
         try:
-            X_train = cross_val_predict(trenc, train, y, cv = cvlist, method = 'transform')
+            X_train = cross_val_predict(trenc, train, y, cv = cvlist, method = 'transform', n_jobs=1)
             X_test = trenc.fit(train).transform(test)
             
             logger.info("Saving target encoded features for {}, thresh: {}".format(col, thresh))

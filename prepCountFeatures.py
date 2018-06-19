@@ -56,7 +56,7 @@ if __name__ == "__main__":
     #########################################################
     
     LOGGER_FILE = "prepCountFeatures.log"
-    CAT_COLS = ['user_id', 
+    CAT_COLS = [#'user_id', 
                 'region', 
                 'city', 
                 'parent_category_name',
@@ -64,21 +64,14 @@ if __name__ == "__main__":
                 'param_1', 
                 'param_2', 
                 'param_3', 
-                'image_top_1',
                 'user_type',
                 'activation_date']
     
-    COMB_COLS = [('user_id', 'region'),
-                 ('user_id', 'city'),
-                 ('user_id', 'category_name'),
-                 ('user_id', 'image_top_1'),
-                 ('user_id', 'activation_date'),
-                 ('region', 'parent_category_name'),
+    COMB_COLS = [('region', 'parent_category_name'),
                  ('region', 'category_name'),
                  ('region', 'param_1'),
                  ('region', 'param_2'),
                  ('region', 'param_3'),
-                 ('region', 'image_top_1'),
                  ('region', 'user_type'),
                  ('region', 'activation_date'),
                  ('city', 'parent_category_name'),
@@ -86,33 +79,25 @@ if __name__ == "__main__":
                  ('city', 'param_1'),
                  ('city', 'param_2'),
                  ('city', 'param_3'),
-                 ('city', 'image_top_1'),
                  ('city', 'user_type'),
                  ('city', 'activation_date'),
                  ('parent_category_name', 'param_1'),
                  ('parent_category_name', 'param_2'),
                  ('parent_category_name', 'param_3'),
-                 ('parent_category_name', 'image_top_1'),
                  ('parent_category_name', 'user_type'),
                  ('parent_category_name', 'activation_date'),
                  ('category_name', 'param_1'),
                  ('category_name', 'param_2'),
                  ('category_name', 'param_3'),
-                 ('category_name', 'image_top_1'),
                  ('category_name', 'user_type'),
                  ('category_name', 'activation_date'),
                  ('param_1', 'param_2'),
                  ('param_1', 'param_3'),
-                 ('param_1', 'image_top_1'),
                  ('param_1', 'user_type'),
                  ('param_1', 'activation_date'),
-                 ('param_2', 'image_top_1'),
                  ('param_2', 'user_type'),
                  ('param_2', 'activation_date'),
-                 ('param_3', 'image_top_1'),
                  ('param_3', 'user_type'),
-                 ('image_top_1', 'user_type'),
-                 ('image_top_1', 'activation_date'),
                  ('user_type', 'activation_date'),
                  ('region', 'category_name', 'param_1'),
                  ('region', 'category_name', 'param_2'),
@@ -185,17 +170,17 @@ if __name__ == "__main__":
     ##  Read data                                          ##
     #########################################################
     logger.info("Reading data")
-    train = pd.read_csv("../input/train.csv", parse_dates=['activation_date'], nrows=10000)
-    test = pd.read_csv("../input/test.csv", parse_dates=['activation_date'], nrows=10000)
+    train = pd.read_csv("../input/train.csv", parse_dates=['activation_date'])
+    test = pd.read_csv("../input/test.csv", parse_dates=['activation_date'])
     test['deal_probability'] = -1
 
-    train_active = pd.read_csv("../input/train.csv", parse_dates=['activation_date'], nrows=100000)
-    test_active = pd.read_csv("../input/test.csv", parse_dates=['activation_date'], nrows=100000)
-    train_active['deal_probability'] = -1 
-    test_active['deal_probability'] = -1
+    #train_active = pd.read_csv("../input/train_active.csv", parse_dates=['activation_date'])
+    #test_active = pd.read_csv("../input/test_active.csv", parse_dates=['activation_date'])
+    #train_active['deal_probability'] = -1 
+    #test_active['deal_probability'] = -1
     
     #City correction
-    for df in train, test, train_active, test_active:
+    for df in train, test: #, train_active, test_active:
         df['city'] = df['region'].astype(str) + "_" + df["city"].astype(str)
         df = df.fillna(-1)
         
@@ -214,7 +199,7 @@ if __name__ == "__main__":
                                         func = 'count')
         try:
             cols = [col] + ['item_id']
-            trenc.fit(pd.concat([train[cols], test[cols], train_active[cols], test_active[cols]]))
+            trenc.fit(pd.concat([train[cols], test[cols]]))#train_active[cols], test_active[cols]]))
             X_train = trenc.transform(train)
             X_test = trenc.transform(test)
             
@@ -228,13 +213,14 @@ if __name__ == "__main__":
     #########################################################
     ##  Count encode combination features                  ##
     #########################################################
-    logger.info("Generating count encoding features for base features")
+    logger.info("Generating count encoding features for combination features")
     for cols in COMB_COLS:
-        trenc = TargetEncoder(cols = cols, targetcol= 'item_id',
+        col = '_'.join(list(cols))
+        trenc = TargetEncoder(cols = list(cols), targetcol= 'item_id',
                                         func = 'count')
         try:
-            acols = cols + ['item_id']
-            trenc.fit(pd.concat([train[acols], test[acols], train_active[acols], test_active[acols]]))
+            acols = list(cols) + ['item_id']
+            trenc.fit(pd.concat([train[acols], test[acols],])) #train_active[acols], test_active[acols]]))
             X_train = trenc.transform(train)
             X_test = trenc.transform(test)
             
