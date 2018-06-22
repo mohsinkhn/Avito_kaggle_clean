@@ -1,7 +1,11 @@
 """
 @author - Mohsin
 """
+import string
+from random import shuffle
+
 import numpy as np
+
 np.random.seed(786)  # for reproducibility
 import pandas as pd
 from sklearn.model_selection import KFold
@@ -12,8 +16,8 @@ import lightgbm as lgb
 
 tqdm.pandas(tqdm)
 
-
 from utils import *
+from TextStatsTransformer import TextStatsTransformer
 import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -40,13 +44,13 @@ def cv_oof_predictions(estimator, X, y, cvlist, est_kwargs, fit_params, predict_
 
     if len(test_preds) > 0:
         test_preds = np.mean(test_preds, axis=0)
-    return est, preds, test_preds#est, y_val, val_preds #
+    return est, preds, test_preds #est, y_val, val_preds #
 
 
 if __name__ == "__main__":
-    LOGGER_FILE = "lgbImageFeatureSelector.log"
+    LOGGER_FILE = "lgbImage3FeatureSelector.log"
 
-    IMAGE_FILE_1 = "../Avito_Kaggle/all_image_extra_feats.csv"
+    IMAGE_FILE_1 = "../utility/df_image_feats3.csv"
 
     CONT_COLS = ['price', 'item_seq_number', 'user_id_counts', 'price_binned']
 
@@ -78,6 +82,27 @@ if __name__ == "__main__":
                   'region_param_1_user_type_activation_date_counts',
                   'city_category_name_param_1_user_type_counts',
                   'city_category_name_param_2_user_type_counts']
+
+    IMAGE_FEATS = ['image1_image_isna', 'image1_ar', 'image1_height',
+                   'image1_width', 'image1_average_pixel_width',
+                   'image1_average_red', 'image1_dominant_red',
+                   'image1_whiteness', 'image1_dominant_green',
+                   'image1_average_green', 'image1_blurrness',
+                   'image1_size', 'image1_dullness', 'image1_average_blue']
+
+    GIBA_FEATS = ['giba1_nchar_title', 'giba1_nchar_desc', 'giba1_titl_capE', 'giba1_titl_capR',
+                   'giba1_titl_lowE', 'giba1_titl_lowR', 'giba1_titl_pun', 'giba1_desc_pun', 'giba1_titl_dig',
+                   'giba1_desc_dig', 'giba1_wday', 'giba1_ce1', 'giba1_ce2', 'giba1_ce3', 'giba1_ce4', 'giba1_ce6', 'giba1_ce7',
+                   'giba1_ce8', 'giba1_ce9', 'giba1_ce10', 'giba1_ce11', 'giba1_ce12', 'giba1_ce13', 'giba1_ce14', 'giba1_ce15',
+                   'giba1_ce16', 'giba1_ce17', 'giba1_ce18', 'giba1_dif_time1', 'giba1_dif_isn1', 'giba1_mflag1',
+                   'giba1_dif_time2', 'giba1_dif_time3', 'giba1_dif_time4', 'giba1_dif_time5', 'giba1_dif_time6',
+                   'giba1_N1', 'giba1_N2', 'giba1_N3', 'giba1_N4', 'giba1_N5', 'giba1_N6', 'giba1_image1', 'giba1_image2', 'giba1_image3',
+                   'giba1_image4', 'giba1_image5', 'giba1_image6', 'giba1_rev_seq']
+
+    IMAGE3_FEATS = ['image3_br_std', 'image3_br_min', 'image3_sat_avg', 'image3_lum_mean',
+                    'image3_lum_std', 'image3_lum_min', 'image3_contrast',
+                    'image3_CF', 'image3_kp', 'image3_dominant_color',
+                    'image3_dominant_color_ratio', 'image3_simplicity', 'image3_object_ratio']
 
     LGB_PARAMS1 = {
             "n_estimators":10000,
@@ -119,61 +144,96 @@ if __name__ == "__main__":
     logger.info("Done. Read data with shape {} and {}".format(train.shape, test.shape))
     #del train, test
 
-    ################### Read Image data #######################################
-    image_df_1 = pd.read_csv(IMAGE_FILE_1)
-    logger.info("Feature sin image file 1 are {}".format(image_df_1.columns))
+    ################### Get Text stats Features #######################################
+    logger.info("Getting punctuations and emojis")
+    punct = set(string.punctuation)
 
-    #Map image data to train and test
-    logger.info("Mapping image file 1 to train and test")
-    train_img = train.join(image_df_1.set_index("image"), on="image", how="left")
-    test_img = test.join(image_df_1.set_index("image"), on="image", how="left")
+    emoji = set()
+    for s in train['title'].fillna('').astype(str):
+        for c in s:
+            if c.isdigit() or c.isalpha() or c.isalnum() or c.isspace() or c in punct:
+                continue
+            emoji.add(c)
 
-    train_img["image_isna"] = train_img["size"].isnull().astype(int)
-    test_img["image_isna"] = test_img["size"].isnull().astype(int)
+    for s in train['description'].fillna('').astype(str):
+        for c in str(s):
+            if c.isdigit() or c.isalpha() or c.isalnum() or c.isspace() or c in punct:
+                continue
+            emoji.add(c)
+    logger.info(''.join(emoji))
 
+    txtstats_title = TextStatsTransformer(ratios=True, puncts=punct, emojis=emoji, logger=logger)
+    train_title = txtstats_title.fit_transform(train["title"].astype(str))
+    test_title = txtstats_title.transform(test["title"].astype(str))
+
+    title_feats = ["title_" + col for col in txtstats_title.get_feature_names()]
+    train_title = pd.DataFrame(train_title, columns = title_feats)
+    test_title = pd.DataFrame(test_title, columns = title_feats)
+    logger.info("Feature in title text stats transformer are {}".format(train_title.columns))
+
+    txtstats_desc = TextStatsTransformer(ratios=True, puncts=punct, emojis=emoji, logger=logger)
+    train_desc = txtstats_desc.fit_transform(train["description"].astype(str))
+    test_desc = txtstats_desc.transform(test["description"].astype(str))
+
+    desc_feats = ["desc_" + col for col in txtstats_desc.get_feature_names()]
+    train_desc = pd.DataFrame(train_desc, columns = desc_feats)
+    test_desc = pd.DataFrame(test_desc, columns = desc_feats)
+    logger.info("Feature in desc text stats transformer are {}".format(train_desc.columns))
+
+    train_stats = pd.concat([train_title, train_desc], axis=1)
+    test_stats = pd.concat([test_title, test_desc], axis=1)
+    stat_feats = title_feats + desc_feats
+
+    train_stats["title_desc_word_ratio"] = train_stats["title_num_words"] + (1 + train_stats["desc_num_words"])
+    test_stats["title_desc_word_ratio"] = test_stats["title_num_words"] + (1 + test_stats["desc_num_words"])
     ################### Recurisive feature elimination ######################
     #
 
-    features = BASE_FEATURES + CONT_COLS + PRICE_COMB_COLS + PRICE_MEAN_COLS + COUNT_COLS
+    features = BASE_FEATURES + CONT_COLS + PRICE_COMB_COLS + PRICE_MEAN_COLS + COUNT_COLS + IMAGE_FEATS + GIBA_FEATS + IMAGE3_FEATS
     X = np.vstack([np.load("../utility/X_train_{}.npy".format(col), mmap_mode='r') for col in features]).T[:100000, :]
     print("Shape for base dataset is ", X.shape)
-    columns_to_try = ["image_isna" , 'ar', 'height', 'width', 'average_pixel_width',
-                      'average_red', 'dominant_red',  'whiteness', 'dominant_green',
-                      'average_green',  'blurrness', 'size', 'dullness',
-                      'average_blue']
+    columns_to_try = ['title_num_emojis',
+                      'title_unq_tot_word_ratio', 'title_word_len_ratio', 'title_digits_len_ratio',
+                      'title_caps_len_ratio', 'title_punct_len_ratio', 'desc_num_words',
+                      'desc_unq_words', 'desc_num_digits', 'desc_num_caps', 'desc_num_emojis',
+                      'desc_unq_tot_word_ratio', 'desc_word_len_ratio',
+                      'desc_digits_len_ratio', 'desc_caps_len_ratio', 'desc_punct_len_ratio',
+                      'title_num_words', 'title_unq_words', 'title_desc_word_ratio']
 
     for col in columns_to_try:
-        median = train_img[col].median()
-        train_img[col] = train_img[col].fillna(median)
-        test_img[col] = test_img[col].fillna(median)
+        median = train_stats[col].median()
+        train_stats[col] = train_stats[col].fillna(median)
+        test_stats[col] = test_stats[col].fillna(median)
 
     minmax = MinMaxScaler((-1, 1))
     #minmax = FunctionTransformer(np.log1p, validate=False)
     #minmax = QuantileTransformer(output_distribution="normal")
-    train_img[columns_to_try] = minmax.fit_transform(train_img[columns_to_try])
-    test_img[columns_to_try] = minmax.transform(test_img[columns_to_try])
+    train_stats[columns_to_try] = minmax.fit_transform(train_stats[columns_to_try])
+    test_stats[columns_to_try] = minmax.transform(test_stats[columns_to_try])
 
     #Run 5 times by randomly shuffling columns
     for i in range(5):
-        features = BASE_FEATURES + CONT_COLS + PRICE_COMB_COLS + PRICE_MEAN_COLS + COUNT_COLS
+        features = BASE_FEATURES + CONT_COLS + PRICE_COMB_COLS + PRICE_MEAN_COLS + COUNT_COLS + IMAGE_FEATS + \
+                   GIBA_FEATS + IMAGE3_FEATS
         model = lgb.LGBMRegressor()
         #est, y_val, y_preds_lgb = cv_oof_predictions(model, X, y, cvlist, LGB_PARAMS1, predict_test=False, X_test=None,
         #                                             fit_params={})
         #best_rmse_lgb_base = rmse(y_val, y_preds_lgb)
-        #est, y_preds_lgb, _ = cv_oof_predictions(model, X, y, cvlist, LGB_PARAMS1, predict_test=False, X_test=None,
-        #                                             fit_params={})
-        #best_rmse_lgb_base = rmse(y, y_preds_lgb)
-        #logger.info("Best score for base cols in {}".format(best_rmse_lgb_base))
-        #best_rmse = best_rmse_lgb_base
+        est, y_preds_lgb, _ = cv_oof_predictions(model, X, y, cvlist, LGB_PARAMS1, predict_test=False, X_test=None,
+                                                     fit_params={})
+        best_rmse_lgb_base = rmse(y, y_preds_lgb)
+        logger.info("Best score for base cols in {}".format(best_rmse_lgb_base))
+        best_rmse = best_rmse_lgb_base
         #y_preds_best = y_preds_lgb
 
-        #if i > 0:
-        #    shuffle(columns_to_try)
+        if i > 0:
+            shuffle(columns_to_try)
 
         #Add all features and get base
         features_current = columns_to_try[:]
-        features = BASE_FEATURES + CONT_COLS + PRICE_COMB_COLS + PRICE_MEAN_COLS + COUNT_COLS + features_current
-        X_all = np.hstack((X, train_img[features_current].values))
+        features = BASE_FEATURES + CONT_COLS + PRICE_COMB_COLS + PRICE_MEAN_COLS + COUNT_COLS + \
+                   IMAGE_FEATS + GIBA_FEATS + IMAGE3_FEATS + features_current
+        X_all = np.hstack((X, train_stats[features_current].values))
         model = lgb.LGBMRegressor()
         # est, y_val, y_preds_lgb = cv_oof_predictions(model, X, y, cvlist, LGB_PARAMS1, predict_test=False, X_test=None,
         #                                             fit_params={})
@@ -187,13 +247,13 @@ if __name__ == "__main__":
 
 
         for col in columns_to_try:
-            break
-            logger.info("#######################################")
+            #break
+            #logger.info("#######################################")
             logger.info("Removing column {} and checking".format(col))
             try:
                 features_current.remove(col)
                 cols = [f for f in columns_to_try if f != col ]
-                X_all = np.hstack((X, train_img[features_current].values))
+                X_all = np.hstack((X, train_stats[features_current].values))
                 # print(X_col[:5])
                 #X = np.hstack((X, X_col))
                 print(X.shape)
