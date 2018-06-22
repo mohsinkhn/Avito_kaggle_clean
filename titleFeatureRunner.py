@@ -163,13 +163,16 @@ if __name__ == "__main__":
         X_test = load_npz("../utility/X_test_title_{}.npz".format(i))
         logger.info("Dim of trainand test data {} and {}".format(X.shape, X_test.shape))
         #print(type(X))
-        model = lgb.LGBMRegressor(**LGB_PARAMS1)
-        est_lgb, y_preds_lgb, y_test_lgb = cv_oof_predictions(model, X, y, cvlist, predict_test=False,
-                                                  X_test=None, est_kwargs={}, fit_params={})
-        score = rmse(y, y_preds_lgb)
-        logger.info("Score by LGB for comb {} is {}".format(i, score))
-        np.save("../utility/X_train_title_lgb_comb{}".format(i), y_preds_lgb)
-        np.save("../utility/X_test_title_lgb_comb{}".format(i), y_test_lgb)
+        if i == 0:
+            model = lgb.LGBMRegressor(**LGB_PARAMS1)
+            #est_lgb, y_preds_lgb, y_test_lgb = cv_oof_predictions(model, X, y, cvlist, predict_test=False,
+            #                                       X_test=None, est_kwargs={}, fit_params={})
+            #score = rmse(y, y_preds_lgb)
+            #logger.info("Score by LGB for comb {} is {}".format(i, score))
+            #np.save("../utility/X_train_title_lgb_comb{}".format(i), y_preds_lgb)
+            ##model.set_params(**{"n_estimators": 7500})
+            y_test_lgb = model.fit(X, y).predict(X_test)
+            np.save("../utility/X_test_title_lgb_comb{}".format(i), y_test_lgb)
         #break
         rd = Ridge(**RIDGE_PARAMS)
         y_preds_ridge = cross_val_predict(rd, X, y, cv=cvlist, verbose=1)
