@@ -11,10 +11,11 @@ import numpy as np
 from sklearn.base import BaseEstimator, TransformerMixin
 
 class ContinousBinning(BaseEstimator, TransformerMixin):
-    def __init__(self, bins= 20, start = None, end = None):
+    def __init__(self, bins= 20, start = None, end = None, bin_array = None):
         self.bins= bins
         self.start = start
         self.end = end
+        self.bin_array = bin_array
         
     def fit(self, X, y=None):
         if not(isinstance(X, pd.Series)):
@@ -25,8 +26,10 @@ class ContinousBinning(BaseEstimator, TransformerMixin):
         
         if not(self.end):
             self.end = np.max(X)
-            
-        self.bin_array = np.linspace(self.start, self.end, self.bins)
+        
+        if bin_array is not None:
+            self.bin_array = np.linspace(self.start, self.end, self.bins)
+
         return self
     
     def transform(self, X, y=None):
