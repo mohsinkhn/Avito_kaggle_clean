@@ -1,0 +1,17 @@
+Packages:
+- numpy==1.14.3
+- pandas==0.22.0
+- scikit-learn==0.19.1
+- nltk (all packages needs to be downloaded)
+- tqdm==4.19.5
+- dask==0.16.1
+- py-translate==1.0.3
+- pymorphy2==0.8
+
+Files required - Place all files in utility folder
+- "all_images_inc_xcp_res_confs.csv"
+- "aggregated_features.csv"
+- "train_proc1.csv"
+- "test_proc1.csv"
+- "df_image_feats3.csv"
+- "all_image_extra_feats.csv"

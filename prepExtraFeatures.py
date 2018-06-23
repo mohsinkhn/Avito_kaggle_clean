@@ -22,8 +22,8 @@ logger.setLevel(logging.INFO)
 if __name__ == "__main__":
     LOGGER_FILE = "prepExtraFeats.log"
 
-    DNN_PRED_FILE = "../Avito_Kaggle/all_images_inc_xcp_res_confs.csv"
-    AGG_FEAT_FILE = "../Avito_Kaggle/aggregated_features.csv"
+    DNN_PRED_FILE = "../utility/all_images_inc_xcp_res_confs.csv"
+    AGG_FEAT_FILE = "../utility/aggregated_features.csv"
 
     ######################   Logger   #########################################
     handler = logging.FileHandler(LOGGER_FILE)

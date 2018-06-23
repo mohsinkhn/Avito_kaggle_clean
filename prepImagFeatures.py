@@ -7,27 +7,11 @@ import pandas as pd
 
 from sklearn.model_selection import cross_val_predict, KFold
 from sklearn.preprocessing import FunctionTransformer,MinMaxScaler
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import Ridge, SGDRegressor
-from sklearn.pipeline import make_pipeline
-
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-from nltk.tokenize import word_tokenize
-
-import dask.dataframe as dd
-
 from tqdm import tqdm
-import lightgbm as lgb
+
 
 tqdm.pandas(tqdm)
-
-from scipy.sparse import load_npz, save_npz
-from TargetEncoder import TargetEncoder
 from utils import *
-from LabelEncodeWithThreshold import LabelEncodeWithThreshold
-from TextCleaner import TextCleaner
 import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -37,7 +21,7 @@ logger.setLevel(logging.INFO)
 if __name__ == "__main__":
     LOGGER_FILE = "prepImageFeature1.log"
 
-    IMAGE_FILE_1 = "../Avito_Kaggle/all_image_extra_feats.csv"
+    IMAGE_FILE_1 = "../utility/all_image_extra_feats.csv"
 
     ######################   Logger   #########################################
     handler = logging.FileHandler(LOGGER_FILE)

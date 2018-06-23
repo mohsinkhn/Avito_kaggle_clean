@@ -23,8 +23,6 @@ logger.setLevel(logging.INFO)
 if __name__ == "__main__":
     LOGGER_FILE = "prepTextStats1.log"
 
-    IMAGE_FILE_1 =  "../utility/df_image_feats3.csv"
-
     ######################   Logger   #########################################
     handler = logging.FileHandler(LOGGER_FILE)
     handler.setLevel(logging.INFO)

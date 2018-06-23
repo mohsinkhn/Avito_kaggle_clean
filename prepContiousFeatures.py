@@ -21,25 +21,9 @@ import pandas as pd
 
 from sklearn.model_selection import cross_val_predict, KFold
 from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import LabelBinarizer, LabelEncoder, QuantileTransformer, MinMaxScaler, StandardScaler
-from sklearn.preprocessing import FunctionTransformer
-from sklearn.base import BaseEstimator, TransformerMixin, RegressorMixin
-from sklearn import metrics
-
-
-
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-from nltk.tokenize import word_tokenize
-
-import dask.dataframe as dd
-from dask.multiprocessing import get
-
 from tqdm import tqdm
 tqdm.pandas(tqdm)
 
-from TargetEncoder import TargetEncoder
 from utils import *
 from LabelEncodeWithThreshold import LabelEncodeWithThreshold
 from TargetEncoderWithThresh import TargetEncoderWithThresh
@@ -48,8 +32,6 @@ from ContinousBinning import ContinousBinning
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-# create a file handler
-
 
 #%%
 if __name__ == "__main__":
