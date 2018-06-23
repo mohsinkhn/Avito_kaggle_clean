@@ -107,19 +107,26 @@ if __name__ == "__main__":
                  'avg_days_up_user', 'std_days_up_user', 'avg_times_up_user', 'std_times_up_user',
                  'n_user_items', 'agg_isnull', 'inception_v3_label_0', 'xception_label_0', 'resnet50_label_0']
 
+    EXTRA_FEATS2 = ["pcat_p123_deal_nunq", "cat_p123_deal_nunq", "city_p123_deal_nunq",
+                      "region_p123_deal_nunq"]
+
+    TEXT_PREDS = ["title_ridge_comb0", "title_lgb_comb0", "description_ridge_comb1", "description_ridge_comb0"]
+
+    #SURR_FEATS = ["param2_pred_labels"]
+
     TITLE_COMB = 0
-    DESC_COMB = 0
+    DESC_COMB = 1
 
     LGB_PARAMS1 = {
             "n_estimators":15000,
             'learning_rate': 0.01,
-            "num_leaves": 300,
-            "colsample_bytree": 0.25,
-            "subsample": 0.9,
-            "reg_alpha": 1e-4,
-            "reg_lambda": 1,
-            "min_data_in_leaf": 500,
-            "max_bin": 1024,
+            "num_leaves": 255,
+            "colsample_bytree": 0.4,
+            "subsample": 0.8,
+            "reg_alpha": 0,
+            "reg_lambda": 5,
+            "min_data_in_leaf": 200,
+            "max_bin": 512,
             "verbose":0
             }
 
@@ -135,51 +142,75 @@ if __name__ == "__main__":
 
     ###################### Read data ##########################################
     logger.info("Reading data")
-    train = pd.read_csv("../input/train.csv", parse_dates=['activation_date'], nrows=10000)
-    test = pd.read_csv("../input/test.csv", parse_dates=['activation_date'], nrows=10000)
+    train = pd.read_csv("../input/train.csv", parse_dates=['activation_date'])
+    test = pd.read_csv("../input/test.csv", parse_dates=['activation_date'])
     test['deal_probability'] = -1
 
     # City correction
     for df in train, test:
         df['city'] = df['region'].astype(str) + "_" + df["city"].astype(str)
+        df["param_1_2_3"] = df["param_1"].astype(str) + " " + \
+                            df["param_2"].astype(str) + " " + \
+                            df["param_3"].astype(str)
         df = df.fillna(-1)
 
-    y = train['deal_probability'].values
+    y = train['deal_probability'].values[:100000]
     cvlist = list(KFold(5, random_state=123).split(y))
 
     logger.info("Done. Read data with shape {} and {}".format(train.shape, test.shape))
-    del train, test
+    #del train, test
 
     ################### Process and load features #######################################
     logger.info("Loading text features")
     X_title = load_npz("../utility/X_train_title_{}.npz".format(TITLE_COMB))
     X_title_test = load_npz("../utility/X_test_title_{}.npz".format(TITLE_COMB))
 
-    X_desc = load_npz("../utility/X_train_desc_{}.npz".format(DESC_COMB))
-    X_desc_test = load_npz("../utility/X_test_desc_{}.npz".format(DESC_COMB))
+    X_desc = load_npz("../utility/X_train_description_{}.npz".format(DESC_COMB))
+    X_desc_test = load_npz("../utility/X_test_description_{}.npz".format(DESC_COMB))
 
     features = BASE_FEATURES + CONT_COLS + PRICE_COMB_COLS + PRICE_MEAN_COLS + COUNT_COLS + IMAGE_FEATS + GIBA_FEATS + \
-               IMAGE3_FEATS + TEXT_STATS + EXTRA_FEATS
+               IMAGE3_FEATS + TEXT_STATS + EXTRA_FEATS + EXTRA_FEATS2 + TEXT_PREDS #+ SURR_FEATS
     X_cats = np.vstack([np.load("../utility/X_train_{}.npy".format(col), mmap_mode='r') for col in features]).T
     X_cats_test = np.vstack([np.load("../utility/X_test_{}.npy".format(col), mmap_mode='r') for col in features]).T
 
+    train["cat_enc"] =  np.load("../utility/X_train_category_name_lbenc_1.npy")
+    test["cat_enc"] = np.load("../utility/X_test_category_name_lbenc_1.npy")
+    image_top_1_cat = pd.concat([train, test]).groupby("image_top_1")["cat_enc"].apply(lambda x: x.mode())
+    X_imaget1_cat = train["image_top_1"].map(image_top_1_cat).values.reshape(-1,1)
+    X_imaget1_cat_test = test["image_top_1"].map(image_top_1_cat).values.reshape((-1,1))
+    #pipe = make_pipeline(TfidfVectorizer(ngram_range=(1,1), max_features=100000),
+    #                      TruncatedSVD(20))
+    #X_tsvd = pipe.fit_transform(train["description"].astype(str))
+    #X_tsvd_test = pipe.transform(test["description"].astype(str))
+
     logger.info("Stack all features")
-    X = hstack((X_cats, X_title, X_desc)).tocsr()
-    X_test = hstack((X_cats_test, X_title_test, X_desc_test)).tocsr()
+    X = hstack((X_cats, X_title, X_desc, X_imaget1_cat)).tocsr()
+    X_test = hstack((X_cats_test, X_title_test, X_desc_test, X_imaget1_cat_test)).tocsr()
     logger.info("Shape for base dataset is {} and {}".format(X.shape, X_test.shape))
     ################### Run LGB ######################
     #
+    feature_names = BASE_FEATURES + CONT_COLS + PRICE_COMB_COLS + PRICE_MEAN_COLS + COUNT_COLS + IMAGE_FEATS + GIBA_FEATS + \
+               IMAGE3_FEATS + TEXT_STATS + EXTRA_FEATS + EXTRA_FEATS2 +  TEXT_PREDS + \
+                    ["title_tfidf_"+str(i) for i in range(X_title.shape[1])] + \
+                    ["desc_tfidf_" + str(i) for i in range(X_desc.shape[1])]
+
+    categorical_features = ['region_lbenc_2', 'city_lbenc_2', 'parent_category_name_lbenc_2',
+                     'category_name_lbenc_2', 'param_1_lbenc_2', 'param_2_lbenc_2', 'param_3_lbenc_2',
+                     'image_top_1_lbenc_2', 'user_type_lbenc_2', 'inception_v3_label_0', 'xception_label_0',
+                            'resnet50_label_0', "image3_dominant_color", "price_binned"]
 
     model = lgb.LGBMRegressor()
-    est, y_preds_lgb, y_test_lgb = cv_oof_predictions(model, X[:10000], y, cvlist, LGB_PARAMS1, predict_test=True,
-                                                      X_test=X_test[:10000],
+    est, y_preds_lgb, y_test_lgb = cv_oof_predictions(model, X[:100000], y, cvlist, LGB_PARAMS1, predict_test=True,
+                                                      X_test=X_test,
+                                                      #fit_params={"feature_name": feature_names,
+                                                      #            "categorical_feature": categorical_features}
                                                       fit_params={})
     best_rmse_lgb_base = rmse(y, y_preds_lgb)
     logger.info("Best score for base cols in {}".format(best_rmse_lgb_base))
 
     logger.info("Saving predicitions")
     np.save("../utility/X_train_lgb_{}.npy".format(MODEL_ID), y_preds_lgb)
-    np.save("../utility/X_test_lgb_{}.npy".format(MODEL_ID), y_preds_lgb)
+    np.save("../utility/X_test_lgb_{}.npy".format(MODEL_ID), y_test_lgb)
 
     logger.info("Writing out submissions")
     sub = pd.read_csv("../input/sample_submission.csv")
