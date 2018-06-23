@@ -1,0 +1,34 @@
+2018-06-20 22:46:27,922 - __main__ - INFO - Reading data
+2018-06-20 22:46:34,208 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-20 22:46:49,425 - __main__ - INFO - Shape of data (100000, 9000)
+2018-06-20 22:47:19,243 - __main__ - INFO - Score for settings (True, True, True, True) is 0.24826601256775804
+2018-06-20 22:47:30,151 - __main__ - INFO - Shape of data (100000, 9098)
+2018-06-20 22:47:48,632 - __main__ - INFO - Score for settings (True, True, True, False) is 0.24867286063343952
+2018-06-20 22:48:04,663 - __main__ - INFO - Shape of data (100000, 9230)
+2018-06-20 22:48:24,663 - __main__ - INFO - Score for settings (True, True, False, True) is 0.24842738786703564
+2018-06-20 22:48:36,037 - __main__ - INFO - Shape of data (100000, 9641)
+2018-06-20 22:48:58,182 - __main__ - INFO - Score for settings (True, True, False, False) is 0.24932412389315464
+2018-06-20 22:49:14,153 - __main__ - INFO - Shape of data (100000, 9795)
+2018-06-20 22:49:46,309 - __main__ - INFO - Score for settings (True, False, True, True) is 0.24780664056454205
+2018-06-20 22:49:56,700 - __main__ - INFO - Shape of data (100000, 9944)
+2018-06-20 22:50:19,662 - __main__ - INFO - Score for settings (True, False, True, False) is 0.24832108785894125
+2018-06-20 22:50:35,919 - __main__ - INFO - Shape of data (100000, 10149)
+2018-06-20 22:51:09,142 - __main__ - INFO - Score for settings (True, False, False, True) is 0.2480651334504342
+2018-06-20 22:51:19,760 - __main__ - INFO - Shape of data (100000, 10608)
+2018-06-20 22:51:44,018 - __main__ - INFO - Score for settings (True, False, False, False) is 0.24894504103362752
+2018-06-20 22:52:00,054 - __main__ - INFO - Shape of data (100000, 10795)
+2018-06-20 22:52:25,960 - __main__ - INFO - Score for settings (False, True, True, True) is 0.2479363047259281
+2018-06-20 22:52:37,211 - __main__ - INFO - Shape of data (100000, 10906)
+2018-06-20 22:52:57,239 - __main__ - INFO - Score for settings (False, True, True, False) is 0.24827108996658023
+2018-06-20 22:53:13,600 - __main__ - INFO - Shape of data (100000, 11020)
+2018-06-20 22:53:37,188 - __main__ - INFO - Score for settings (False, True, False, True) is 0.24812250997191265
+2018-06-20 22:53:48,982 - __main__ - INFO - Shape of data (100000, 11457)
+2018-06-20 22:54:10,504 - __main__ - INFO - Score for settings (False, True, False, False) is 0.24892856960720222
+2018-06-20 22:54:26,519 - __main__ - INFO - Shape of data (100000, 11604)
+2018-06-20 22:54:48,883 - __main__ - INFO - Score for settings (False, False, True, True) is 0.2476119225413105
+2018-06-20 22:54:59,530 - __main__ - INFO - Shape of data (100000, 11757)
+2018-06-20 22:55:24,414 - __main__ - INFO - Score for settings (False, False, True, False) is 0.248079689065468
+2018-06-20 22:55:40,846 - __main__ - INFO - Shape of data (100000, 11959)
+2018-06-20 22:56:02,514 - __main__ - INFO - Score for settings (False, False, False, True) is 0.24774799260985295
+2018-06-20 22:56:14,124 - __main__ - INFO - Shape of data (100000, 12432)
+2018-06-20 22:56:43,849 - __main__ - INFO - Score for settings (False, False, False, False) is 0.24868276836306033
