@@ -12,7 +12,6 @@ import lightgbm as lgb
 
 tqdm.pandas(tqdm)
 
-
 from utils import *
 import logging
 logging.basicConfig(level=logging.INFO)
@@ -40,13 +39,13 @@ def cv_oof_predictions(estimator, X, y, cvlist, est_kwargs, fit_params, predict_
 
     if len(test_preds) > 0:
         test_preds = np.mean(test_preds, axis=0)
-    return est, preds, test_preds#est, y_val, val_preds #
+    return est, preds, test_preds #est, y_val, val_preds #
 
 
 if __name__ == "__main__":
-    LOGGER_FILE = "lgbImageFeatureSelector.log"
+    LOGGER_FILE = "lgbImage3FeatureSelector.log"
 
-    IMAGE_FILE_1 = "../Avito_Kaggle/all_image_extra_feats.csv"
+    IMAGE_FILE_1 = "../utility/df_image_feats3.csv"
 
     CONT_COLS = ['price', 'item_seq_number', 'user_id_counts', 'price_binned']
 
@@ -78,6 +77,22 @@ if __name__ == "__main__":
                   'region_param_1_user_type_activation_date_counts',
                   'city_category_name_param_1_user_type_counts',
                   'city_category_name_param_2_user_type_counts']
+
+    IMAGE_FEATS = ['image1_image_isna', 'image1_ar', 'image1_height',
+                   'image1_width', 'image1_average_pixel_width',
+                   'image1_average_red', 'image1_dominant_red',
+                   'image1_whiteness', 'image1_dominant_green',
+                   'image1_average_green', 'image1_blurrness',
+                   'image1_size', 'image1_dullness', 'image1_average_blue']
+
+    GIBA_FEATS = ['giba1_nchar_title', 'giba1_nchar_desc', 'giba1_titl_capE', 'giba1_titl_capR',
+                   'giba1_titl_lowE', 'giba1_titl_lowR', 'giba1_titl_pun', 'giba1_desc_pun', 'giba1_titl_dig',
+                   'giba1_desc_dig', 'giba1_wday', 'giba1_ce1', 'giba1_ce2', 'giba1_ce3', 'giba1_ce4', 'giba1_ce6', 'giba1_ce7',
+                   'giba1_ce8', 'giba1_ce9', 'giba1_ce10', 'giba1_ce11', 'giba1_ce12', 'giba1_ce13', 'giba1_ce14', 'giba1_ce15',
+                   'giba1_ce16', 'giba1_ce17', 'giba1_ce18', 'giba1_dif_time1', 'giba1_dif_isn1', 'giba1_mflag1',
+                   'giba1_dif_time2', 'giba1_dif_time3', 'giba1_dif_time4', 'giba1_dif_time5', 'giba1_dif_time6',
+                   'giba1_N1', 'giba1_N2', 'giba1_N3', 'giba1_N4', 'giba1_N5', 'giba1_N6', 'giba1_image1', 'giba1_image2', 'giba1_image3',
+                   'giba1_image4', 'giba1_image5', 'giba1_image6', 'giba1_rev_seq']
 
     LGB_PARAMS1 = {
             "n_estimators":10000,
@@ -128,19 +143,17 @@ if __name__ == "__main__":
     train_img = train.join(image_df_1.set_index("image"), on="image", how="left")
     test_img = test.join(image_df_1.set_index("image"), on="image", how="left")
 
-    train_img["image_isna"] = train_img["size"].isnull().astype(int)
-    test_img["image_isna"] = test_img["size"].isnull().astype(int)
+    #train_img["image_isna"] = train_img["size"].isnull().astype(int)
+    #test_img["image_isna"] = test_img["size"].isnull().astype(int)
 
     ################### Recurisive feature elimination ######################
     #
 
-    features = BASE_FEATURES + CONT_COLS + PRICE_COMB_COLS + PRICE_MEAN_COLS + COUNT_COLS
+    features = BASE_FEATURES + CONT_COLS + PRICE_COMB_COLS + PRICE_MEAN_COLS + COUNT_COLS + IMAGE_FEATS + GIBA_FEATS
     X = np.vstack([np.load("../utility/X_train_{}.npy".format(col), mmap_mode='r') for col in features]).T[:100000, :]
     print("Shape for base dataset is ", X.shape)
-    columns_to_try = ["image_isna" , 'ar', 'height', 'width', 'average_pixel_width',
-                      'average_red', 'dominant_red',  'whiteness', 'dominant_green',
-                      'average_green',  'blurrness', 'size', 'dullness',
-                      'average_blue']
+    columns_to_try = ["br_mean", "br_std", "br_min", "sat_avg", "sat_std", "lum_mean", "lum_std", "lum_min",
+                      "contrast", "CF", "kp", "dominant_color", "dominant_color_ratio", "simplicity" ,"object_ratio"]
 
     for col in columns_to_try:
         median = train_img[col].median()
@@ -155,24 +168,25 @@ if __name__ == "__main__":
 
     #Run 5 times by randomly shuffling columns
     for i in range(5):
-        features = BASE_FEATURES + CONT_COLS + PRICE_COMB_COLS + PRICE_MEAN_COLS + COUNT_COLS
+        features = BASE_FEATURES + CONT_COLS + PRICE_COMB_COLS + PRICE_MEAN_COLS + COUNT_COLS + IMAGE_FEATS + GIBA_FEATS
         model = lgb.LGBMRegressor()
         #est, y_val, y_preds_lgb = cv_oof_predictions(model, X, y, cvlist, LGB_PARAMS1, predict_test=False, X_test=None,
         #                                             fit_params={})
         #best_rmse_lgb_base = rmse(y_val, y_preds_lgb)
-        #est, y_preds_lgb, _ = cv_oof_predictions(model, X, y, cvlist, LGB_PARAMS1, predict_test=False, X_test=None,
-        #                                             fit_params={})
-        #best_rmse_lgb_base = rmse(y, y_preds_lgb)
-        #logger.info("Best score for base cols in {}".format(best_rmse_lgb_base))
-        #best_rmse = best_rmse_lgb_base
+        est, y_preds_lgb, _ = cv_oof_predictions(model, X, y, cvlist, LGB_PARAMS1, predict_test=False, X_test=None,
+                                                     fit_params={})
+        best_rmse_lgb_base = rmse(y, y_preds_lgb)
+        logger.info("Best score for base cols in {}".format(best_rmse_lgb_base))
+        best_rmse = best_rmse_lgb_base
         #y_preds_best = y_preds_lgb
 
-        #if i > 0:
-        #    shuffle(columns_to_try)
+        if i > 0:
+            shuffle(columns_to_try)
 
         #Add all features and get base
         features_current = columns_to_try[:]
-        features = BASE_FEATURES + CONT_COLS + PRICE_COMB_COLS + PRICE_MEAN_COLS + COUNT_COLS + features_current
+        features = BASE_FEATURES + CONT_COLS + PRICE_COMB_COLS + PRICE_MEAN_COLS + COUNT_COLS + IMAGE_FEATS + \
+                   GIBA_FEATS + features_current
         X_all = np.hstack((X, train_img[features_current].values))
         model = lgb.LGBMRegressor()
         # est, y_val, y_preds_lgb = cv_oof_predictions(model, X, y, cvlist, LGB_PARAMS1, predict_test=False, X_test=None,
@@ -187,8 +201,8 @@ if __name__ == "__main__":
 
 
         for col in columns_to_try:
-            break
-            logger.info("#######################################")
+            #break
+            #logger.info("#######################################")
             logger.info("Removing column {} and checking".format(col))
             try:
                 features_current.remove(col)

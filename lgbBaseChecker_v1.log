@@ -1,0 +1,305 @@
+2018-06-22 23:53:23,237 - __main__ - INFO - Reading data
+2018-06-22 23:53:23,337 - __main__ - INFO - Done. Read data with shape (1000, 18) and (1000, 18)
+2018-06-22 23:53:23,338 - __main__ - INFO - Loading text features
+2018-06-22 23:53:46,909 - __main__ - INFO - Reading data
+2018-06-22 23:53:46,981 - __main__ - INFO - Done. Read data with shape (1000, 18) and (1000, 18)
+2018-06-22 23:53:46,981 - __main__ - INFO - Loading text features
+2018-06-23 00:47:52,561 - __main__ - INFO - Reading data
+2018-06-23 00:47:52,880 - __main__ - INFO - Done. Read data with shape (10000, 18) and (10000, 18)
+2018-06-23 00:47:52,883 - __main__ - INFO - Loading text features
+2018-06-23 00:49:35,855 - __main__ - INFO - Reading data
+2018-06-23 00:49:36,118 - __main__ - INFO - Done. Read data with shape (10000, 18) and (10000, 18)
+2018-06-23 00:49:36,120 - __main__ - INFO - Loading text features
+2018-06-23 00:49:45,253 - __main__ - INFO - Stack all features
+2018-06-23 00:50:19,023 - __main__ - INFO - Shape for base dataset is (1503424, 1154122) and (508438, 1154122)
+2018-06-23 00:53:29,649 - __main__ - INFO - Best score for base cols in 0.2845637678974897
+2018-06-23 00:53:29,650 - __main__ - INFO - Saving predicitions
+2018-06-23 00:53:29,653 - __main__ - INFO - Writing out submissions
+2018-06-23 00:59:27,671 - __main__ - INFO - Reading data
+2018-06-23 00:59:47,966 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-23 00:59:48,246 - __main__ - INFO - Loading text features
+2018-06-23 00:59:56,909 - __main__ - INFO - Stack all features
+2018-06-23 01:00:24,011 - __main__ - INFO - Shape for base dataset is (1503424, 1154122) and (508438, 1154122)
+2018-06-23 05:01:35,665 - __main__ - INFO - Best score for base cols in 0.28056554762741603
+2018-06-23 05:01:35,681 - __main__ - INFO - Saving predicitions
+2018-06-23 05:01:35,734 - __main__ - INFO - Writing out submissions
+2018-06-23 07:42:35,111 - __main__ - INFO - Reading data
+2018-06-23 07:42:41,141 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-23 07:42:41,192 - __main__ - INFO - Loading text features
+2018-06-23 07:42:49,688 - __main__ - INFO - Stack all features
+2018-06-23 07:43:15,882 - __main__ - INFO - Shape for base dataset is (1503424, 1154122) and (508438, 1154122)
+2018-06-23 07:45:19,078 - __main__ - INFO - Best score for base cols in 0.28305191678336317
+2018-06-23 07:45:19,078 - __main__ - INFO - Saving predicitions
+2018-06-23 07:45:19,086 - __main__ - INFO - Writing out submissions
+2018-06-23 07:57:03,208 - __main__ - INFO - Reading data
+2018-06-23 07:57:09,333 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-23 07:57:09,385 - __main__ - INFO - Loading text features
+2018-06-23 07:57:18,002 - __main__ - INFO - Stack all features
+2018-06-23 07:57:41,358 - __main__ - INFO - Shape for base dataset is (1503424, 1154124) and (508438, 1154124)
+2018-06-23 07:59:46,433 - __main__ - INFO - Best score for base cols in 0.28265274511106636
+2018-06-23 07:59:46,433 - __main__ - INFO - Saving predicitions
+2018-06-23 07:59:46,438 - __main__ - INFO - Writing out submissions
+2018-06-23 08:11:08,881 - __main__ - INFO - Reading data
+2018-06-23 08:11:15,135 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-23 08:11:15,186 - __main__ - INFO - Loading text features
+2018-06-23 08:11:23,898 - __main__ - INFO - Stack all features
+2018-06-23 08:11:46,452 - __main__ - INFO - Shape for base dataset is (1503424, 1154124) and (508438, 1154124)
+2018-06-23 08:12:43,732 - __main__ - INFO - Reading data
+2018-06-23 08:12:49,831 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-23 08:12:49,883 - __main__ - INFO - Loading text features
+2018-06-23 08:12:58,549 - __main__ - INFO - Stack all features
+2018-06-23 08:13:20,632 - __main__ - INFO - Shape for base dataset is (1503424, 1154124) and (508438, 1154124)
+2018-06-23 08:14:55,067 - __main__ - INFO - Best score for base cols in 0.28305131500029357
+2018-06-23 08:14:55,067 - __main__ - INFO - Saving predicitions
+2018-06-23 08:14:55,072 - __main__ - INFO - Writing out submissions
+2018-06-23 08:16:40,067 - __main__ - INFO - Reading data
+2018-06-23 08:16:46,011 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-23 08:16:46,064 - __main__ - INFO - Loading text features
+2018-06-23 08:16:54,675 - __main__ - INFO - Stack all features
+2018-06-23 08:17:16,128 - __main__ - INFO - Shape for base dataset is (1503424, 1154124) and (508438, 1154124)
+2018-06-23 08:19:28,944 - __main__ - INFO - Best score for base cols in 0.28265274511106636
+2018-06-23 08:19:28,944 - __main__ - INFO - Saving predicitions
+2018-06-23 08:19:28,948 - __main__ - INFO - Writing out submissions
+2018-06-23 08:34:44,604 - __main__ - INFO - Reading data
+2018-06-23 08:34:50,749 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-23 08:34:50,801 - __main__ - INFO - Loading text features
+2018-06-23 08:35:19,827 - __main__ - INFO - Reading data
+2018-06-23 08:35:25,805 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-23 08:35:25,857 - __main__ - INFO - Loading text features
+2018-06-23 08:35:34,299 - __main__ - INFO - Stack all features
+2018-06-23 08:35:57,496 - __main__ - INFO - Shape for base dataset is (1503424, 1154125) and (508438, 1154125)
+2018-06-23 08:37:53,232 - __main__ - INFO - Best score for base cols in 0.28261899579747607
+2018-06-23 08:37:53,232 - __main__ - INFO - Saving predicitions
+2018-06-23 08:37:53,238 - __main__ - INFO - Writing out submissions
+2018-06-23 08:56:04,275 - __main__ - INFO - Reading data
+2018-06-23 08:56:10,176 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-23 08:56:10,228 - __main__ - INFO - Loading text features
+2018-06-23 08:56:18,962 - __main__ - INFO - Stack all features
+2018-06-23 08:56:43,513 - __main__ - INFO - Shape for base dataset is (1503424, 1154129) and (508438, 1154129)
+2018-06-23 08:58:20,925 - __main__ - INFO - Best score for base cols in 0.2826032327680002
+2018-06-23 08:58:20,925 - __main__ - INFO - Saving predicitions
+2018-06-23 08:58:20,931 - __main__ - INFO - Writing out submissions
+2018-06-23 08:59:32,505 - __main__ - INFO - Reading data
+2018-06-23 08:59:38,598 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-23 08:59:38,652 - __main__ - INFO - Loading text features
+2018-06-23 08:59:47,572 - __main__ - INFO - Stack all features
+2018-06-23 09:00:10,903 - __main__ - INFO - Shape for base dataset is (1503424, 1154129) and (508438, 1154129)
+2018-06-23 09:01:31,463 - __main__ - INFO - Best score for base cols in 0.28264669059276326
+2018-06-23 09:01:31,463 - __main__ - INFO - Saving predicitions
+2018-06-23 09:01:31,468 - __main__ - INFO - Writing out submissions
+2018-06-23 09:09:18,122 - __main__ - INFO - Reading data
+2018-06-23 09:09:24,271 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-23 09:09:24,323 - __main__ - INFO - Loading text features
+2018-06-23 09:09:33,201 - __main__ - INFO - Stack all features
+2018-06-23 09:09:56,400 - __main__ - INFO - Shape for base dataset is (1503424, 1154129) and (508438, 1154129)
+2018-06-23 09:12:46,401 - __main__ - INFO - Best score for base cols in 0.2825894439947597
+2018-06-23 09:12:46,401 - __main__ - INFO - Saving predicitions
+2018-06-23 09:12:46,408 - __main__ - INFO - Writing out submissions
+2018-06-23 09:13:20,768 - __main__ - INFO - Reading data
+2018-06-23 09:13:26,937 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-23 09:13:26,989 - __main__ - INFO - Loading text features
+2018-06-23 09:13:35,844 - __main__ - INFO - Stack all features
+2018-06-23 09:13:58,107 - __main__ - INFO - Shape for base dataset is (1503424, 1154129) and (508438, 1154129)
+2018-06-23 09:16:46,308 - __main__ - INFO - Best score for base cols in 0.2826248792945012
+2018-06-23 09:16:46,310 - __main__ - INFO - Saving predicitions
+2018-06-23 09:16:46,320 - __main__ - INFO - Writing out submissions
+2018-06-23 09:17:31,617 - __main__ - INFO - Reading data
+2018-06-23 09:17:37,797 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-23 09:17:37,854 - __main__ - INFO - Loading text features
+2018-06-23 09:17:46,713 - __main__ - INFO - Stack all features
+2018-06-23 09:18:09,105 - __main__ - INFO - Shape for base dataset is (1503424, 1154129) and (508438, 1154129)
+2018-06-23 09:21:05,686 - __main__ - INFO - Best score for base cols in 0.2825835014156241
+2018-06-23 09:21:05,686 - __main__ - INFO - Saving predicitions
+2018-06-23 09:21:05,696 - __main__ - INFO - Writing out submissions
+2018-06-23 09:24:32,463 - __main__ - INFO - Reading data
+2018-06-23 09:24:38,580 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-23 09:24:38,632 - __main__ - INFO - Loading text features
+2018-06-23 09:24:47,547 - __main__ - INFO - Stack all features
+2018-06-23 09:25:10,203 - __main__ - INFO - Shape for base dataset is (1503424, 1154129) and (508438, 1154129)
+2018-06-23 09:27:18,589 - __main__ - INFO - Best score for base cols in 0.2825770404741859
+2018-06-23 09:27:18,589 - __main__ - INFO - Saving predicitions
+2018-06-23 09:27:18,594 - __main__ - INFO - Writing out submissions
+2018-06-23 09:28:31,722 - __main__ - INFO - Reading data
+2018-06-23 09:28:37,928 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-23 09:28:37,980 - __main__ - INFO - Loading text features
+2018-06-23 09:28:46,914 - __main__ - INFO - Stack all features
+2018-06-23 09:29:10,697 - __main__ - INFO - Shape for base dataset is (1503424, 1154129) and (508438, 1154129)
+2018-06-23 09:30:52,925 - __main__ - INFO - Best score for base cols in 0.282574869134511
+2018-06-23 09:30:52,925 - __main__ - INFO - Saving predicitions
+2018-06-23 09:30:52,930 - __main__ - INFO - Writing out submissions
+2018-06-23 09:30:59,633 - __main__ - INFO - Reading data
+2018-06-23 09:31:05,775 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-23 09:31:05,828 - __main__ - INFO - Loading text features
+2018-06-23 09:31:14,716 - __main__ - INFO - Stack all features
+2018-06-23 09:31:37,445 - __main__ - INFO - Shape for base dataset is (1503424, 1154129) and (508438, 1154129)
+2018-06-23 09:33:01,785 - __main__ - INFO - Best score for base cols in 0.2825531976662273
+2018-06-23 09:33:01,785 - __main__ - INFO - Saving predicitions
+2018-06-23 09:33:01,790 - __main__ - INFO - Writing out submissions
+2018-06-23 09:33:08,760 - __main__ - INFO - Reading data
+2018-06-23 09:33:14,794 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-23 09:33:14,846 - __main__ - INFO - Loading text features
+2018-06-23 09:33:23,699 - __main__ - INFO - Stack all features
+2018-06-23 09:33:45,986 - __main__ - INFO - Shape for base dataset is (1503424, 1154129) and (508438, 1154129)
+2018-06-23 09:35:35,125 - __main__ - INFO - Best score for base cols in 0.2826072317170752
+2018-06-23 09:35:35,125 - __main__ - INFO - Saving predicitions
+2018-06-23 09:35:35,132 - __main__ - INFO - Writing out submissions
+2018-06-23 09:35:43,379 - __main__ - INFO - Reading data
+2018-06-23 09:35:49,616 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-23 09:35:49,669 - __main__ - INFO - Loading text features
+2018-06-23 09:35:58,523 - __main__ - INFO - Stack all features
+2018-06-23 09:36:20,750 - __main__ - INFO - Shape for base dataset is (1503424, 1154129) and (508438, 1154129)
+2018-06-23 09:38:03,386 - __main__ - INFO - Best score for base cols in 0.2825915311853738
+2018-06-23 09:38:03,386 - __main__ - INFO - Saving predicitions
+2018-06-23 09:38:03,391 - __main__ - INFO - Writing out submissions
+2018-06-23 09:38:17,499 - __main__ - INFO - Reading data
+2018-06-23 09:38:23,537 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-23 09:38:23,589 - __main__ - INFO - Loading text features
+2018-06-23 09:38:32,470 - __main__ - INFO - Stack all features
+2018-06-23 09:38:54,895 - __main__ - INFO - Shape for base dataset is (1503424, 1154129) and (508438, 1154129)
+2018-06-23 09:40:18,757 - __main__ - INFO - Best score for base cols in 0.2825531976662273
+2018-06-23 09:40:18,757 - __main__ - INFO - Saving predicitions
+2018-06-23 09:40:18,761 - __main__ - INFO - Writing out submissions
+2018-06-23 09:40:25,564 - __main__ - INFO - Reading data
+2018-06-23 09:40:31,741 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-23 09:40:31,794 - __main__ - INFO - Loading text features
+2018-06-23 09:40:40,717 - __main__ - INFO - Stack all features
+2018-06-23 09:41:02,984 - __main__ - INFO - Shape for base dataset is (1503424, 1154129) and (508438, 1154129)
+2018-06-23 09:42:43,214 - __main__ - INFO - Best score for base cols in 0.2825617259635048
+2018-06-23 09:42:43,214 - __main__ - INFO - Saving predicitions
+2018-06-23 09:42:43,225 - __main__ - INFO - Writing out submissions
+2018-06-23 09:42:49,294 - __main__ - INFO - Reading data
+2018-06-23 09:42:55,386 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-23 09:42:55,438 - __main__ - INFO - Loading text features
+2018-06-23 09:43:04,662 - __main__ - INFO - Stack all features
+2018-06-23 09:43:28,137 - __main__ - INFO - Shape for base dataset is (1503424, 1154129) and (508438, 1154129)
+2018-06-23 09:45:23,076 - __main__ - INFO - Best score for base cols in 0.28254350580532195
+2018-06-23 09:45:23,076 - __main__ - INFO - Saving predicitions
+2018-06-23 09:45:23,084 - __main__ - INFO - Writing out submissions
+2018-06-23 09:45:37,544 - __main__ - INFO - Reading data
+2018-06-23 09:45:43,831 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-23 09:45:43,883 - __main__ - INFO - Loading text features
+2018-06-23 09:45:52,863 - __main__ - INFO - Stack all features
+2018-06-23 09:46:17,063 - __main__ - INFO - Shape for base dataset is (1503424, 1154129) and (508438, 1154129)
+2018-06-23 09:48:39,274 - __main__ - INFO - Best score for base cols in 0.2825770997600132
+2018-06-23 09:48:39,275 - __main__ - INFO - Saving predicitions
+2018-06-23 09:48:39,281 - __main__ - INFO - Writing out submissions
+2018-06-23 09:48:53,086 - __main__ - INFO - Reading data
+2018-06-23 09:48:59,346 - __main__ - INFO - Done. Read data with shape (100000, 18) and (508438, 18)
+2018-06-23 09:48:59,400 - __main__ - INFO - Loading text features
+2018-06-23 09:49:08,275 - __main__ - INFO - Stack all features
+2018-06-23 09:49:32,126 - __main__ - INFO - Shape for base dataset is (1503424, 1154129) and (508438, 1154129)
+2018-06-23 09:51:11,589 - __main__ - INFO - Best score for base cols in 0.2825631519500951
+2018-06-23 09:51:11,589 - __main__ - INFO - Saving predicitions
+2018-06-23 09:51:11,593 - __main__ - INFO - Writing out submissions
+2018-06-23 10:01:26,541 - __main__ - INFO - Reading data
+2018-06-23 10:01:45,881 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-23 10:01:46,147 - __main__ - INFO - Loading text features
+2018-06-23 10:01:54,892 - __main__ - INFO - Stack all features
+2018-06-23 10:02:24,251 - __main__ - INFO - Shape for base dataset is (1503424, 1154129) and (508438, 1154129)
+2018-06-23 13:23:15,339 - __main__ - INFO - Best score for base cols in 0.2805016515493067
+2018-06-23 13:23:15,354 - __main__ - INFO - Saving predicitions
+2018-06-23 13:23:15,406 - __main__ - INFO - Writing out submissions
+2018-06-23 14:08:39,978 - __main__ - INFO - Reading data
+2018-06-23 14:08:42,052 - __main__ - INFO - Done. Read data with shape (100000, 18) and (100000, 18)
+2018-06-23 14:08:42,073 - __main__ - INFO - Loading text features
+2018-06-23 14:08:51,258 - __main__ - INFO - Stack all features
+2018-06-23 14:09:27,887 - __main__ - INFO - Shape for base dataset is (1503424, 1154134) and (508438, 1154134)
+2018-06-23 14:11:29,941 - __main__ - INFO - Best score for base cols in 0.2825964808347516
+2018-06-23 14:11:29,941 - __main__ - INFO - Saving predicitions
+2018-06-23 14:11:29,946 - __main__ - INFO - Writing out submissions
+2018-06-23 14:11:46,091 - __main__ - INFO - Reading data
+2018-06-23 14:11:48,256 - __main__ - INFO - Done. Read data with shape (100000, 18) and (100000, 18)
+2018-06-23 14:11:48,280 - __main__ - INFO - Loading text features
+2018-06-23 14:11:57,532 - __main__ - INFO - Stack all features
+2018-06-23 14:12:25,058 - __main__ - INFO - Shape for base dataset is (1503424, 1154132) and (508438, 1154132)
+2018-06-23 14:18:03,475 - __main__ - INFO - Best score for base cols in 0.28259994389744364
+2018-06-23 14:18:03,475 - __main__ - INFO - Saving predicitions
+2018-06-23 14:18:03,481 - __main__ - INFO - Writing out submissions
+2018-06-23 14:18:29,125 - __main__ - INFO - Reading data
+2018-06-23 14:18:31,227 - __main__ - INFO - Done. Read data with shape (100000, 18) and (100000, 18)
+2018-06-23 14:18:31,249 - __main__ - INFO - Loading text features
+2018-06-23 14:18:40,227 - __main__ - INFO - Stack all features
+2018-06-23 14:19:03,943 - __main__ - INFO - Shape for base dataset is (1503424, 1154131) and (508438, 1154131)
+2018-06-23 14:21:18,216 - __main__ - INFO - Best score for base cols in 0.28259786111776763
+2018-06-23 14:21:18,216 - __main__ - INFO - Saving predicitions
+2018-06-23 14:21:18,224 - __main__ - INFO - Writing out submissions
+2018-06-23 14:22:04,954 - __main__ - INFO - Reading data
+2018-06-23 14:22:07,058 - __main__ - INFO - Done. Read data with shape (100000, 18) and (100000, 18)
+2018-06-23 14:22:07,082 - __main__ - INFO - Loading text features
+2018-06-23 14:22:16,127 - __main__ - INFO - Stack all features
+2018-06-23 14:22:39,698 - __main__ - INFO - Shape for base dataset is (1503424, 1154130) and (508438, 1154130)
+2018-06-23 14:26:30,871 - __main__ - INFO - Best score for base cols in 0.28261215364421816
+2018-06-23 14:26:30,872 - __main__ - INFO - Saving predicitions
+2018-06-23 14:26:30,876 - __main__ - INFO - Writing out submissions
+2018-06-23 14:28:05,871 - __main__ - INFO - Reading data
+2018-06-23 14:28:08,033 - __main__ - INFO - Done. Read data with shape (100000, 18) and (100000, 18)
+2018-06-23 14:28:08,057 - __main__ - INFO - Loading text features
+2018-06-23 14:28:17,231 - __main__ - INFO - Stack all features
+2018-06-23 14:28:42,001 - __main__ - INFO - Shape for base dataset is (1503424, 1154130) and (508438, 1154130)
+2018-06-23 14:33:26,460 - __main__ - INFO - Best score for base cols in 0.28257815990260987
+2018-06-23 14:33:26,460 - __main__ - INFO - Saving predicitions
+2018-06-23 14:33:26,468 - __main__ - INFO - Writing out submissions
+2018-06-23 14:33:39,709 - __main__ - INFO - Reading data
+2018-06-23 14:33:41,800 - __main__ - INFO - Done. Read data with shape (100000, 18) and (100000, 18)
+2018-06-23 14:33:41,823 - __main__ - INFO - Loading text features
+2018-06-23 14:34:00,218 - __main__ - INFO - Reading data
+2018-06-23 14:34:02,316 - __main__ - INFO - Done. Read data with shape (100000, 18) and (100000, 18)
+2018-06-23 14:34:02,316 - __main__ - INFO - Loading text features
+2018-06-23 14:34:19,562 - __main__ - INFO - Stack all features
+2018-06-23 14:35:10,764 - __main__ - INFO - Reading data
+2018-06-23 14:35:30,934 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-23 14:35:30,934 - __main__ - INFO - Loading text features
+2018-06-23 14:38:06,896 - __main__ - INFO - Stack all features
+2018-06-23 14:40:03,564 - __main__ - INFO - Shape for base dataset is (1503424, 1154230) and (508438, 1154230)
+2018-06-23 14:46:15,889 - __main__ - INFO - Best score for base cols in 0.2826362518895679
+2018-06-23 14:46:15,890 - __main__ - INFO - Saving predicitions
+2018-06-23 14:46:15,906 - __main__ - INFO - Writing out submissions
+2018-06-23 14:47:20,030 - __main__ - INFO - Reading data
+2018-06-23 14:47:40,805 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-23 14:47:40,805 - __main__ - INFO - Loading text features
+2018-06-23 14:48:33,603 - __main__ - INFO - Stack all features
+2018-06-23 14:49:45,358 - __main__ - INFO - Shape for base dataset is (1503424, 1154180) and (508438, 1154180)
+2018-06-23 14:54:01,229 - __main__ - INFO - Best score for base cols in 0.28261046376422283
+2018-06-23 14:54:01,229 - __main__ - INFO - Saving predicitions
+2018-06-23 14:54:01,244 - __main__ - INFO - Writing out submissions
+2018-06-23 14:59:27,030 - __main__ - INFO - Reading data
+2018-06-23 14:59:49,380 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-23 14:59:49,381 - __main__ - INFO - Loading text features
+2018-06-23 15:00:35,104 - __main__ - INFO - Stack all features
+2018-06-23 15:01:40,470 - __main__ - INFO - Shape for base dataset is (1503424, 1154180) and (508438, 1154180)
+2018-06-23 15:04:49,276 - __main__ - INFO - Best score for base cols in 0.28259238165602457
+2018-06-23 15:04:49,276 - __main__ - INFO - Saving predicitions
+2018-06-23 15:04:49,284 - __main__ - INFO - Writing out submissions
+2018-06-23 15:06:00,594 - __main__ - INFO - Reading data
+2018-06-23 15:06:23,665 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-23 15:06:23,665 - __main__ - INFO - Loading text features
+2018-06-23 15:06:49,514 - __main__ - INFO - Stack all features
+2018-06-23 15:07:30,210 - __main__ - INFO - Shape for base dataset is (1503424, 1154135) and (508438, 1154135)
+2018-06-23 15:10:55,385 - __main__ - INFO - Best score for base cols in 0.28260248998718623
+2018-06-23 15:10:55,385 - __main__ - INFO - Saving predicitions
+2018-06-23 15:10:55,394 - __main__ - INFO - Writing out submissions
+2018-06-23 15:12:20,370 - __main__ - INFO - Reading data
+2018-06-23 15:12:49,370 - __main__ - INFO - Reading data
+2018-06-23 15:13:12,020 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-23 15:13:12,020 - __main__ - INFO - Loading text features
+2018-06-23 16:07:53,383 - __main__ - INFO - Reading data
+2018-06-23 16:08:16,310 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-23 16:08:16,310 - __main__ - INFO - Loading text features
+2018-06-23 16:08:27,538 - __main__ - INFO - Stack all features
+2018-06-23 16:09:03,128 - __main__ - INFO - Shape for base dataset is (1503424, 1006592) and (508438, 1006592)
+2018-06-23 16:11:29,098 - __main__ - INFO - Best score for base cols in 0.2825783055572963
+2018-06-23 16:11:29,099 - __main__ - INFO - Saving predicitions
+2018-06-23 16:11:29,104 - __main__ - INFO - Writing out submissions
+2018-06-23 16:13:06,456 - __main__ - INFO - Reading data
+2018-06-23 16:13:28,946 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-23 16:13:28,946 - __main__ - INFO - Loading text features
+2018-06-23 16:13:40,533 - __main__ - INFO - Stack all features
+2018-06-23 16:15:04,278 - __main__ - INFO - Reading data
+2018-06-23 16:15:26,655 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-23 16:15:26,655 - __main__ - INFO - Loading text features
+2018-06-23 16:15:38,295 - __main__ - INFO - Stack all features
+2018-06-23 16:20:22,457 - __main__ - INFO - Reading data
+2018-06-23 16:20:44,813 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-23 16:20:44,814 - __main__ - INFO - Loading text features
+2018-06-23 16:20:56,822 - __main__ - INFO - Stack all features
+2018-06-23 16:21:28,600 - __main__ - INFO - Shape for base dataset is (1503424, 1006593) and (508438, 1006593)
