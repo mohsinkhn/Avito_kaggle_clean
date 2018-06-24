@@ -65,7 +65,7 @@ if __name__ == "__main__":
     #########################################################
     ##  Save feature                                       ##
     #########################################################
-    col_name = ["image_top_1_cont"]
+    col_name = "image_top_1_cont"
     np.save("../utility/X_train_{}.npy".format(col_name), train["image_top_1"].values.reshape(-1,1))
     np.save("../utility/X_test_{}.npy".format(col_name),  test["image_top_1"].values.reshape(-1,1))
-
+    logger.info("Done!")
