@@ -27,7 +27,7 @@ class ContinousBinning(BaseEstimator, TransformerMixin):
         if not(self.end):
             self.end = np.max(X)
         
-        if bin_array is not None:
+        if self.bin_array:
             self.bin_array = np.linspace(self.start, self.end, self.bins)
 
         return self
