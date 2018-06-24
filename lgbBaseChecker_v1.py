@@ -35,7 +35,7 @@ def cv_oof_predictions(estimator, X, y, cvlist, est_kwargs, fit_params, predict_
         if predict_test:
             tpreds = est.predict(X_test)
             test_preds.append(tpreds)
-        break
+        #break
     if len(test_preds) > 0:
         test_preds = np.mean(test_preds, axis=0)
     return est, preds, test_preds #est, y_val, val_preds #
@@ -44,6 +44,7 @@ def cv_oof_predictions(estimator, X, y, cvlist, est_kwargs, fit_params, predict_
 if __name__ == "__main__":
     LOGGER_FILE = "lgbBaseChecker_v1.log"
     MODEL_ID = "cleanedv1"
+    NFOLDS=10,
     CONT_COLS = ['price', 'item_seq_number', 'user_id_counts', 'price_binned']
 
     BASE_FEATURES = ['region_lbenc_2', 'city_lbenc_2', 'parent_category_name_lbenc_2',
@@ -154,8 +155,8 @@ if __name__ == "__main__":
                             df["param_3"].astype(str)
         df = df.fillna(-1)
 
-    y = train['deal_probability'].values[:100000]
-    cvlist = list(KFold(5, random_state=123).split(y))
+    y = train['deal_probability'].values
+    cvlist = list(KFold(NFOLDS, random_state=123).split(y))
 
     logger.info("Done. Read data with shape {} and {}".format(train.shape, test.shape))
     #del train, test
@@ -200,7 +201,7 @@ if __name__ == "__main__":
                             'resnet50_label_0', "image3_dominant_color", "price_binned"]
 
     model = lgb.LGBMRegressor()
-    est, y_preds_lgb, y_test_lgb = cv_oof_predictions(model, X[:100000], y, cvlist, LGB_PARAMS1, predict_test=True,
+    est, y_preds_lgb, y_test_lgb = cv_oof_predictions(model, X, y, cvlist, LGB_PARAMS1, predict_test=True,
                                                       X_test=X_test,
                                                       #fit_params={"feature_name": feature_names,
                                                       #            "categorical_feature": categorical_features}

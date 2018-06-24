@@ -43,7 +43,8 @@ def cv_oof_predictions(estimator, X, y, cvlist, est_kwargs, fit_params, predict_
 
 if __name__ == "__main__":
     LOGGER_FILE = "lgbBaseChecker_v1.log"
-    MODEL_ID = "cleanedv1"
+    MODEL_ID = "cleanedv2_iter1"
+    NFOLDS=10
     CONT_COLS = ['price', 'item_seq_number', 'user_id_counts', 'price_binned']
 
     BASE_FEATURES = ['region_lbenc_2', 'city_lbenc_2', 'parent_category_name_lbenc_2',
@@ -126,7 +127,7 @@ if __name__ == "__main__":
             "subsample": 0.8,
             "reg_alpha": 0,
             "reg_lambda": 5,
-            "min_data_in_leaf": 200,
+            "min_data_in_leaf": 100,
             "max_bin": 512,
             "verbose":0
             }
@@ -156,7 +157,7 @@ if __name__ == "__main__":
         df = df.fillna(-1)
 
     y = train['deal_probability'].values
-    cvlist = list(KFold(5, random_state=123).split(y))
+    cvlist = list(KFold(NFOLDS, random_state=123).split(y))
 
     logger.info("Done. Read data with shape {} and {}".format(train.shape, test.shape))
     #del train, test

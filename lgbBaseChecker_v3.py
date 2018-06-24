@@ -6,6 +6,8 @@ import numpy as np
 np.random.seed(786)  # for reproducibility
 import pandas as pd
 from sklearn.model_selection import KFold, cross_val_predict
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import LabelEncoder
 from scipy.sparse import load_npz, hstack
 from tqdm import tqdm
 import lightgbm as lgb
@@ -158,9 +160,9 @@ if __name__ == "__main__":
                             df["param_3"].astype(str)
         df = df.fillna(-1)
 
-    y = train['deal_probability'].values[:100000]
+    y = train['deal_probability'].values
     cvlist = list(KFold(NFOLDS, random_state=123).split(y))
-
+    cvlist2 = list(KFold(NFOLDS, random_state=123).split(y[:100000]))
     logger.info("Done. Read data with shape {} and {}".format(train.shape, test.shape))
     #del train, test
 
@@ -186,19 +188,38 @@ if __name__ == "__main__":
     #                      TruncatedSVD(20))
     #X_tsvd = pipe.fit_transform(train["description"].astype(str))
     #X_tsvd_test = pipe.transform(test["description"].astype(str))
-    train["deal_label"] = ContinousBinning(bin_array= [0, 0.05, 0.4, 0.7, 1.0]).fit_transform(train["deal_probability"])
+    lbenc = LabelEncoder()
+    train["deal_label"] = ContinousBinning(bin_array=[-1, 0.05, 0.4, 0.7, 1.1]).fit_transform(train["deal_probability"])
+    train["deal_label"] = LabelEncoder().fit_transform(train["deal_label"])
 
-    cat_deal_count = TargetEncoder(cols=["category_name", "deal_label"], targetcol="deal_probability", func="count")
-    X_cat_bins = cross_val_predict(cat_deal_count, train, y=train["deal_probability"], cv=cvlist, method="transform")/int((1- 1/NFOLDS)* len(train))
+    cat_deal_count = TargetEncoder(cols=["category_name"], targetcol="deal_label", func=np.bincount)
+    X_cat_bins = cross_val_predict(cat_deal_count, train, y=train["deal_probability"], cv=cvlist,
+                                   method="transform") / int((1 - 1 / NFOLDS) * len(train))
+    X_cat_bins = [arr.tolist() if len(arr) == 4 else [0,0,0,0] for arr in X_cat_bins]
+    X_cat_bins = np.vstack(X_cat_bins)
+
     X_cat_bins_test = cat_deal_count.fit(train).transform(test) / len(train)
+    X_cat_bins_test = [arr.tolist() if len(arr) == 4 else [0,0,0,0] for arr in X_cat_bins_test]
+    X_cat_bins_test = np.vstack(X_cat_bins_test)
 
-    imt_deal_count = TargetEncoder(cols=["image_top_1", "deal_label"], targetcol="deal_probability", func="count")
-    X_imt_bins = cross_val_predict(imt_deal_count, train, y=train["deal_probability"], cv=cvlist, method="transform")/int((1- 1/NFOLDS)* len(train))
+    imt_deal_count = TargetEncoder(cols=["image_top_1"], targetcol="deal_label", func=np.bincount)
+    X_imt_bins = cross_val_predict(imt_deal_count, train, y=train["deal_probability"], cv=cvlist,
+                                   method="transform") / int((1 - 1 / NFOLDS) * len(train))
+    X_imt_bins = [arr.tolist() if (type(arr) == list) and (len(arr) == 4) else [0,0,0,0] for arr in X_imt_bins]
+    X_imt_bins = np.vstack(X_imt_bins)
+
     X_imt_bins_test = imt_deal_count.fit(train).transform(test) / len(train)
+    X_imt_bins_test = [arr.tolist() if (type(arr) == list) and (len(arr) == 4) else [0,0,0,0] for arr in X_imt_bins_test]
+    X_imt_bins_test = np.vstack(X_imt_bins_test)
+
+    #imt_deal_count = TargetEncoder(cols=["image_top_1"], targetcol= "deal_label", func=np.bincount)
+    #X_imt_bins = cross_val_predict(imt_deal_count, train, y=train["deal_probability"], cv=cvlist,
+    #                               method="transform") / int((1 - 1 / 5) * len(train))
+    #X_imt_bins_test = imt_deal_count.fit(train).transform(test) / len(train)
 
     logger.info("Stack all features")
-    X = hstack((X_cats, X_title, X_desc, X_imaget1_cat, X_cat_bins.reshape(-1,1), X_imt_bins.reshape(-1,1))).tocsr()
-    X_test = hstack((X_cats_test, X_title_test, X_desc_test, X_imaget1_cat_test, X_cat_bins_test.reshape(-1,1), X_imt_bins_test.reshape(-1,1))).tocsr()
+    X = hstack((X_cats, X_title, X_desc, X_imaget1_cat, X_cat_bins, X_imt_bins)).tocsr()
+    X_test = hstack((X_cats_test, X_title_test, X_desc_test, X_imaget1_cat_test, X_cat_bins_test, X_imt_bins_test)).tocsr()
     logger.info("Shape for base dataset is {} and {}".format(X.shape, X_test.shape))
     ################### Run LGB ######################
     #
@@ -213,7 +234,7 @@ if __name__ == "__main__":
                             'resnet50_label_0', "image3_dominant_color", "price_binned"]
 
     model = lgb.LGBMRegressor()
-    est, y_preds_lgb, y_test_lgb = cv_oof_predictions(model, X[:100000], y, cvlist, LGB_PARAMS1, predict_test=True,
+    est, y_preds_lgb, y_test_lgb = cv_oof_predictions(model, X[:100000], y[:100000], cvlist2, LGB_PARAMS1, predict_test=True,
                                                       X_test=X_test,
                                                       #fit_params={"feature_name": feature_names,
                                                       #            "categorical_feature": categorical_features}
