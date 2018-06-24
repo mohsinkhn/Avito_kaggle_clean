@@ -2,6 +2,7 @@ python prepTitleFeatures.py
 python prepDescFeatures.py
 python prepCategoricalFeatures.py
 python prepContiousFeatures.py
+python prepCountFeatures.py
 python prepExtraFeatures.py
 python prepExtraFeaturesv2.py
 python prepGibaFeature.py

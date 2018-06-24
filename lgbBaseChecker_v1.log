@@ -303,3 +303,17 @@
 2018-06-23 16:20:44,814 - __main__ - INFO - Loading text features
 2018-06-23 16:20:56,822 - __main__ - INFO - Stack all features
 2018-06-23 16:21:28,600 - __main__ - INFO - Shape for base dataset is (1503424, 1006593) and (508438, 1006593)
+2018-06-23 22:38:03,420 - __main__ - INFO - Reading data
+2018-06-23 22:38:49,223 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-23 22:38:49,224 - __main__ - INFO - Loading text features
+2018-06-23 22:40:14,514 - __main__ - INFO - Stack all features
+2018-06-23 22:41:03,506 - __main__ - INFO - Shape for base dataset is (1503424, 94899) and (508438, 94899)
+2018-06-23 23:00:07,865 - __main__ - INFO - Reading data
+2018-06-23 23:00:58,050 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-23 23:00:58,051 - __main__ - INFO - Loading text features
+2018-06-23 23:02:34,171 - __main__ - INFO - Reading data
+2018-06-23 23:02:57,552 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-23 23:02:57,552 - __main__ - INFO - Loading text features
+2018-06-23 23:04:26,048 - __main__ - INFO - Reading data
+2018-06-23 23:04:49,464 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-23 23:04:49,465 - __main__ - INFO - Loading text features

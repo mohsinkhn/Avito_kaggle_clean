@@ -6,9 +6,10 @@ Created on Tue Jun 19 09:04:31 2018
 @author: mohsin
 """
 
-import pandas as pd
 import numpy as np
+import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
+
 
 class ContinousBinning(BaseEstimator, TransformerMixin):
     def __init__(self, bins= 20, start = None, end = None, bin_array = None):
@@ -20,7 +21,7 @@ class ContinousBinning(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
         if not(isinstance(X, pd.Series)):
             raise TypeError("Need pandas series as input")
-        
+
         if not(self.start):
             self.start = np.min(X)
         

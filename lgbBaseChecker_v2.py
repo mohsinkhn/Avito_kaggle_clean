@@ -35,7 +35,7 @@ def cv_oof_predictions(estimator, X, y, cvlist, est_kwargs, fit_params, predict_
         if predict_test:
             tpreds = est.predict(X_test)
             test_preds.append(tpreds)
-        #break
+        break
     if len(test_preds) > 0:
         test_preds = np.mean(test_preds, axis=0)
     return est, preds, test_preds #est, y_val, val_preds #
@@ -43,8 +43,8 @@ def cv_oof_predictions(estimator, X, y, cvlist, est_kwargs, fit_params, predict_
 
 if __name__ == "__main__":
     LOGGER_FILE = "lgbBaseChecker_v1.log"
-    MODEL_ID = "cleanedv1"
-    NFOLDS=10,
+    MODEL_ID = "cleanedv2_iter1"
+    NFOLDS=10
     CONT_COLS = ['price', 'item_seq_number', 'user_id_counts', 'price_binned']
 
     BASE_FEATURES = ['region_lbenc_2', 'city_lbenc_2', 'parent_category_name_lbenc_2',
@@ -112,10 +112,11 @@ if __name__ == "__main__":
                       "region_p123_deal_nunq"]
 
     TEXT_PREDS = ["title_ridge_comb0", "title_lgb_comb0", "description_ridge_comb1", "description_ridge_comb0"]
+    CAT_PREDS =  ["lgbcats_0", "lgbcats_1"]
 
     #SURR_FEATS = ["param2_pred_labels"]
 
-    TITLE_COMB = 0
+    TITLE_COMB = 1
     DESC_COMB = 1
 
     LGB_PARAMS1 = {
@@ -126,7 +127,7 @@ if __name__ == "__main__":
             "subsample": 0.8,
             "reg_alpha": 0,
             "reg_lambda": 5,
-            "min_data_in_leaf": 200,
+            "min_data_in_leaf": 100,
             "max_bin": 512,
             "verbose":0
             }
@@ -170,7 +171,7 @@ if __name__ == "__main__":
     X_desc_test = load_npz("../utility/X_test_description_{}.npz".format(DESC_COMB))
 
     features = BASE_FEATURES + CONT_COLS + PRICE_COMB_COLS + PRICE_MEAN_COLS + COUNT_COLS + IMAGE_FEATS + GIBA_FEATS + \
-               IMAGE3_FEATS + TEXT_STATS + EXTRA_FEATS + EXTRA_FEATS2 + TEXT_PREDS #+ SURR_FEATS
+               IMAGE3_FEATS + TEXT_STATS + EXTRA_FEATS + EXTRA_FEATS2 + TEXT_PREDS + CAT_PREDS
     X_cats = np.vstack([np.load("../utility/X_train_{}.npy".format(col), mmap_mode='r') for col in features]).T
     X_cats_test = np.vstack([np.load("../utility/X_test_{}.npy".format(col), mmap_mode='r') for col in features]).T
 
@@ -191,7 +192,7 @@ if __name__ == "__main__":
     ################### Run LGB ######################
     #
     feature_names = BASE_FEATURES + CONT_COLS + PRICE_COMB_COLS + PRICE_MEAN_COLS + COUNT_COLS + IMAGE_FEATS + GIBA_FEATS + \
-               IMAGE3_FEATS + TEXT_STATS + EXTRA_FEATS + EXTRA_FEATS2 +  TEXT_PREDS + \
+               IMAGE3_FEATS + TEXT_STATS + EXTRA_FEATS + EXTRA_FEATS2 +  TEXT_PREDS + CAT_PREDS + \
                     ["title_tfidf_"+str(i) for i in range(X_title.shape[1])] + \
                     ["desc_tfidf_" + str(i) for i in range(X_desc.shape[1])]
 

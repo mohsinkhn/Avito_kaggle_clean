@@ -5,13 +5,17 @@ import numpy as np
 
 np.random.seed(786)  # for reproducibility
 import pandas as pd
-from sklearn.model_selection import KFold
+from sklearn.model_selection import KFold, cross_val_predict
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import LabelEncoder
 from scipy.sparse import load_npz, hstack
 from tqdm import tqdm
 import lightgbm as lgb
 
 tqdm.pandas(tqdm)
 
+from TargetEncoder import TargetEncoder
+from ContinousBinning import ContinousBinning
 from utils import *
 import logging
 logging.basicConfig(level=logging.INFO)
@@ -35,7 +39,7 @@ def cv_oof_predictions(estimator, X, y, cvlist, est_kwargs, fit_params, predict_
         if predict_test:
             tpreds = est.predict(X_test)
             test_preds.append(tpreds)
-        #break
+        break
     if len(test_preds) > 0:
         test_preds = np.mean(test_preds, axis=0)
     return est, preds, test_preds #est, y_val, val_preds #
@@ -43,8 +47,8 @@ def cv_oof_predictions(estimator, X, y, cvlist, est_kwargs, fit_params, predict_
 
 if __name__ == "__main__":
     LOGGER_FILE = "lgbBaseChecker_v1.log"
-    MODEL_ID = "cleanedv1"
-    NFOLDS=10,
+    MODEL_ID = "cleanedv3_iter1"
+    NFOLDS=5
     CONT_COLS = ['price', 'item_seq_number', 'user_id_counts', 'price_binned']
 
     BASE_FEATURES = ['region_lbenc_2', 'city_lbenc_2', 'parent_category_name_lbenc_2',
@@ -112,10 +116,11 @@ if __name__ == "__main__":
                       "region_p123_deal_nunq"]
 
     TEXT_PREDS = ["title_ridge_comb0", "title_lgb_comb0", "description_ridge_comb1", "description_ridge_comb0"]
+    CAT_PREDS =  ["lgbcats_0", "lgbcats_1"]
 
     #SURR_FEATS = ["param2_pred_labels"]
 
-    TITLE_COMB = 0
+    TITLE_COMB = 1
     DESC_COMB = 1
 
     LGB_PARAMS1 = {
@@ -157,7 +162,7 @@ if __name__ == "__main__":
 
     y = train['deal_probability'].values
     cvlist = list(KFold(NFOLDS, random_state=123).split(y))
-
+    cvlist2 = list(KFold(NFOLDS, random_state=123).split(y[:100000]))
     logger.info("Done. Read data with shape {} and {}".format(train.shape, test.shape))
     #del train, test
 
@@ -170,7 +175,7 @@ if __name__ == "__main__":
     X_desc_test = load_npz("../utility/X_test_description_{}.npz".format(DESC_COMB))
 
     features = BASE_FEATURES + CONT_COLS + PRICE_COMB_COLS + PRICE_MEAN_COLS + COUNT_COLS + IMAGE_FEATS + GIBA_FEATS + \
-               IMAGE3_FEATS + TEXT_STATS + EXTRA_FEATS + EXTRA_FEATS2 + TEXT_PREDS #+ SURR_FEATS
+               IMAGE3_FEATS + TEXT_STATS + EXTRA_FEATS + EXTRA_FEATS2 + TEXT_PREDS + CAT_PREDS
     X_cats = np.vstack([np.load("../utility/X_train_{}.npy".format(col), mmap_mode='r') for col in features]).T
     X_cats_test = np.vstack([np.load("../utility/X_test_{}.npy".format(col), mmap_mode='r') for col in features]).T
 
@@ -183,15 +188,43 @@ if __name__ == "__main__":
     #                      TruncatedSVD(20))
     #X_tsvd = pipe.fit_transform(train["description"].astype(str))
     #X_tsvd_test = pipe.transform(test["description"].astype(str))
+    lbenc = LabelEncoder()
+    train["deal_label"] = ContinousBinning(bin_array=[-1, 0.05, 0.4, 0.7, 1.1]).fit_transform(train["deal_probability"])
+    train["deal_label"] = LabelEncoder().fit_transform(train["deal_label"])
+
+    cat_deal_count = TargetEncoder(cols=["category_name"], targetcol="deal_label", func=np.bincount)
+    X_cat_bins = cross_val_predict(cat_deal_count, train, y=train["deal_probability"], cv=cvlist,
+                                   method="transform") / int((1 - 1 / NFOLDS) * len(train))
+    X_cat_bins = [arr.tolist() if len(arr) == 4 else [0,0,0,0] for arr in X_cat_bins]
+    X_cat_bins = np.vstack(X_cat_bins)
+
+    X_cat_bins_test = cat_deal_count.fit(train).transform(test) / len(train)
+    X_cat_bins_test = [arr.tolist() if len(arr) == 4 else [0,0,0,0] for arr in X_cat_bins_test]
+    X_cat_bins_test = np.vstack(X_cat_bins_test)
+
+    imt_deal_count = TargetEncoder(cols=["image_top_1"], targetcol="deal_label", func=np.bincount)
+    X_imt_bins = cross_val_predict(imt_deal_count, train, y=train["deal_probability"], cv=cvlist,
+                                   method="transform") / int((1 - 1 / NFOLDS) * len(train))
+    X_imt_bins = [arr.tolist() if (type(arr) == list) and (len(arr) == 4) else [0,0,0,0] for arr in X_imt_bins]
+    X_imt_bins = np.vstack(X_imt_bins)
+
+    X_imt_bins_test = imt_deal_count.fit(train).transform(test) / len(train)
+    X_imt_bins_test = [arr.tolist() if (type(arr) == list) and (len(arr) == 4) else [0,0,0,0] for arr in X_imt_bins_test]
+    X_imt_bins_test = np.vstack(X_imt_bins_test)
+
+    #imt_deal_count = TargetEncoder(cols=["image_top_1"], targetcol= "deal_label", func=np.bincount)
+    #X_imt_bins = cross_val_predict(imt_deal_count, train, y=train["deal_probability"], cv=cvlist,
+    #                               method="transform") / int((1 - 1 / 5) * len(train))
+    #X_imt_bins_test = imt_deal_count.fit(train).transform(test) / len(train)
 
     logger.info("Stack all features")
-    X = hstack((X_cats, X_title, X_desc, X_imaget1_cat)).tocsr()
-    X_test = hstack((X_cats_test, X_title_test, X_desc_test, X_imaget1_cat_test)).tocsr()
+    X = hstack((X_cats, X_title, X_desc, X_imaget1_cat, X_cat_bins, X_imt_bins)).tocsr()
+    X_test = hstack((X_cats_test, X_title_test, X_desc_test, X_imaget1_cat_test, X_cat_bins_test, X_imt_bins_test)).tocsr()
     logger.info("Shape for base dataset is {} and {}".format(X.shape, X_test.shape))
     ################### Run LGB ######################
     #
     feature_names = BASE_FEATURES + CONT_COLS + PRICE_COMB_COLS + PRICE_MEAN_COLS + COUNT_COLS + IMAGE_FEATS + GIBA_FEATS + \
-               IMAGE3_FEATS + TEXT_STATS + EXTRA_FEATS + EXTRA_FEATS2 +  TEXT_PREDS + \
+               IMAGE3_FEATS + TEXT_STATS + EXTRA_FEATS + EXTRA_FEATS2 +  TEXT_PREDS + CAT_PREDS + \
                     ["title_tfidf_"+str(i) for i in range(X_title.shape[1])] + \
                     ["desc_tfidf_" + str(i) for i in range(X_desc.shape[1])]
 
@@ -201,7 +234,7 @@ if __name__ == "__main__":
                             'resnet50_label_0', "image3_dominant_color", "price_binned"]
 
     model = lgb.LGBMRegressor()
-    est, y_preds_lgb, y_test_lgb = cv_oof_predictions(model, X, y, cvlist, LGB_PARAMS1, predict_test=True,
+    est, y_preds_lgb, y_test_lgb = cv_oof_predictions(model, X[:100000], y[:100000], cvlist2, LGB_PARAMS1, predict_test=True,
                                                       X_test=X_test,
                                                       #fit_params={"feature_name": feature_names,
                                                       #            "categorical_feature": categorical_features}
