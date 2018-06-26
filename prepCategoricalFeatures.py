@@ -160,9 +160,9 @@ if __name__ == "__main__":
             X_train[np.isnan(X_train)] = -1
             X_test[np.isnan(X_test)] = -1
             
-            qt = QuantileTransformer(output_distribution = 'normal')
-            X_train = qt.fit_transform(X_train)
-            X_test = qt.transform(X_test)
+            #qt = QuantileTransformer(output_distribution = 'normal')
+            #X_train = qt.fit_transform(X_train)
+            #X_test = qt.transform(X_test)
             
             logger.info("Saving label encoded features for {}".format(col))
             np.save("../utility/X_train_{}_lbenc_{}.npy".format(col, thresh), X_train)
@@ -192,9 +192,9 @@ if __name__ == "__main__":
             X_train[np.isnan(X_train)] = -1
             X_test[np.isnan(X_test)] = -1
             
-            qt = QuantileTransformer(output_distribution = 'normal')
-            X_train = qt.fit_transform(X_train)
-            X_test = qt.transform(X_test)
+            #qt = QuantileTransformer(output_distribution = 'normal')
+            #X_train = qt.fit_transform(X_train)
+            #X_test = qt.transform(X_test)
 
             
             logger.info("Saving label encoded features for {} and thresh {}".format(col, thresh))
