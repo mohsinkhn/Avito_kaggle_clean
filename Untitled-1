@@ -1,0 +1,6 @@
+1. bin_count and lgb_description add and run 5fold
+2. add weighted mean of deal_probability
+3. add all to one model and run 10 fold
+
+Final:
+1. add NN15 and run lgb 10 folds

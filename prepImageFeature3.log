@@ -6,3 +6,27 @@
       dtype='object')
 2018-06-24 22:54:24,597 - __main__ - INFO - Mapping image file 3 to train and test
 2018-06-24 22:54:35,816 - __main__ - INFO - Saving image features 1
+2018-06-24 06:36:08,520 - __main__ - INFO - Reading data
+2018-06-24 06:36:42,467 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-24 06:37:01,206 - __main__ - INFO - Feature sin image file 3 are Index(['image_path', 'image', 'br_mean', 'br_std', 'br_min', 'sat_avg',
+       'sat_std', 'lum_mean', 'lum_std', 'lum_min', 'contrast', 'CF', 'kp',
+       'dominant_color', 'dominant_color_ratio', 'simplicity', 'object_ratio'],
+      dtype='object')
+2018-06-24 06:37:01,206 - __main__ - INFO - Mapping image file 3 to train and test
+2018-06-24 06:37:15,996 - __main__ - INFO - Saving image features 1
+2018-06-24 09:52:48,495 - __main__ - INFO - Reading data
+2018-06-24 09:53:22,602 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-24 09:53:36,200 - __main__ - INFO - Feature sin image file 3 are Index(['image_path', 'image', 'br_mean', 'br_std', 'br_min', 'sat_avg',
+       'sat_std', 'lum_mean', 'lum_std', 'lum_min', 'contrast', 'CF', 'kp',
+       'dominant_color', 'dominant_color_ratio', 'simplicity', 'object_ratio'],
+      dtype='object')
+2018-06-24 09:53:36,200 - __main__ - INFO - Mapping image file 3 to train and test
+2018-06-24 09:53:51,094 - __main__ - INFO - Saving image features 1
+2018-06-26 06:25:32,746 - __main__ - INFO - Reading data
+2018-06-26 06:26:19,024 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-26 06:26:37,644 - __main__ - INFO - Feature sin image file 3 are Index(['image_path', 'image', 'br_mean', 'br_std', 'br_min', 'sat_avg',
+       'sat_std', 'lum_mean', 'lum_std', 'lum_min', 'contrast', 'CF', 'kp',
+       'dominant_color', 'dominant_color_ratio', 'simplicity', 'object_ratio'],
+      dtype='object')
+2018-06-26 06:26:37,644 - __main__ - INFO - Mapping image file 3 to train and test
+2018-06-26 06:26:59,811 - __main__ - INFO - Saving image features 1

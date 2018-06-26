@@ -21,6 +21,7 @@ import pandas as pd
 
 from sklearn.model_selection import cross_val_predict, KFold
 from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import QuantileTransformer
 from tqdm import tqdm
 tqdm.pandas(tqdm)
 
@@ -94,8 +95,10 @@ if __name__ == "__main__":
     #City correction
     for df in train, test:
         df['city'] = df['region'].astype(str) + "_" + df["city"].astype(str)
-        df = df.fillna(-1)
         df["param_1_2_3"] = df["param_1"].astype(str) + "_" + df["param_2"].astype(str) + "_" + df["param_3"].astype(str) 
+        
+    train = train.fillna(-1)
+    test = test.fillna(-1)
     
     y = train['deal_probability'].values
     cvlist = list(KFold(5, random_state=123).split(y))
@@ -149,6 +152,13 @@ if __name__ == "__main__":
             X_train = cross_val_predict(trenc, train, y, cv = cvlist, method = 'transform', n_jobs=1)
             X_test = trenc.fit(train).transform(test)
             
+            X_train[np.isnan(X_train)] = -1
+            X_test[np.isnan(X_test)] = -1
+            
+            qt = QuantileTransformer(output_distribution = 'normal')
+            X_train = qt.fit_transform(X_train.reshape(-1,1))
+            X_test = qt.transform(X_test.reshape(-1,1))
+            
             logger.info("Saving label encoded features for {} and thresh {}".format(col, thresh))
             np.save("../utility/X_train_{}_trenc_{}.npy".format(col, thresh), X_train)
             np.save("../utility/X_test_{}_trenc_{}.npy".format(col, thresh), X_test)
@@ -185,6 +195,13 @@ if __name__ == "__main__":
         try:
             X_train = cross_val_predict(trenc, train, y, cv = cvlist, method = 'transform', n_jobs=1)
             X_test = trenc.fit(train).transform(test)
+            
+            X_train[np.isnan(X_train)] = -1
+            X_test[np.isnan(X_test)] = -1
+            
+            qt = QuantileTransformer(output_distribution = 'normal')
+            X_train = qt.fit_transform(X_train.reshape(-1,1))
+            X_test = qt.transform(X_test.reshape(-1,1))
             
             logger.info("Saving label encoded features for {} and thresh {}".format(col, thresh))
             np.save("../utility/X_train_{}_priceenc_{}.npy".format(col, thresh), X_train)

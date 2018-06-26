@@ -11,8 +11,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import Ridge, SGDRegressor
 from sklearn.pipeline import make_pipeline
 
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 from nltk.tokenize import word_tokenize
 

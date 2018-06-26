@@ -43,7 +43,9 @@ if __name__ == "__main__":
         df["param_1_2_3"] = df["param_1"].astype(str) + "_" + \
                             df["param_2"].astype(str) + "_" + \
                             df["param_3"].astype(str)
-        df = df.fillna(-1)
+    
+    train.fillna(-1)
+    test.fillna(-1)
 
     y = train['deal_probability'].values
     cvlist = list(KFold(5, random_state=123).split(y))
