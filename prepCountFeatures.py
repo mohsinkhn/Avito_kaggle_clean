@@ -199,12 +199,12 @@ if __name__ == "__main__":
             trenc.fit(pd.concat([train[cols], test[cols]]))#train_active[cols], test_active[cols]]))
             X_train = trenc.transform(train)
             X_train[np.isnan(X_train)] = 0
-            X_train /= np.percentile(X_train, 95)
+            X_train = X_train/np.percentile(X_train, 95)
             qt = QuantileTransformer(output_distribution = 'normal')
             
             X_test[np.isnan(X_test)] = 0
             X_test = trenc.transform(test)
-            X_test /= np.percentile(X_test, 95)
+            X_test = X_test/np.percentile(X_test, 95)
             
             logger.info("Saving count features for {}".format(col))
             np.save("../utility/X_train_{}_counts.npy".format(col), X_train)
@@ -226,11 +226,11 @@ if __name__ == "__main__":
             trenc.fit(pd.concat([train[acols], test[acols],])) #train_active[acols], test_active[acols]]))
             X_train = trenc.transform(train)
             X_train[np.isnan(X_train)] = 0
-            X_train /= np.percentile(X_train, 95)
+            X_train = X_train/np.percentile(X_train, 95)
             
             X_test[np.isnan(X_test)] = 0
             X_test = trenc.transform(test)
-            X_test /= np.percentile(X_test, 95)
+            X_test = X_test/np.percentile(X_test, 95)
             
             logger.info("Saving count features for {}".format(col))
             np.save("../utility/X_train_{}_counts.npy".format(col), X_train)
