@@ -44,7 +44,9 @@ if __name__ == "__main__":
     # City correction
     for df in train, test:
         df['city'] = df['region'].astype(str) + "_" + df["city"].astype(str)
-        df = df.fillna(-1)
+    
+    train = train.fillna(-1)
+    test = test.fillna(-1)
 
     y = train['deal_probability'].values
     cvlist = list(KFold(5, random_state=123).split(y))
@@ -77,9 +79,9 @@ if __name__ == "__main__":
     
     for col in IMAGE_FEATS:
         if '_prob' in col:
-            median = train_img[col].mean()
-            train_img[col] = train_img[col].fillna(median)
-            test_img[col] = test_img[col].fillna(median)
+            temp = train_img[col].min() - 0.1*(train_img[col].max() - train_img[col].min())
+            train_img[col] = train_img[col].fillna(temp)
+            test_img[col] = test_img[col].fillna(temp)
         else:
             train_img[col] = train_img[col].fillna(-1)
             test_img[col] = test_img[col].fillna(-1)

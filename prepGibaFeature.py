@@ -47,7 +47,9 @@ if __name__ == "__main__":
     # City correction
     for df in train, test:
         df['city'] = df['region'].astype(str) + "_" + df["city"].astype(str)
-        df = df.fillna(-1)
+    
+    train = train.fillna(-1)
+    test = test.fillna(-1)
 
     y = train['deal_probability'].values
     cvlist = list(KFold(5, random_state=123).split(y))
@@ -80,9 +82,9 @@ if __name__ == "__main__":
                    'image4', 'image5', 'image6', 'rev_seq']
 
     for col in GIBA_FEATS:
-        median = train_giba[col].median()
-        train_giba[col] = train_giba[col].fillna(median)
-        test_giba[col] = test_giba[col].fillna(median)
+        temp = train_giba[col].min() - 0.1*(train_giba[col].max() - train_gib[col].min())
+        train_giba[col] = train_giba[col].fillna(temp)
+        test_giba[col] = test_giba[col].fillna(temp)
 
     minmax = MinMaxScaler((-1, 1))
     train_giba[GIBA_FEATS] = minmax.fit_transform(train_giba[GIBA_FEATS])

@@ -1,0 +1,28 @@
+2018-06-24 06:34:23,423 - __main__ - INFO - Reading data
+2018-06-24 06:34:57,471 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-24 06:35:21,023 - __main__ - INFO - Features in giba file 1 are Index(['item_id', 'snna', 'Ndays', 'Nactiv', 'ord1', 'nchar_title',
+       'nchar_desc', 'titl_capE', 'titl_capR', 'titl_lowE', 'titl_lowR',
+       'desc_cap', 'titl_pun', 'desc_pun', 'titl_dig', 'desc_dig', 'wday',
+       'ce1', 'ce2', 'ce3', 'ce4', 'ce5', 'ce6', 'ce7', 'ce8', 'ce9', 'ce10',
+       'ce11', 'ce12', 'ce13', 'ce14', 'ce15', 'ce16', 'ce17', 'ce18',
+       'dif_time1', 'dif_isn1', 'mflag1', 'dif_time2', 'dif_time3',
+       'dif_time4', 'dif_time5', 'dif_time6', 'N1', 'N2', 'N3', 'N4', 'N5',
+       'N6', 'image1', 'image2', 'image3', 'image4', 'image5', 'image6',
+       'meantype', 'rev_seq'],
+      dtype='object')
+2018-06-24 06:35:21,023 - __main__ - INFO - Mapping Giba file 1 to train and test
+2018-06-24 06:36:04,882 - __main__ - INFO - Saving image features 1
+2018-06-24 09:51:02,464 - __main__ - INFO - Reading data
+2018-06-24 09:51:37,056 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-24 09:51:57,659 - __main__ - INFO - Features in giba file 1 are Index(['item_id', 'snna', 'Ndays', 'Nactiv', 'ord1', 'nchar_title',
+       'nchar_desc', 'titl_capE', 'titl_capR', 'titl_lowE', 'titl_lowR',
+       'desc_cap', 'titl_pun', 'desc_pun', 'titl_dig', 'desc_dig', 'wday',
+       'ce1', 'ce2', 'ce3', 'ce4', 'ce5', 'ce6', 'ce7', 'ce8', 'ce9', 'ce10',
+       'ce11', 'ce12', 'ce13', 'ce14', 'ce15', 'ce16', 'ce17', 'ce18',
+       'dif_time1', 'dif_isn1', 'mflag1', 'dif_time2', 'dif_time3',
+       'dif_time4', 'dif_time5', 'dif_time6', 'N1', 'N2', 'N3', 'N4', 'N5',
+       'N6', 'image1', 'image2', 'image3', 'image4', 'image5', 'image6',
+       'meantype', 'rev_seq'],
+      dtype='object')
+2018-06-24 09:51:57,659 - __main__ - INFO - Mapping Giba file 1 to train and test
+2018-06-24 09:52:39,307 - __main__ - INFO - Saving image features 1

@@ -1,0 +1,8 @@
+2018-06-24 06:33:08,095 - __main__ - INFO - Reading data
+2018-06-24 06:33:47,875 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-24 06:33:47,875 - __main__ - INFO - Get unique counts for different combinations
+2018-06-24 06:34:20,327 - __main__ - INFO - Saving image features 1
+2018-06-24 09:49:45,732 - __main__ - INFO - Reading data
+2018-06-24 09:50:26,245 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-24 09:50:26,245 - __main__ - INFO - Get unique counts for different combinations
+2018-06-24 09:50:59,005 - __main__ - INFO - Saving image features 1

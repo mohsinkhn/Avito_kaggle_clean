@@ -27,10 +27,6 @@ from sklearn.base import BaseEstimator, TransformerMixin, RegressorMixin
 from sklearn import metrics
 
 
-
-import matplotlib.pyplot as plt
-import seaborn as sns
-
 from nltk.tokenize import word_tokenize
 
 import dask.dataframe as dd
@@ -138,7 +134,9 @@ if __name__ == "__main__":
     #City correction
     for df in train, test:
         df['city'] = df['region'].astype(str) + "_" + df["city"].astype(str)
-        df = df.fillna(-1)
+        
+    train = train.fillna(-1)
+    test = test.fillna(-1)
         
     y = train['deal_probability'].values
     cvlist = list(KFold(5, random_state=123).split(y))
@@ -158,6 +156,13 @@ if __name__ == "__main__":
         try:
             X_train = pipe.fit_transform(train)
             X_test = pipe.transform(test)
+            
+            X_train[np.isnan(X_train)] = -1
+            X_test[np.isnan(X_test)] = -1
+            
+            qt = QuantileTransformer(output_distribution = 'normal')
+            X_train = qt.fit_transform(X_train)
+            X_test = qt.transform(X_test)
             
             logger.info("Saving label encoded features for {}".format(col))
             np.save("../utility/X_train_{}_lbenc_{}.npy".format(col, thresh), X_train)
@@ -184,6 +189,14 @@ if __name__ == "__main__":
             X_train = pipe.fit_transform(train)
             X_test = pipe.transform(test)
             
+            X_train[np.isnan(X_train)] = -1
+            X_test[np.isnan(X_test)] = -1
+            
+            qt = QuantileTransformer(output_distribution = 'normal')
+            X_train = qt.fit_transform(X_train)
+            X_test = qt.transform(X_test)
+
+            
             logger.info("Saving label encoded features for {} and thresh {}".format(col, thresh))
             np.save("../utility/X_train_{}_lbenc_{}.npy".format(col, thresh), X_train)
             np.save("../utility/X_test_{}_lbenc_{}.npy".format(col, thresh), X_test)
@@ -206,6 +219,14 @@ if __name__ == "__main__":
             try:
                 X_train = cross_val_predict(trenc, train, y, cv = cvlist, method = 'transform', n_jobs=1)
                 X_test = trenc.fit(train).transform(test)
+                
+                X_train[np.isnan(X_train)] = -1
+                X_test[np.isnan(X_test)] = -1
+            
+                qt = QuantileTransformer(output_distribution = 'normal')
+                X_train = qt.fit_transform(X_train)
+                X_test = qt.transform(X_test)
+
                 
                 logger.info("Saving target encoded features for {}, thresh: {}".format(col, thresh))
                 np.save("../utility/X_train_{}_trenc_{}.npy".format(col, thresh), X_train)
@@ -238,6 +259,13 @@ if __name__ == "__main__":
             X_train = cross_val_predict(trenc, train, y, cv = cvlist, method = 'transform', n_jobs=1)
             X_test = trenc.fit(train).transform(test)
             
+            X_train[np.isnan(X_train)] = -1
+            X_test[np.isnan(X_test)] = -1
+            
+            qt = QuantileTransformer(output_distribution = 'normal')
+            X_train = qt.fit_transform(X_train)
+            X_test = qt.transform(X_test)
+            
             logger.info("Saving label encoded features for {} and thresh {}".format(col, thresh))
             np.save("../utility/X_train_{}_trenc_{}.npy".format(col, thresh), X_train)
             np.save("../utility/X_test_{}_trenc_{}.npy".format(col, thresh), X_test)
@@ -259,6 +287,13 @@ if __name__ == "__main__":
         try:
             X_train = cross_val_predict(trenc, train, y, cv = cvlist, method = 'transform', n_jobs=1)
             X_test = trenc.fit(train).transform(test)
+            
+            X_train[np.isnan(X_train)] = -1
+            X_test[np.isnan(X_test)] = -1
+            
+            qt = QuantileTransformer(output_distribution = 'normal')
+            X_train = qt.fit_transform(X_train)
+            X_test = qt.transform(X_test)
             
             logger.info("Saving target encoded features for {}, thresh: {}".format(col, thresh))
             np.save("../utility/X_train_{}_trencSD_{}.npy".format(col, thresh), X_train)

@@ -1,0 +1,36 @@
+2018-06-24 11:46:13,790 - __main__ - INFO - Reading data
+2018-06-24 11:46:48,476 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-24 11:46:58,410 - __main__ - INFO - Feature sin image file 3 are Index(['image_paths', 'image', 'image_top_1', 'deal_probability',
+       'imt_top1_label', 'imt_top1_prob', 'imt_top2_label', 'imt_top2_prob',
+       'imt_top3_label', 'imt_top3_prob'],
+      dtype='object')
+2018-06-24 11:49:11,469 - __main__ - INFO - Reading data
+2018-06-24 11:49:46,395 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-24 11:49:56,187 - __main__ - INFO - Features in image file 4 are Index(['image_paths', 'image', 'image_top_1', 'deal_probability',
+       'imt_top1_label', 'imt_top1_prob', 'imt_top2_label', 'imt_top2_prob',
+       'imt_top3_label', 'imt_top3_prob'],
+      dtype='object')
+2018-06-24 11:49:56,207 - __main__ - INFO - Mapping image file 3 to train and test
+2018-06-24 11:56:13,059 - __main__ - INFO - Reading data
+2018-06-24 11:56:47,109 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-24 11:56:56,832 - __main__ - INFO - Features in image file 4 are Index(['image_paths', 'image', 'image_top_1', 'deal_probability',
+       'imt_top1_label', 'imt_top1_prob', 'imt_top2_label', 'imt_top2_prob',
+       'imt_top3_label', 'imt_top3_prob'],
+      dtype='object')
+2018-06-24 11:56:56,844 - __main__ - INFO - Mapping image file 3 to train and test
+2018-06-24 11:57:30,087 - __main__ - INFO - Reading data
+2018-06-24 11:58:04,207 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-24 11:58:13,714 - __main__ - INFO - Features in image file 4 are Index(['image_paths', 'image', 'image_top_1', 'deal_probability',
+       'imt_top1_label', 'imt_top1_prob', 'imt_top2_label', 'imt_top2_prob',
+       'imt_top3_label', 'imt_top3_prob'],
+      dtype='object')
+2018-06-24 11:58:13,725 - __main__ - INFO - Mapping image file 3 to train and test
+2018-06-24 11:58:24,156 - __main__ - INFO - Saving image features 1
+2018-06-26 06:33:29,248 - __main__ - INFO - Reading data
+2018-06-26 06:34:15,011 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-26 06:34:28,157 - __main__ - INFO - Features in image file 4 are Index(['image_paths', 'image', 'image_top_1', 'deal_probability',
+       'imt_top1_label', 'imt_top1_prob', 'imt_top2_label', 'imt_top2_prob',
+       'imt_top3_label', 'imt_top3_prob'],
+      dtype='object')
+2018-06-26 06:34:28,174 - __main__ - INFO - Mapping image file 3 to train and test
+2018-06-26 06:34:41,534 - __main__ - INFO - Saving image features 1

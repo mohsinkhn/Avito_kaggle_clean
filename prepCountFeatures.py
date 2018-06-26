@@ -25,11 +25,6 @@ from sklearn.preprocessing import FunctionTransformer
 from sklearn.base import BaseEstimator, TransformerMixin, RegressorMixin
 from sklearn import metrics
 
-
-
-import matplotlib.pyplot as plt
-import seaborn as sns
-
 from nltk.tokenize import word_tokenize
 
 import dask.dataframe as dd
@@ -182,7 +177,9 @@ if __name__ == "__main__":
     #City correction
     for df in train, test: #, train_active, test_active:
         df['city'] = df['region'].astype(str) + "_" + df["city"].astype(str)
-        df = df.fillna(-1)
+        
+    train = train.fillna(-1)
+    test = test.fillna(-1)
         
     y = train['deal_probability'].values
     cvlist = list(KFold(10, random_state=123).split(y))
@@ -201,7 +198,13 @@ if __name__ == "__main__":
             cols = [col] + ['item_id']
             trenc.fit(pd.concat([train[cols], test[cols]]))#train_active[cols], test_active[cols]]))
             X_train = trenc.transform(train)
+            X_train[np.isnan(X_train)] = 0
+            X_train /= np.percentile(X_train, 95)
+            qt = QuantileTransformer(output_distribution = 'normal')
+            
+            X_test[np.isnan(X_test)] = 0
             X_test = trenc.transform(test)
+            X_test /= np.percentile(X_test, 95)
             
             logger.info("Saving count features for {}".format(col))
             np.save("../utility/X_train_{}_counts.npy".format(col), X_train)
@@ -222,7 +225,12 @@ if __name__ == "__main__":
             acols = list(cols) + ['item_id']
             trenc.fit(pd.concat([train[acols], test[acols],])) #train_active[acols], test_active[acols]]))
             X_train = trenc.transform(train)
+            X_train[np.isnan(X_train)] = 0
+            X_train /= np.percentile(X_train, 95)
+            
+            X_test[np.isnan(X_test)] = 0
             X_test = trenc.transform(test)
+            X_test /= np.percentile(X_test, 95)
             
             logger.info("Saving count features for {}".format(col))
             np.save("../utility/X_train_{}_counts.npy".format(col), X_train)

@@ -1,0 +1,29 @@
+2018-06-24 06:25:15,177 - __main__ - INFO - Reading data
+2018-06-24 06:25:36,660 - __main__ - INFO - Reading data
+2018-06-24 06:26:12,556 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-24 06:26:12,556 - __main__ - INFO - Running all combinations
+2018-06-24 06:53:22,085 - __main__ - INFO - Reading data
+2018-06-24 06:53:57,076 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-24 06:53:57,077 - __main__ - INFO - Running all combinations
+2018-06-24 06:55:14,445 - __main__ - INFO - Reading data
+2018-06-24 06:55:48,212 - __main__ - INFO - Reading data
+2018-06-24 06:56:22,791 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-24 06:56:22,792 - __main__ - INFO - Running all combinations
+2018-06-24 07:01:33,072 - __main__ - INFO - Shape of data (1503424, 954626) and (508438, 954626)
+2018-06-24 07:01:33,072 - __main__ - INFO - Saving features
+2018-06-24 07:01:41,606 - __main__ - INFO - Done
+2018-06-24 07:06:29,581 - __main__ - INFO - Shape of data (1503424, 42930) and (508438, 42930)
+2018-06-24 07:06:29,581 - __main__ - INFO - Saving features
+2018-06-24 07:06:36,876 - __main__ - INFO - Done
+2018-06-24 07:10:29,957 - __main__ - INFO - Shape of data (1503424, 273566) and (508438, 273566)
+2018-06-24 07:10:29,958 - __main__ - INFO - Saving features
+2018-06-24 07:10:34,953 - __main__ - INFO - Done
+2018-06-24 07:10:39,144 - __main__ - INFO - Reading data
+2018-06-24 07:11:13,666 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-24 07:11:13,666 - __main__ - INFO - Running all combinations
+2018-06-24 07:34:28,856 - __main__ - INFO - Shape of data (1503424, 199342) and (508438, 199342)
+2018-06-24 07:34:28,856 - __main__ - INFO - Saving features
+2018-06-24 07:35:10,458 - __main__ - INFO - Done
+2018-06-24 08:00:12,325 - __main__ - INFO - Shape of data (1503424, 51804) and (508438, 51804)
+2018-06-24 08:00:12,326 - __main__ - INFO - Saving features
+2018-06-24 08:00:55,584 - __main__ - INFO - Done

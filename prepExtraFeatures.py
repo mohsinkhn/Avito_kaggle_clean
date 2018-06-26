@@ -44,7 +44,9 @@ if __name__ == "__main__":
     # City correction
     for df in train, test:
         df['city'] = df['region'].astype(str) + "_" + df["city"].astype(str)
-        df = df.fillna(-1)
+    
+    train = train.fillna(-1)
+    test = test.fillna(-1)
 
     y = train['deal_probability'].values
     cvlist = list(KFold(5, random_state=123).split(y))
@@ -75,9 +77,9 @@ if __name__ == "__main__":
     EXTRA_FEATS = cont_cols + cat_cols
 
     for col in cont_cols:
-        median = train_dnn_agg[col].median()
-        train_dnn_agg[col] = train_dnn_agg[col].fillna(median)
-        test_dnn_agg[col] = test_dnn_agg[col].fillna(median)
+        temp = train_dnn_agg[col].min() - 0.1*(train_dnn_agg[col].max() - train_dnn_agg[col].min())
+        train_dnn_agg[col] = train_dnn_agg[col].fillna(temp)
+        test_dnn_agg[col] = test_dnn_agg[col].fillna(temp)
 
         minmax = MinMaxScaler((-1, 1))
         train_dnn_agg[col] = minmax.fit_transform(train_dnn_agg[col].values.reshape(-1,1))

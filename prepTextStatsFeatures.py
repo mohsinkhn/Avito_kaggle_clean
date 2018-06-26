@@ -42,7 +42,9 @@ if __name__ == "__main__":
     # City correction
     for df in train, test:
         df['city'] = df['region'].astype(str) + "_" + df["city"].astype(str)
-        df = df.fillna(-1)
+        
+    train = train.fillna(-1)
+    test = test.fillna(-1)
 
     y = train['deal_probability'].values
     cvlist = list(KFold(5, random_state=123).split(y))
@@ -104,9 +106,9 @@ if __name__ == "__main__":
                       'title_num_words', 'title_unq_words', 'title_desc_word_ratio']
 
     for col in TEXT_STATS:
-        median = train_stats[col].median()
-        train_stats[col] = train_stats[col].fillna(median)
-        test_stats[col] = test_stats[col].fillna(median)
+        temp = train_stats[col].min() - 0.1*(train_stats[col].max() - train_stats[col].min())
+        train_stats[col] = train_stats[col].fillna(temp)
+        test_stats[col] = test_stats[col].fillna(temp)
 
     minmax = MinMaxScaler((-1, 1))
     train_stats[TEXT_STATS] = minmax.fit_transform(train_stats[TEXT_STATS])
