@@ -1,0 +1,72 @@
+2018-06-25 01:17:54,972 - __main__ - INFO - Reading data
+2018-06-25 01:18:25,380 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-25 01:18:25,381 - __main__ - INFO - Loading text features
+2018-06-25 01:21:53,925 - __main__ - INFO - Reading data
+2018-06-25 01:22:23,291 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-25 01:22:23,292 - __main__ - INFO - Loading text features
+2018-06-25 01:24:09,731 - __main__ - INFO - Reading data
+2018-06-25 01:24:39,462 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-25 01:24:39,462 - __main__ - INFO - Loading text features
+2018-06-25 01:25:46,326 - __main__ - INFO - Reading data
+2018-06-25 01:26:16,064 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-25 01:26:16,064 - __main__ - INFO - Loading text features
+2018-06-25 01:26:56,407 - __main__ - INFO - Reading data
+2018-06-25 01:27:26,653 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-25 01:27:26,655 - __main__ - INFO - Loading text features
+2018-06-25 01:28:26,809 - __main__ - INFO - Reading data
+2018-06-25 01:28:56,882 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-25 01:28:56,882 - __main__ - INFO - Loading text features
+2018-06-25 01:30:00,548 - __main__ - INFO - Reading data
+2018-06-25 01:30:31,065 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-25 01:30:31,065 - __main__ - INFO - Loading text features
+2018-06-25 01:31:54,454 - __main__ - INFO - Reading data
+2018-06-25 01:32:25,497 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-25 01:32:25,500 - __main__ - INFO - Loading text features
+2018-06-25 01:33:31,180 - __main__ - INFO - Reading data
+2018-06-25 01:34:02,174 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-25 01:34:02,174 - __main__ - INFO - Loading text features
+2018-06-25 01:35:02,832 - __main__ - INFO - Reading data
+2018-06-25 01:35:33,331 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-25 01:35:33,332 - __main__ - INFO - Loading text features
+2018-06-25 01:36:35,126 - __main__ - INFO - Reading data
+2018-06-25 01:37:05,651 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-25 01:37:05,652 - __main__ - INFO - Loading text features
+2018-06-25 01:38:29,071 - __main__ - INFO - Reading data
+2018-06-25 01:38:59,028 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-25 01:38:59,028 - __main__ - INFO - Loading text features
+2018-06-25 01:39:52,470 - __main__ - INFO - Reading data
+2018-06-25 01:40:22,870 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-25 01:40:22,870 - __main__ - INFO - Loading text features
+2018-06-25 01:41:55,010 - __main__ - INFO - Reading data
+2018-06-25 01:42:27,688 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-25 01:42:27,688 - __main__ - INFO - Loading text features
+2018-06-25 01:43:27,545 - __main__ - INFO - Reading data
+2018-06-25 01:43:59,978 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-25 01:43:59,978 - __main__ - INFO - Loading text features
+2018-06-25 01:45:20,176 - __main__ - INFO - Reading data
+2018-06-25 01:45:52,954 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-25 01:45:52,954 - __main__ - INFO - Loading text features
+2018-06-25 01:47:15,483 - __main__ - INFO - Reading data
+2018-06-25 01:47:47,860 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-25 01:47:47,861 - __main__ - INFO - Loading text features
+2018-06-25 01:49:18,563 - __main__ - INFO - Reading data
+2018-06-25 01:49:50,938 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-25 01:49:50,938 - __main__ - INFO - Loading text features
+2018-06-25 01:51:58,890 - __main__ - INFO - Reading data
+2018-06-25 01:52:31,082 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-25 01:52:31,082 - __main__ - INFO - Loading text features
+2018-06-25 01:54:49,880 - __main__ - INFO - Reading data
+2018-06-25 01:55:22,987 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-25 01:55:22,987 - __main__ - INFO - Loading text features
+2018-06-25 01:55:49,909 - __main__ - INFO - Stack all features
+2018-06-25 01:57:03,884 - __main__ - INFO - Shape for base dataset is (1503424, 94906) and (508438, 94906)
+2018-06-25 01:57:03,951 - __main__ - INFO - shape of X is (1503424, 94906) and shape of y is (100000,)
+2018-06-25 02:03:41,455 - __main__ - INFO - Reading data
+2018-06-25 02:04:13,356 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-25 02:04:13,357 - __main__ - INFO - Loading text features
+2018-06-25 02:04:35,193 - __main__ - INFO - Stack all features
+2018-06-25 02:05:43,668 - __main__ - INFO - Shape for base dataset is (1503424, 94906) and (508438, 94906)
+2018-06-25 02:05:43,761 - __main__ - INFO - shape of X is (1503424, 94906) and shape of y is (1000,)
+2018-06-25 02:06:56,228 - __main__ - INFO - Best score for base cols in 0.23065713824154205
+2018-06-25 02:06:56,229 - __main__ - INFO - Saving predicitions
+2018-06-25 02:06:56,234 - __main__ - INFO - Writing out submissions

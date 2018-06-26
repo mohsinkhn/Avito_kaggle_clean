@@ -1,0 +1,21 @@
+2018-06-23 18:39:39,113 - __main__ - INFO - Reading data
+2018-06-23 18:40:47,931 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-23 18:40:47,965 - __main__ - INFO - Running all combinations
+2018-06-23 19:09:18,193 - __main__ - INFO - Shape of data (1503424, 954626) and (508438, 954626)
+2018-06-23 19:09:18,221 - __main__ - INFO - Saving features
+2018-06-23 19:09:44,866 - __main__ - INFO - Done
+2018-06-23 19:30:07,408 - __main__ - INFO - Shape of data (1503424, 42930) and (508438, 42930)
+2018-06-23 19:30:07,410 - __main__ - INFO - Saving features
+2018-06-23 19:30:18,201 - __main__ - INFO - Done
+2018-06-23 19:41:06,068 - __main__ - INFO - Shape of data (1503424, 273566) and (508438, 273566)
+2018-06-23 19:41:06,071 - __main__ - INFO - Saving features
+2018-06-23 19:41:13,719 - __main__ - INFO - Done
+2018-06-23 19:41:42,169 - __main__ - INFO - Reading data
+2018-06-23 19:42:56,109 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-23 19:42:56,119 - __main__ - INFO - Running all combinations
+2018-06-23 22:14:20,518 - __main__ - INFO - Shape of data (1503424, 199342) and (508438, 199342)
+2018-06-23 22:14:20,560 - __main__ - INFO - Saving features
+2018-06-23 22:15:46,118 - __main__ - INFO - Done
+2018-06-24 01:16:50,097 - __main__ - INFO - Shape of data (1503424, 51804) and (508438, 51804)
+2018-06-24 01:16:50,116 - __main__ - INFO - Saving features
+2018-06-24 01:18:00,645 - __main__ - INFO - Done

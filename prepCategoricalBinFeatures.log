@@ -1,0 +1,220 @@
+2018-06-25 11:42:23,675 - __main__ - INFO - Reading data
+2018-06-25 11:42:53,336 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-25 11:42:53,336 - __main__ - INFO - Creating custom bins for deal probability
+2018-06-25 11:43:24,436 - __main__ - INFO - Generating bin count for Categorical Features
+2018-06-25 11:43:39,401 - __main__ - INFO - Saving Target bin features for user_id
+2018-06-25 11:43:42,635 - __main__ - INFO - Not a valid Transformer
+2018-06-25 11:43:46,868 - __main__ - INFO - Saving Target bin features for city
+2018-06-25 11:43:49,816 - __main__ - INFO - Not a valid Transformer
+2018-06-25 11:43:52,960 - __main__ - INFO - Not a valid Transformer
+2018-06-25 11:43:54,049 - __main__ - INFO - Not a valid Transformer
+2018-06-25 11:43:54,401 - __main__ - INFO - Not a valid Transformer
+2018-06-25 11:43:54,641 - __main__ - INFO - Not a valid Transformer
+2018-06-25 11:43:54,877 - __main__ - INFO - Not a valid Transformer
+2018-06-25 11:47:51,887 - __main__ - INFO - Reading data
+2018-06-25 11:48:20,891 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-25 11:48:20,892 - __main__ - INFO - Creating custom bins for deal probability
+2018-06-25 11:48:52,061 - __main__ - INFO - Generating bin count for Categorical Features
+2018-06-25 11:49:07,913 - __main__ - INFO - Saving Target bin features for user_id
+2018-06-25 11:49:11,383 - __main__ - INFO - Not a valid Transformer
+2018-06-25 11:49:15,608 - __main__ - INFO - Saving Target bin features for city
+2018-06-25 11:49:18,612 - __main__ - INFO - Not a valid Transformer
+2018-06-25 11:49:21,882 - __main__ - INFO - Not a valid Transformer
+2018-06-25 11:49:25,230 - __main__ - INFO - Saving Target bin features for image_top_1
+2018-06-25 11:49:28,602 - __main__ - INFO - Saving Target bin features for param_1
+2018-06-25 11:49:31,757 - __main__ - INFO - Saving Target bin features for param_2
+2018-06-25 11:49:35,170 - __main__ - INFO - Saving Target bin features for param_3
+2018-06-25 11:49:38,753 - __main__ - INFO - Not a valid Transformer
+2018-06-25 11:49:38,754 - __main__ - INFO - Generating bin count for Combination Features
+2018-06-25 11:49:44,248 - __main__ - INFO - Not a valid Transformer
+2018-06-25 11:49:49,047 - __main__ - INFO - Saving Taget bin encoding features for region_param_1
+2018-06-25 11:49:53,814 - __main__ - INFO - Saving Taget bin encoding features for region_category_name
+2018-06-25 11:49:58,888 - __main__ - INFO - Saving Taget bin encoding features for region_param_2
+2018-06-25 11:50:03,747 - __main__ - INFO - Saving Taget bin encoding features for region_param_3
+2018-06-25 11:50:08,559 - __main__ - INFO - Saving Taget bin encoding features for region_image_top_1
+2018-06-25 11:50:12,973 - __main__ - INFO - Not a valid Transformer
+2018-06-25 11:50:17,923 - __main__ - INFO - Saving Taget bin encoding features for city_parent_category_name
+2018-06-25 11:50:23,307 - __main__ - INFO - Saving Taget bin encoding features for city_category_name
+2018-06-25 11:50:29,214 - __main__ - INFO - Saving Taget bin encoding features for city_param_1
+2018-06-25 11:50:34,527 - __main__ - INFO - Saving Taget bin encoding features for city_param_2
+2018-06-25 11:50:40,267 - __main__ - INFO - Saving Taget bin encoding features for city_param_3
+2018-06-25 11:50:46,430 - __main__ - INFO - Saving Taget bin encoding features for city_image_top_1
+2018-06-25 11:50:51,416 - __main__ - INFO - Saving Taget bin encoding features for city_user_type
+2018-06-25 11:50:55,872 - __main__ - INFO - Saving Taget bin encoding features for parent_category_name_param_1
+2018-06-25 11:51:00,494 - __main__ - INFO - Saving Taget bin encoding features for parent_category_name_param_2
+2018-06-25 11:51:04,702 - __main__ - INFO - Saving Taget bin encoding features for parent_category_name_param_3
+2018-06-25 11:51:09,571 - __main__ - INFO - Saving Taget bin encoding features for parent_category_name_image_top_1
+2018-06-25 11:51:13,752 - __main__ - INFO - Not a valid Transformer
+2018-06-25 11:51:18,203 - __main__ - INFO - Saving Taget bin encoding features for category_name_param_1
+2018-06-25 11:51:23,068 - __main__ - INFO - Saving Taget bin encoding features for category_name_param_2
+2018-06-25 11:51:27,727 - __main__ - INFO - Saving Taget bin encoding features for category_name_param_3
+2018-06-25 11:51:31,862 - __main__ - INFO - Not a valid Transformer
+2018-06-25 11:51:36,731 - __main__ - INFO - Saving Taget bin encoding features for category_name_image_top_1
+2018-06-25 11:51:41,483 - __main__ - INFO - Saving Taget bin encoding features for param_1_param_2
+2018-06-25 11:51:46,161 - __main__ - INFO - Saving Taget bin encoding features for param_1_param_3
+2018-06-25 11:51:50,716 - __main__ - INFO - Saving Taget bin encoding features for param_1_user_type
+2018-06-25 11:51:55,825 - __main__ - INFO - Saving Taget bin encoding features for param_1_image_top_1
+2018-06-25 11:52:00,845 - __main__ - INFO - Saving Taget bin encoding features for param_2_param_3
+2018-06-25 11:52:05,624 - __main__ - INFO - Saving Taget bin encoding features for param_2_image_top_1
+2018-06-25 11:52:10,460 - __main__ - INFO - Saving Taget bin encoding features for param_3_image_top_1
+2018-06-25 11:52:15,580 - __main__ - INFO - Saving Taget bin encoding features for user_type_image_top_1
+2018-06-25 11:52:20,970 - __main__ - INFO - Saving Taget bin encoding features for region_category_name_param_1
+2018-06-25 11:52:26,101 - __main__ - INFO - Not a valid Transformer
+2018-06-25 11:52:32,137 - __main__ - INFO - Saving Taget bin encoding features for user_type_region_category_name_param_1
+2018-06-25 11:52:39,233 - __main__ - INFO - Saving Taget bin encoding features for user_type_region_category_name_param_1_param_2
+2018-06-25 11:52:46,108 - __main__ - INFO - Saving Taget bin encoding features for user_type_city_category_name_param_1
+2018-06-25 11:52:54,334 - __main__ - INFO - Saving Taget bin encoding features for user_type_city_category_name_param_1_param_2
+2018-06-25 11:56:24,626 - __main__ - INFO - Reading data
+2018-06-25 11:56:54,063 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-25 11:56:54,063 - __main__ - INFO - Creating custom bins for deal probability
+2018-06-25 15:24:37,566 - __main__ - INFO - Reading data
+2018-06-25 15:25:08,633 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-25 15:25:08,635 - __main__ - INFO - Creating custom bins for deal probability
+2018-06-25 15:25:40,853 - __main__ - INFO - Generating bin count for Categorical Features
+2018-06-25 15:28:48,020 - __main__ - INFO - Saving Target bin features for user_id
+2018-06-25 15:29:02,193 - __main__ - INFO - Saving Target bin features for region
+2018-06-25 15:29:16,813 - __main__ - INFO - Saving Target bin features for city
+2018-06-25 15:29:29,348 - __main__ - INFO - Saving Target bin features for parent_category_name
+2018-06-25 15:29:42,802 - __main__ - INFO - Saving Target bin features for category_name
+2018-06-25 15:29:56,969 - __main__ - INFO - Saving Target bin features for image_top_1
+2018-06-25 15:30:11,263 - __main__ - INFO - Saving Target bin features for param_1
+2018-06-25 15:30:24,147 - __main__ - INFO - Saving Target bin features for param_2
+2018-06-25 15:30:37,097 - __main__ - INFO - Saving Target bin features for param_3
+2018-06-25 15:30:49,644 - __main__ - INFO - Saving Target bin features for user_type
+2018-06-25 15:30:49,718 - __main__ - INFO - Generating bin count for Combination Features
+2018-06-25 15:30:54,496 - __main__ - INFO - Not a valid Transformer for region_parent_category_name
+2018-06-25 15:31:01,744 - __main__ - INFO - Not a valid Transformer for region_param_1
+2018-06-25 15:31:06,718 - __main__ - INFO - Not a valid Transformer for region_category_name
+2018-06-25 15:31:12,981 - __main__ - INFO - Not a valid Transformer for region_param_2
+2018-06-25 15:31:19,007 - __main__ - INFO - Not a valid Transformer for region_param_3
+2018-06-25 15:31:34,396 - __main__ - INFO - Not a valid Transformer for region_image_top_1
+2018-06-25 15:31:39,356 - __main__ - INFO - Reading data
+2018-06-25 15:32:09,113 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-25 15:32:09,114 - __main__ - INFO - Creating custom bins for deal probability
+2018-06-25 15:32:40,329 - __main__ - INFO - Generating bin count for Categorical Features
+2018-06-25 15:35:52,192 - __main__ - INFO - Saving Target bin features for user_id
+2018-06-25 15:36:06,343 - __main__ - INFO - Saving Target bin features for region
+2018-06-25 15:36:21,349 - __main__ - INFO - Saving Target bin features for city
+2018-06-25 15:36:33,862 - __main__ - INFO - Saving Target bin features for parent_category_name
+2018-06-25 15:36:46,839 - __main__ - INFO - Saving Target bin features for category_name
+2018-06-25 15:37:00,667 - __main__ - INFO - Saving Target bin features for image_top_1
+2018-06-25 15:37:13,857 - __main__ - INFO - Saving Target bin features for param_1
+2018-06-25 15:37:25,766 - __main__ - INFO - Saving Target bin features for param_2
+2018-06-25 15:37:37,697 - __main__ - INFO - Saving Target bin features for param_3
+2018-06-25 15:37:49,922 - __main__ - INFO - Saving Target bin features for user_type
+2018-06-25 15:37:49,990 - __main__ - INFO - Generating bin count for Combination Features
+2018-06-25 15:38:04,351 - __main__ - INFO - Saving Taget bin encoding features for region_parent_category_name
+2018-06-25 15:38:29,286 - __main__ - INFO - Saving Taget bin encoding features for region_param_1
+2018-06-25 15:38:45,223 - __main__ - INFO - Saving Taget bin encoding features for region_category_name
+2018-06-25 15:39:01,814 - __main__ - INFO - Saving Taget bin encoding features for region_param_2
+2018-06-25 15:39:25,858 - __main__ - INFO - Saving Taget bin encoding features for region_param_3
+2018-06-25 15:40:11,978 - __main__ - INFO - Saving Taget bin encoding features for region_image_top_1
+2018-06-25 15:40:30,157 - __main__ - INFO - Saving Taget bin encoding features for region_user_type
+2018-06-25 15:40:53,082 - __main__ - INFO - Saving Taget bin encoding features for city_parent_category_name
+2018-06-25 15:41:19,415 - __main__ - INFO - Saving Taget bin encoding features for city_category_name
+2018-06-25 15:41:55,271 - __main__ - INFO - Saving Taget bin encoding features for city_param_1
+2018-06-25 15:42:23,365 - __main__ - INFO - Saving Taget bin encoding features for city_param_2
+2018-06-25 15:42:53,110 - __main__ - INFO - Saving Taget bin encoding features for city_param_3
+2018-06-25 15:44:21,254 - __main__ - INFO - Saving Taget bin encoding features for city_image_top_1
+2018-06-25 15:44:37,838 - __main__ - INFO - Saving Taget bin encoding features for city_user_type
+2018-06-25 15:44:52,783 - __main__ - INFO - Saving Taget bin encoding features for parent_category_name_param_1
+2018-06-25 15:45:06,919 - __main__ - INFO - Saving Taget bin encoding features for parent_category_name_param_2
+2018-06-25 15:45:20,461 - __main__ - INFO - Saving Taget bin encoding features for parent_category_name_param_3
+2018-06-25 15:45:40,629 - __main__ - INFO - Saving Taget bin encoding features for parent_category_name_image_top_1
+2018-06-25 15:45:54,922 - __main__ - INFO - Saving Taget bin encoding features for parent_category_name_user_type
+2018-06-25 15:46:09,799 - __main__ - INFO - Saving Taget bin encoding features for category_name_param_1
+2018-06-25 15:46:23,779 - __main__ - INFO - Saving Taget bin encoding features for category_name_param_2
+2018-06-25 15:46:37,436 - __main__ - INFO - Saving Taget bin encoding features for category_name_param_3
+2018-06-25 15:46:51,728 - __main__ - INFO - Saving Taget bin encoding features for category_name_user_type
+2018-06-25 15:47:16,793 - __main__ - INFO - Saving Taget bin encoding features for category_name_image_top_1
+2018-06-25 15:47:31,088 - __main__ - INFO - Saving Taget bin encoding features for param_1_param_2
+2018-06-25 15:47:44,938 - __main__ - INFO - Saving Taget bin encoding features for param_1_param_3
+2018-06-25 15:47:59,825 - __main__ - INFO - Saving Taget bin encoding features for param_1_user_type
+2018-06-25 15:48:31,466 - __main__ - INFO - Saving Taget bin encoding features for param_1_image_top_1
+2018-06-25 15:48:46,125 - __main__ - INFO - Saving Taget bin encoding features for param_2_param_3
+2018-06-25 15:49:07,705 - __main__ - INFO - Saving Taget bin encoding features for param_2_image_top_1
+2018-06-25 15:49:28,962 - __main__ - INFO - Saving Taget bin encoding features for param_3_image_top_1
+2018-06-25 15:49:46,719 - __main__ - INFO - Saving Taget bin encoding features for user_type_image_top_1
+2018-06-25 15:50:14,773 - __main__ - INFO - Saving Taget bin encoding features for region_category_name_param_1
+2018-06-25 15:50:30,029 - __main__ - INFO - Saving Taget bin encoding features for user_type_region_parent_category_name
+2018-06-25 15:50:52,173 - __main__ - INFO - Saving Taget bin encoding features for user_type_region_category_name_param_1
+2018-06-25 15:51:13,369 - __main__ - INFO - Saving Taget bin encoding features for user_type_region_category_name_param_1_param_2
+2018-06-25 15:51:57,894 - __main__ - INFO - Saving Taget bin encoding features for user_type_city_category_name_param_1
+2018-06-25 15:52:34,512 - __main__ - INFO - Saving Taget bin encoding features for user_type_city_category_name_param_1_param_2
+2018-06-25 16:12:03,783 - __main__ - INFO - Reading data
+2018-06-25 16:12:33,779 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-25 16:12:33,779 - __main__ - INFO - Creating custom bins for deal probability
+2018-06-25 16:13:04,474 - __main__ - INFO - Generating bin count for Categorical Features
+2018-06-25 16:16:00,774 - __main__ - INFO - Saving Target bin features for user_id
+2018-06-25 16:16:14,073 - __main__ - INFO - Saving Target bin features for region
+2018-06-25 16:16:28,108 - __main__ - INFO - Saving Target bin features for city
+2018-06-25 16:16:40,331 - __main__ - INFO - Saving Target bin features for parent_category_name
+2018-06-25 16:16:52,916 - __main__ - INFO - Saving Target bin features for category_name
+2018-06-25 16:17:06,279 - __main__ - INFO - Saving Target bin features for image_top_1
+2018-06-25 16:17:19,108 - __main__ - INFO - Saving Target bin features for param_1
+2018-06-25 16:17:30,773 - __main__ - INFO - Saving Target bin features for param_2
+2018-06-25 16:17:42,402 - __main__ - INFO - Saving Target bin features for param_3
+2018-06-25 16:17:54,773 - __main__ - INFO - Saving Target bin features for user_type
+2018-06-25 16:17:54,850 - __main__ - INFO - Generating bin count for Combination Features
+2018-06-25 16:18:11,292 - __main__ - INFO - Saving Taget bin encoding features for region_parent_category_name
+2018-06-25 16:18:12,527 - __main__ - INFO - Not a valid Transformer for region_param_1
+2018-06-25 16:18:30,445 - __main__ - INFO - Saving Taget bin encoding features for region_category_name
+2018-06-25 16:18:48,035 - __main__ - INFO - Saving Taget bin encoding features for region_param_2
+2018-06-25 16:19:05,748 - __main__ - INFO - Saving Taget bin encoding features for region_param_3
+2018-06-25 16:19:36,333 - __main__ - INFO - Not a valid Transformer for region_image_top_1
+2018-06-25 16:19:37,542 - __main__ - INFO - Not a valid Transformer for region_user_type
+2018-06-25 16:19:38,111 - __main__ - INFO - Not a valid Transformer for city_parent_category_name
+2018-06-25 16:19:38,521 - __main__ - INFO - Not a valid Transformer for city_category_name
+2018-06-25 16:19:43,923 - __main__ - INFO - Reading data
+2018-06-25 16:20:13,040 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-25 16:20:13,041 - __main__ - INFO - Creating custom bins for deal probability
+2018-06-25 16:20:43,862 - __main__ - INFO - Generating bin count for Categorical Features
+2018-06-25 16:23:42,944 - __main__ - INFO - Saving Target bin features for user_id
+2018-06-25 16:23:58,927 - __main__ - INFO - Saving Target bin features for region
+2018-06-25 16:24:16,363 - __main__ - INFO - Saving Target bin features for city
+2018-06-25 16:24:31,678 - __main__ - INFO - Saving Target bin features for parent_category_name
+2018-06-25 16:24:47,487 - __main__ - INFO - Saving Target bin features for category_name
+2018-06-25 16:25:04,322 - __main__ - INFO - Saving Target bin features for image_top_1
+2018-06-25 16:25:20,247 - __main__ - INFO - Saving Target bin features for param_1
+2018-06-25 16:25:34,203 - __main__ - INFO - Saving Target bin features for param_2
+2018-06-25 16:25:47,491 - __main__ - INFO - Saving Target bin features for param_3
+2018-06-25 16:26:02,352 - __main__ - INFO - Saving Target bin features for user_type
+2018-06-25 16:26:02,434 - __main__ - INFO - Generating bin count for Combination Features
+2018-06-25 16:26:19,169 - __main__ - INFO - Saving Taget bin encoding features for region_parent_category_name
+2018-06-25 16:26:38,359 - __main__ - INFO - Saving Taget bin encoding features for region_param_1
+2018-06-25 16:26:55,881 - __main__ - INFO - Saving Taget bin encoding features for region_category_name
+2018-06-25 16:27:12,773 - __main__ - INFO - Saving Taget bin encoding features for region_param_2
+2018-06-25 16:27:29,783 - __main__ - INFO - Saving Taget bin encoding features for region_param_3
+2018-06-25 16:28:04,916 - __main__ - INFO - Saving Taget bin encoding features for region_image_top_1
+2018-06-25 16:28:21,255 - __main__ - INFO - Saving Taget bin encoding features for region_user_type
+2018-06-25 16:28:41,303 - __main__ - INFO - Saving Taget bin encoding features for city_parent_category_name
+2018-06-25 16:29:06,173 - __main__ - INFO - Saving Taget bin encoding features for city_category_name
+2018-06-25 16:29:39,409 - __main__ - INFO - Saving Taget bin encoding features for city_param_1
+2018-06-25 16:30:05,336 - __main__ - INFO - Saving Taget bin encoding features for city_param_2
+2018-06-25 16:30:31,528 - __main__ - INFO - Saving Taget bin encoding features for city_param_3
+2018-06-25 16:31:49,124 - __main__ - INFO - Saving Taget bin encoding features for city_image_top_1
+2018-06-25 16:32:07,484 - __main__ - INFO - Saving Taget bin encoding features for city_user_type
+2018-06-25 16:32:24,175 - __main__ - INFO - Saving Taget bin encoding features for parent_category_name_param_1
+2018-06-25 16:32:39,146 - __main__ - INFO - Saving Taget bin encoding features for parent_category_name_param_2
+2018-06-25 16:32:53,450 - __main__ - INFO - Saving Taget bin encoding features for parent_category_name_param_3
+2018-06-25 16:33:14,162 - __main__ - INFO - Saving Taget bin encoding features for parent_category_name_image_top_1
+2018-06-25 16:33:30,362 - __main__ - INFO - Saving Taget bin encoding features for parent_category_name_user_type
+2018-06-25 16:33:47,202 - __main__ - INFO - Saving Taget bin encoding features for category_name_param_1
+2018-06-25 16:34:02,193 - __main__ - INFO - Saving Taget bin encoding features for category_name_param_2
+2018-06-25 16:34:16,552 - __main__ - INFO - Saving Taget bin encoding features for category_name_param_3
+2018-06-25 16:34:32,520 - __main__ - INFO - Saving Taget bin encoding features for category_name_user_type
+2018-06-25 16:34:58,457 - __main__ - INFO - Saving Taget bin encoding features for category_name_image_top_1
+2018-06-25 16:35:13,702 - __main__ - INFO - Saving Taget bin encoding features for param_1_param_2
+2018-06-25 16:35:28,334 - __main__ - INFO - Saving Taget bin encoding features for param_1_param_3
+2018-06-25 16:35:44,814 - __main__ - INFO - Saving Taget bin encoding features for param_1_user_type
+2018-06-25 16:36:15,747 - __main__ - INFO - Saving Taget bin encoding features for param_1_image_top_1
+2018-06-25 16:36:30,707 - __main__ - INFO - Saving Taget bin encoding features for param_2_param_3
+2018-06-25 16:36:51,680 - __main__ - INFO - Saving Taget bin encoding features for param_2_image_top_1
+2018-06-25 16:37:11,659 - __main__ - INFO - Saving Taget bin encoding features for param_3_image_top_1
+2018-06-25 16:37:30,258 - __main__ - INFO - Saving Taget bin encoding features for user_type_image_top_1
+2018-06-25 16:37:50,524 - __main__ - INFO - Saving Taget bin encoding features for region_category_name_param_1
+2018-06-25 16:38:07,907 - __main__ - INFO - Saving Taget bin encoding features for user_type_region_parent_category_name
+2018-06-25 16:38:31,794 - __main__ - INFO - Saving Taget bin encoding features for user_type_region_category_name_param_1
+2018-06-25 16:38:53,731 - __main__ - INFO - Saving Taget bin encoding features for user_type_region_category_name_param_1_param_2
+2018-06-25 16:39:38,342 - __main__ - INFO - Saving Taget bin encoding features for user_type_city_category_name_param_1
+2018-06-25 16:40:15,442 - __main__ - INFO - Saving Taget bin encoding features for user_type_city_category_name_param_1_param_2

@@ -1,0 +1,6 @@
+2018-06-25 02:11:19,681 - __main__ - INFO - Reading data
+2018-06-25 02:11:50,137 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-25 02:11:50,137 - __main__ - INFO - Loading text features
+2018-06-25 02:12:08,294 - __main__ - INFO - Stack all features
+2018-06-25 02:13:07,612 - __main__ - INFO - Shape for base dataset is (1503424, 94906) and (508438, 94906)
+2018-06-25 02:13:07,697 - __main__ - INFO - shape of X is (1503424, 94906) and shape of y is (1503424,)

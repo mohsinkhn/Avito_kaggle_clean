@@ -1,0 +1,4 @@
+2018-06-24 22:49:48,948 - __main__ - INFO - Reading data
+2018-06-24 22:50:15,389 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-24 22:50:15,389 - __main__ - INFO - Loading deep net predictions
+2018-06-24 22:51:02,527 - __main__ - INFO - Saving image features 1

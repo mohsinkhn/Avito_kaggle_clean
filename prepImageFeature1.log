@@ -1,0 +1,8 @@
+2018-06-24 22:54:39,708 - __main__ - INFO - Reading data
+2018-06-24 22:55:06,404 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-24 22:55:16,066 - __main__ - INFO - Feature sin image file 1 are Index(['Unnamed: 0', 'image', 'dullness', 'whiteness', 'average_pixel_width',
+       'blurrness', 'size', 'dominant_red', 'dominant_green', 'average_red',
+       'average_green', 'average_blue', 'width', 'height', 'ar'],
+      dtype='object')
+2018-06-24 22:55:16,067 - __main__ - INFO - Mapping image file 1 to train and test
+2018-06-24 22:55:26,732 - __main__ - INFO - Saving image features 1

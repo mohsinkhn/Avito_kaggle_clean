@@ -149,23 +149,37 @@ if __name__ == '__main__':
     logger.info('Generating bin count for Categorical Features')
 
     for cols in CAT_COLS:
-        cat_deal_count = TargetEncoder(cols = [cols], targetcol='deal_label', func = 'count')
+        cat_deal_count = TargetEncoder(cols = [cols], targetcol='deal_label', func = np.bincount, func_kwargs={'minlength': 4})
         try:
-            X_cat_bins = cross_val_predict(cat_deal_count, train, y = train['deal_label'], cv = cvlist, method = 'transform')
-            X_cat_bins_test = cat_deal_count.fit(train).transform(test)
+            X_cat_bins = cross_val_predict(cat_deal_count, train, y = train['deal_label'], cv = cvlist, method = 'transform')/int((1-1/NFOLDS)*len(train))
+            X_cat_bins_test = cat_deal_count.fit(train).transform(test)/len(train)
 
-            X_cat_bins[np.isnan(X_cat_bins)] = 0
-            X_cat_bins_test[np.isnan(X_cat_bins_test)] = 0
-
-            X_cat_bins /= np.max(X_cat_bins)
-            X_cat_bins_test /= np.max(X_cat_bins_test)
-
+            X_cat_bins_final = np.zeros((len(X_cat_bins), 4))
+            for i in range(len(X_cat_bins)):
+                if np.isnan(X_cat_bins[i]).any():
+                    continue
+                else:
+                    X_cat_bins_final[i, 0] = X_cat_bins[i][0]
+                    X_cat_bins_final[i, 1] = X_cat_bins[i][1]
+                    X_cat_bins_final[i, 2] = X_cat_bins[i][2]
+                    X_cat_bins_final[i, 3] = X_cat_bins[i][3]
+            
+            X_cat_bins_final_test = np.zeros((len(X_cat_bins_test), 4))
+            for i in range(len(X_cat_bins_test)):
+                if np.isnan(X_cat_bins_test[i]).any():
+                    continue
+                else:
+                    X_cat_bins_final_test[i, 0] = X_cat_bins_test[i][0]
+                    X_cat_bins_final_test[i, 1] = X_cat_bins_test[i][1]
+                    X_cat_bins_final_test[i, 2] = X_cat_bins_test[i][2]
+                    X_cat_bins_final_test[i, 3] = X_cat_bins_test[i][3]
+            
             logger.info(f'Saving Target bin features for {cols}')
 
-            np.save(f'../utility/X_train_{cols}_bin_count.npy', X_cat_bins)
-            np.save(f'../utility/X_test_{cols}_bin_count.npy', X_cat_bins_test)
+            np.save(f'../utility/X_train_{cols}_bin_count.npy', X_cat_bins_final)
+            np.save(f'../utility/X_test_{cols}_bin_count.npy', X_cat_bins_final_test)
         except:
-            logger.info('Not a valid Transformer')
+            logger.info(f'Not a valid Transformer for {cols}')
             continue
     
     #########################################################
@@ -176,22 +190,37 @@ if __name__ == '__main__':
 
     for cols in COMB_COLS:
         col = '_'.join(cols)
-        cat_deal_count = TargetEncoder(cols= list(cols), targetcol='deal_label', func='count')
+        cat_deal_count = TargetEncoder(cols= list(cols), targetcol='deal_label', func= np.bincount, func_kwargs={'minlength': 4})
         try:
-            X_cat_bins = cross_val_predict(cat_deal_count, train, y = train['deal_label'], cv = cvlist, method = 'transform')
-            X_cat_bins_test = cat_deal_count.fit(train).transform(test)
+            X_cat_bins = cross_val_predict(cat_deal_count, train, y = train['deal_label'], cv = cvlist, method = 'transform')/int((1-1/NFOLDS)*len(train))
+            X_cat_bins_test = cat_deal_count.fit(train).transform(test)/len(train)
             
-            X_cat_bins[np.isnan(X_cat_bins)] = 0
-            X_cat_bins_test[np.isnan(X_cat_bins_test)] = 0
+            X_cat_bins_final = np.zeros((len(X_cat_bins), 4))
+            for i in range(len(X_cat_bins)):
+                if np.isnan(X_cat_bins[i]).any():
+                    continue
+                else:
+                    X_cat_bins_final[i, 0] = X_cat_bins[i][0]
+                    X_cat_bins_final[i, 1] = X_cat_bins[i][1]
+                    X_cat_bins_final[i, 2] = X_cat_bins[i][2]
+                    X_cat_bins_final[i, 3] = X_cat_bins[i][3]
+            
+            X_cat_bins_final_test = np.zeros((len(X_cat_bins_test), 4))
+            for i in range(len(X_cat_bins_test)):
+                if np.isnan(X_cat_bins_test[i]).any():
+                    continue
+                else:
+                    X_cat_bins_final_test[i, 0] = X_cat_bins_test[i][0]
+                    X_cat_bins_final_test[i, 1] = X_cat_bins_test[i][1]
+                    X_cat_bins_final_test[i, 2] = X_cat_bins_test[i][2]
+                    X_cat_bins_final_test[i, 3] = X_cat_bins_test[i][3]
 
-            X_cat_bins /= np.max(X_cat_bins)
-            X_cat_bins_test /= np.max(X_cat_bins_test)
             logger.info(f'Saving Taget bin encoding features for {col}')
 
-            np.save(f'../utility/X_train_{col}_bin_count.npy', X_cat_bins)
-            np.save(f'../utility/X_test_{col}_bin_count.npy', X_cat_bins_test)
+            np.save(f'../utility/X_train_{col}_bin_count.npy', X_cat_bins_final)
+            np.save(f'../utility/X_test_{col}_bin_count.npy', X_cat_bins_final_test)
         except:
-            logger.info('Not a valid Transformer')
+            logger.info(f'Not a valid Transformer for {col}')
             continue
     
     handler.close()
