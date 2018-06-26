@@ -21,6 +21,7 @@ import pandas as pd
 
 from sklearn.model_selection import cross_val_predict, KFold
 from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import QuantileTransformer
 from tqdm import tqdm
 tqdm.pandas(tqdm)
 
@@ -155,8 +156,8 @@ if __name__ == "__main__":
             X_test[np.isnan(X_test)] = -1
             
             qt = QuantileTransformer(output_distribution = 'normal')
-            X_train = qt.fit_transform(X_train)
-            X_test = qt.transform(X_test)
+            X_train = qt.fit_transform(X_train.reshape(-1,1))
+            X_test = qt.transform(X_test.reshape(-1,1))
             
             logger.info("Saving label encoded features for {} and thresh {}".format(col, thresh))
             np.save("../utility/X_train_{}_trenc_{}.npy".format(col, thresh), X_train)
@@ -199,8 +200,8 @@ if __name__ == "__main__":
             X_test[np.isnan(X_test)] = -1
             
             qt = QuantileTransformer(output_distribution = 'normal')
-            X_train = qt.fit_transform(X_train)
-            X_test = qt.transform(X_test)
+            X_train = qt.fit_transform(X_train.reshape(-1,1))
+            X_test = qt.transform(X_test.reshape(-1,1))
             
             logger.info("Saving label encoded features for {} and thresh {}".format(col, thresh))
             np.save("../utility/X_train_{}_priceenc_{}.npy".format(col, thresh), X_train)

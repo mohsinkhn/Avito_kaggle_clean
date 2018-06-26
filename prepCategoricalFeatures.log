@@ -583,3 +583,571 @@
 2018-06-24 09:43:22,073 - __main__ - INFO - Saving target encoded features for image_top_1, thresh: 3
 2018-06-24 09:43:36,468 - __main__ - INFO - Saving target encoded features for user_type, thresh: 1
 2018-06-24 09:43:52,852 - __main__ - INFO - Saving target encoded features for user_type, thresh: 3
+2018-06-26 07:47:40,331 - __main__ - INFO - Reading data
+2018-06-26 07:48:30,096 - __main__ - INFO - Done. Read data with shape (1503424, 18) and (508438, 18)
+2018-06-26 07:48:30,097 - __main__ - INFO - Generating base label encoding features
+2018-06-26 07:48:31,216 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 1
+2018-06-26 07:48:31,866 - __main__ - INFO - Numerical encoding categorical data for user_id
+2018-06-26 07:48:34,192 - __main__ - INFO - Numerical encoding categorical data for user_id
+2018-06-26 07:48:36,009 - __main__ - INFO - Saving label encoded features for user_id
+2018-06-26 07:48:37,533 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 2
+2018-06-26 07:48:37,860 - __main__ - INFO - Numerical encoding categorical data for user_id
+2018-06-26 07:48:39,498 - __main__ - INFO - Numerical encoding categorical data for user_id
+2018-06-26 07:48:40,184 - __main__ - INFO - Saving label encoded features for user_id
+2018-06-26 07:48:41,608 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 5
+2018-06-26 07:48:41,783 - __main__ - INFO - Numerical encoding categorical data for user_id
+2018-06-26 07:48:42,989 - __main__ - INFO - Numerical encoding categorical data for user_id
+2018-06-26 07:48:43,461 - __main__ - INFO - Saving label encoded features for user_id
+2018-06-26 07:48:44,758 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 07:48:44,929 - __main__ - INFO - Numerical encoding categorical data for user_id
+2018-06-26 07:48:45,946 - __main__ - INFO - Numerical encoding categorical data for user_id
+2018-06-26 07:48:46,363 - __main__ - INFO - Saving label encoded features for user_id
+2018-06-26 07:48:46,924 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 1
+2018-06-26 07:48:46,926 - __main__ - INFO - Numerical encoding categorical data for region
+2018-06-26 07:48:47,485 - __main__ - INFO - Numerical encoding categorical data for region
+2018-06-26 07:48:47,705 - __main__ - INFO - Saving label encoded features for region
+2018-06-26 07:48:48,308 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 2
+2018-06-26 07:48:48,308 - __main__ - INFO - Numerical encoding categorical data for region
+2018-06-26 07:48:48,838 - __main__ - INFO - Numerical encoding categorical data for region
+2018-06-26 07:48:49,078 - __main__ - INFO - Saving label encoded features for region
+2018-06-26 07:48:49,652 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 5
+2018-06-26 07:48:49,652 - __main__ - INFO - Numerical encoding categorical data for region
+2018-06-26 07:48:50,177 - __main__ - INFO - Numerical encoding categorical data for region
+2018-06-26 07:48:50,389 - __main__ - INFO - Saving label encoded features for region
+2018-06-26 07:48:51,002 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 07:48:51,002 - __main__ - INFO - Numerical encoding categorical data for region
+2018-06-26 07:48:51,537 - __main__ - INFO - Numerical encoding categorical data for region
+2018-06-26 07:48:51,757 - __main__ - INFO - Saving label encoded features for region
+2018-06-26 07:48:52,632 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 1
+2018-06-26 07:48:52,634 - __main__ - INFO - Numerical encoding categorical data for city
+2018-06-26 07:48:53,389 - __main__ - INFO - Numerical encoding categorical data for city
+2018-06-26 07:48:53,732 - __main__ - INFO - Saving label encoded features for city
+2018-06-26 07:48:54,586 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 2
+2018-06-26 07:48:54,587 - __main__ - INFO - Numerical encoding categorical data for city
+2018-06-26 07:48:55,348 - __main__ - INFO - Numerical encoding categorical data for city
+2018-06-26 07:48:55,689 - __main__ - INFO - Saving label encoded features for city
+2018-06-26 07:48:56,521 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 5
+2018-06-26 07:48:56,522 - __main__ - INFO - Numerical encoding categorical data for city
+2018-06-26 07:48:57,263 - __main__ - INFO - Numerical encoding categorical data for city
+2018-06-26 07:48:57,540 - __main__ - INFO - Saving label encoded features for city
+2018-06-26 07:48:58,374 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 07:48:58,375 - __main__ - INFO - Numerical encoding categorical data for city
+2018-06-26 07:48:59,149 - __main__ - INFO - Numerical encoding categorical data for city
+2018-06-26 07:48:59,399 - __main__ - INFO - Saving label encoded features for city
+2018-06-26 07:49:00,005 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 1
+2018-06-26 07:49:00,006 - __main__ - INFO - Numerical encoding categorical data for parent_category_name
+2018-06-26 07:49:00,512 - __main__ - INFO - Numerical encoding categorical data for parent_category_name
+2018-06-26 07:49:00,703 - __main__ - INFO - Saving label encoded features for parent_category_name
+2018-06-26 07:49:01,309 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 2
+2018-06-26 07:49:01,310 - __main__ - INFO - Numerical encoding categorical data for parent_category_name
+2018-06-26 07:49:01,821 - __main__ - INFO - Numerical encoding categorical data for parent_category_name
+2018-06-26 07:49:02,103 - __main__ - INFO - Saving label encoded features for parent_category_name
+2018-06-26 07:49:02,760 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 5
+2018-06-26 07:49:02,761 - __main__ - INFO - Numerical encoding categorical data for parent_category_name
+2018-06-26 07:49:03,333 - __main__ - INFO - Numerical encoding categorical data for parent_category_name
+2018-06-26 07:49:03,585 - __main__ - INFO - Saving label encoded features for parent_category_name
+2018-06-26 07:49:04,342 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 07:49:04,342 - __main__ - INFO - Numerical encoding categorical data for parent_category_name
+2018-06-26 07:49:04,992 - __main__ - INFO - Numerical encoding categorical data for parent_category_name
+2018-06-26 07:49:05,165 - __main__ - INFO - Saving label encoded features for parent_category_name
+2018-06-26 07:49:05,840 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 1
+2018-06-26 07:49:05,841 - __main__ - INFO - Numerical encoding categorical data for category_name
+2018-06-26 07:49:06,412 - __main__ - INFO - Numerical encoding categorical data for category_name
+2018-06-26 07:49:06,696 - __main__ - INFO - Saving label encoded features for category_name
+2018-06-26 07:49:07,480 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 2
+2018-06-26 07:49:07,481 - __main__ - INFO - Numerical encoding categorical data for category_name
+2018-06-26 07:49:08,081 - __main__ - INFO - Numerical encoding categorical data for category_name
+2018-06-26 07:49:08,357 - __main__ - INFO - Saving label encoded features for category_name
+2018-06-26 07:49:08,969 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 5
+2018-06-26 07:49:08,970 - __main__ - INFO - Numerical encoding categorical data for category_name
+2018-06-26 07:49:09,516 - __main__ - INFO - Numerical encoding categorical data for category_name
+2018-06-26 07:49:09,796 - __main__ - INFO - Saving label encoded features for category_name
+2018-06-26 07:49:10,348 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 07:49:10,349 - __main__ - INFO - Numerical encoding categorical data for category_name
+2018-06-26 07:49:10,868 - __main__ - INFO - Numerical encoding categorical data for category_name
+2018-06-26 07:49:11,085 - __main__ - INFO - Saving label encoded features for category_name
+2018-06-26 07:49:11,719 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 1
+2018-06-26 07:49:11,720 - __main__ - INFO - Numerical encoding categorical data for param_1
+2018-06-26 07:49:12,236 - __main__ - INFO - Numerical encoding categorical data for param_1
+2018-06-26 07:49:12,474 - __main__ - INFO - Saving label encoded features for param_1
+2018-06-26 07:49:13,216 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 2
+2018-06-26 07:49:13,217 - __main__ - INFO - Numerical encoding categorical data for param_1
+2018-06-26 07:49:13,866 - __main__ - INFO - Numerical encoding categorical data for param_1
+2018-06-26 07:49:14,205 - __main__ - INFO - Saving label encoded features for param_1
+2018-06-26 07:49:14,994 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 5
+2018-06-26 07:49:14,995 - __main__ - INFO - Numerical encoding categorical data for param_1
+2018-06-26 07:49:15,609 - __main__ - INFO - Numerical encoding categorical data for param_1
+2018-06-26 07:49:15,793 - __main__ - INFO - Saving label encoded features for param_1
+2018-06-26 07:49:16,413 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 07:49:16,414 - __main__ - INFO - Numerical encoding categorical data for param_1
+2018-06-26 07:49:16,951 - __main__ - INFO - Numerical encoding categorical data for param_1
+2018-06-26 07:49:17,144 - __main__ - INFO - Saving label encoded features for param_1
+2018-06-26 07:49:17,955 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 1
+2018-06-26 07:49:17,956 - __main__ - INFO - Numerical encoding categorical data for param_2
+2018-06-26 07:49:18,640 - __main__ - INFO - Numerical encoding categorical data for param_2
+2018-06-26 07:49:19,024 - __main__ - INFO - Saving label encoded features for param_2
+2018-06-26 07:49:19,939 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 2
+2018-06-26 07:49:19,940 - __main__ - INFO - Numerical encoding categorical data for param_2
+2018-06-26 07:49:20,680 - __main__ - INFO - Numerical encoding categorical data for param_2
+2018-06-26 07:49:21,004 - __main__ - INFO - Saving label encoded features for param_2
+2018-06-26 07:49:21,828 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 5
+2018-06-26 07:49:21,829 - __main__ - INFO - Numerical encoding categorical data for param_2
+2018-06-26 07:49:22,541 - __main__ - INFO - Numerical encoding categorical data for param_2
+2018-06-26 07:49:22,772 - __main__ - INFO - Saving label encoded features for param_2
+2018-06-26 07:49:23,477 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 07:49:23,477 - __main__ - INFO - Numerical encoding categorical data for param_2
+2018-06-26 07:49:24,180 - __main__ - INFO - Numerical encoding categorical data for param_2
+2018-06-26 07:49:24,452 - __main__ - INFO - Saving label encoded features for param_2
+2018-06-26 07:49:25,241 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 1
+2018-06-26 07:49:25,244 - __main__ - INFO - Numerical encoding categorical data for param_3
+2018-06-26 07:49:26,006 - __main__ - INFO - Numerical encoding categorical data for param_3
+2018-06-26 07:49:26,272 - __main__ - INFO - Saving label encoded features for param_3
+2018-06-26 07:49:27,199 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 2
+2018-06-26 07:49:27,200 - __main__ - INFO - Numerical encoding categorical data for param_3
+2018-06-26 07:49:27,917 - __main__ - INFO - Numerical encoding categorical data for param_3
+2018-06-26 07:49:28,326 - __main__ - INFO - Saving label encoded features for param_3
+2018-06-26 07:49:29,098 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 5
+2018-06-26 07:49:29,099 - __main__ - INFO - Numerical encoding categorical data for param_3
+2018-06-26 07:49:29,799 - __main__ - INFO - Numerical encoding categorical data for param_3
+2018-06-26 07:49:30,161 - __main__ - INFO - Saving label encoded features for param_3
+2018-06-26 07:49:30,993 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 07:49:30,994 - __main__ - INFO - Numerical encoding categorical data for param_3
+2018-06-26 07:49:31,723 - __main__ - INFO - Numerical encoding categorical data for param_3
+2018-06-26 07:49:32,107 - __main__ - INFO - Saving label encoded features for param_3
+2018-06-26 07:49:32,876 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 1
+2018-06-26 07:49:32,877 - __main__ - INFO - Numerical encoding categorical data for image_top_1
+2018-06-26 07:49:33,468 - __main__ - INFO - Numerical encoding categorical data for image_top_1
+2018-06-26 07:49:33,740 - __main__ - INFO - Saving label encoded features for image_top_1
+2018-06-26 07:49:34,369 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 2
+2018-06-26 07:49:34,370 - __main__ - INFO - Numerical encoding categorical data for image_top_1
+2018-06-26 07:49:34,946 - __main__ - INFO - Numerical encoding categorical data for image_top_1
+2018-06-26 07:49:35,160 - __main__ - INFO - Saving label encoded features for image_top_1
+2018-06-26 07:49:35,811 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 5
+2018-06-26 07:49:35,812 - __main__ - INFO - Numerical encoding categorical data for image_top_1
+2018-06-26 07:49:36,465 - __main__ - INFO - Numerical encoding categorical data for image_top_1
+2018-06-26 07:49:36,771 - __main__ - INFO - Saving label encoded features for image_top_1
+2018-06-26 07:49:37,444 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 07:49:37,445 - __main__ - INFO - Numerical encoding categorical data for image_top_1
+2018-06-26 07:49:38,035 - __main__ - INFO - Numerical encoding categorical data for image_top_1
+2018-06-26 07:49:38,268 - __main__ - INFO - Saving label encoded features for image_top_1
+2018-06-26 07:49:38,865 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 1
+2018-06-26 07:49:38,865 - __main__ - INFO - Numerical encoding categorical data for user_type
+2018-06-26 07:49:39,373 - __main__ - INFO - Numerical encoding categorical data for user_type
+2018-06-26 07:49:39,661 - __main__ - INFO - Saving label encoded features for user_type
+2018-06-26 07:49:40,443 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 2
+2018-06-26 07:49:40,443 - __main__ - INFO - Numerical encoding categorical data for user_type
+2018-06-26 07:49:41,020 - __main__ - INFO - Numerical encoding categorical data for user_type
+2018-06-26 07:49:41,216 - __main__ - INFO - Saving label encoded features for user_type
+2018-06-26 07:49:41,803 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 5
+2018-06-26 07:49:41,805 - __main__ - INFO - Numerical encoding categorical data for user_type
+2018-06-26 07:49:42,304 - __main__ - INFO - Numerical encoding categorical data for user_type
+2018-06-26 07:49:42,530 - __main__ - INFO - Saving label encoded features for user_type
+2018-06-26 07:49:43,148 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 07:49:43,148 - __main__ - INFO - Numerical encoding categorical data for user_type
+2018-06-26 07:49:43,747 - __main__ - INFO - Numerical encoding categorical data for user_type
+2018-06-26 07:49:44,002 - __main__ - INFO - Saving label encoded features for user_type
+2018-06-26 07:49:44,054 - __main__ - INFO - Generating combination label encoding features
+2018-06-26 07:50:38,131 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 07:50:38,131 - __main__ - INFO - Numerical encoding categorical data for region_parent_category_name
+2018-06-26 07:50:39,065 - __main__ - INFO - Numerical encoding categorical data for region_parent_category_name
+2018-06-26 07:50:39,400 - __main__ - INFO - Saving label encoded features for region_parent_category_name and thresh 3
+2018-06-26 07:51:36,348 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 07:51:36,349 - __main__ - INFO - Numerical encoding categorical data for region_parent_category_name
+2018-06-26 07:51:37,148 - __main__ - INFO - Numerical encoding categorical data for region_parent_category_name
+2018-06-26 07:51:37,494 - __main__ - INFO - Saving label encoded features for region_parent_category_name and thresh 8
+2018-06-26 07:52:30,498 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 07:52:30,499 - __main__ - INFO - Numerical encoding categorical data for region_category_name
+2018-06-26 07:52:31,416 - __main__ - INFO - Numerical encoding categorical data for region_category_name
+2018-06-26 07:52:31,781 - __main__ - INFO - Saving label encoded features for region_category_name and thresh 3
+2018-06-26 07:53:30,190 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 07:53:30,191 - __main__ - INFO - Numerical encoding categorical data for region_category_name
+2018-06-26 07:53:31,093 - __main__ - INFO - Numerical encoding categorical data for region_category_name
+2018-06-26 07:53:31,454 - __main__ - INFO - Saving label encoded features for region_category_name and thresh 8
+2018-06-26 07:54:24,656 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 07:54:24,661 - __main__ - INFO - Numerical encoding categorical data for region_param_1
+2018-06-26 07:54:25,793 - __main__ - INFO - Numerical encoding categorical data for region_param_1
+2018-06-26 07:54:26,165 - __main__ - INFO - Saving label encoded features for region_param_1 and thresh 3
+2018-06-26 07:55:24,578 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 07:55:24,583 - __main__ - INFO - Numerical encoding categorical data for region_param_1
+2018-06-26 07:55:25,582 - __main__ - INFO - Numerical encoding categorical data for region_param_1
+2018-06-26 07:55:25,949 - __main__ - INFO - Saving label encoded features for region_param_1 and thresh 8
+2018-06-26 07:56:18,952 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 07:56:18,955 - __main__ - INFO - Numerical encoding categorical data for region_param_2
+2018-06-26 07:56:19,846 - __main__ - INFO - Numerical encoding categorical data for region_param_2
+2018-06-26 07:56:20,174 - __main__ - INFO - Saving label encoded features for region_param_2 and thresh 3
+2018-06-26 07:57:19,149 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 07:57:19,152 - __main__ - INFO - Numerical encoding categorical data for region_param_2
+2018-06-26 07:57:19,989 - __main__ - INFO - Numerical encoding categorical data for region_param_2
+2018-06-26 07:57:20,346 - __main__ - INFO - Saving label encoded features for region_param_2 and thresh 8
+2018-06-26 07:58:14,978 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 07:58:14,985 - __main__ - INFO - Numerical encoding categorical data for region_param_3
+2018-06-26 07:58:15,854 - __main__ - INFO - Numerical encoding categorical data for region_param_3
+2018-06-26 07:58:16,210 - __main__ - INFO - Saving label encoded features for region_param_3 and thresh 3
+2018-06-26 07:59:17,139 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 07:59:17,145 - __main__ - INFO - Numerical encoding categorical data for region_param_3
+2018-06-26 07:59:18,029 - __main__ - INFO - Numerical encoding categorical data for region_param_3
+2018-06-26 07:59:18,471 - __main__ - INFO - Saving label encoded features for region_param_3 and thresh 8
+2018-06-26 08:00:12,021 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:00:12,069 - __main__ - INFO - Numerical encoding categorical data for region_image_top_1
+2018-06-26 08:00:13,329 - __main__ - INFO - Numerical encoding categorical data for region_image_top_1
+2018-06-26 08:00:13,847 - __main__ - INFO - Saving label encoded features for region_image_top_1 and thresh 3
+2018-06-26 08:01:13,291 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:01:13,326 - __main__ - INFO - Numerical encoding categorical data for region_image_top_1
+2018-06-26 08:01:14,747 - __main__ - INFO - Numerical encoding categorical data for region_image_top_1
+2018-06-26 08:01:15,421 - __main__ - INFO - Saving label encoded features for region_image_top_1 and thresh 8
+2018-06-26 08:02:12,391 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:02:12,392 - __main__ - INFO - Numerical encoding categorical data for region_user_type
+2018-06-26 08:02:13,103 - __main__ - INFO - Numerical encoding categorical data for region_user_type
+2018-06-26 08:02:13,385 - __main__ - INFO - Saving label encoded features for region_user_type and thresh 3
+2018-06-26 08:03:11,623 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:03:11,623 - __main__ - INFO - Numerical encoding categorical data for region_user_type
+2018-06-26 08:03:12,364 - __main__ - INFO - Numerical encoding categorical data for region_user_type
+2018-06-26 08:03:12,643 - __main__ - INFO - Saving label encoded features for region_user_type and thresh 8
+2018-06-26 08:04:08,836 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:04:08,846 - __main__ - INFO - Numerical encoding categorical data for city_parent_category_name
+2018-06-26 08:04:10,180 - __main__ - INFO - Numerical encoding categorical data for city_parent_category_name
+2018-06-26 08:04:10,670 - __main__ - INFO - Saving label encoded features for city_parent_category_name and thresh 3
+2018-06-26 08:05:09,968 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:05:09,975 - __main__ - INFO - Numerical encoding categorical data for city_parent_category_name
+2018-06-26 08:05:10,973 - __main__ - INFO - Numerical encoding categorical data for city_parent_category_name
+2018-06-26 08:05:11,363 - __main__ - INFO - Saving label encoded features for city_parent_category_name and thresh 8
+2018-06-26 08:06:05,322 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:06:05,336 - __main__ - INFO - Numerical encoding categorical data for city_category_name
+2018-06-26 08:06:06,604 - __main__ - INFO - Numerical encoding categorical data for city_category_name
+2018-06-26 08:06:06,977 - __main__ - INFO - Saving label encoded features for city_category_name and thresh 3
+2018-06-26 08:07:08,366 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:07:08,378 - __main__ - INFO - Numerical encoding categorical data for city_category_name
+2018-06-26 08:07:09,521 - __main__ - INFO - Numerical encoding categorical data for city_category_name
+2018-06-26 08:07:10,058 - __main__ - INFO - Saving label encoded features for city_category_name and thresh 8
+2018-06-26 08:08:06,000 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:08:06,036 - __main__ - INFO - Numerical encoding categorical data for city_param_1
+2018-06-26 08:08:07,566 - __main__ - INFO - Numerical encoding categorical data for city_param_1
+2018-06-26 08:08:08,210 - __main__ - INFO - Saving label encoded features for city_param_1 and thresh 3
+2018-06-26 08:09:10,558 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:09:10,586 - __main__ - INFO - Numerical encoding categorical data for city_param_1
+2018-06-26 08:09:11,907 - __main__ - INFO - Numerical encoding categorical data for city_param_1
+2018-06-26 08:09:12,447 - __main__ - INFO - Saving label encoded features for city_param_1 and thresh 8
+2018-06-26 08:10:05,449 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:10:05,472 - __main__ - INFO - Numerical encoding categorical data for city_param_2
+2018-06-26 08:10:06,684 - __main__ - INFO - Numerical encoding categorical data for city_param_2
+2018-06-26 08:10:07,122 - __main__ - INFO - Saving label encoded features for city_param_2 and thresh 3
+2018-06-26 08:11:08,605 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:11:08,623 - __main__ - INFO - Numerical encoding categorical data for city_param_2
+2018-06-26 08:11:09,725 - __main__ - INFO - Numerical encoding categorical data for city_param_2
+2018-06-26 08:11:10,172 - __main__ - INFO - Saving label encoded features for city_param_2 and thresh 8
+2018-06-26 08:12:03,087 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:12:03,111 - __main__ - INFO - Numerical encoding categorical data for city_param_3
+2018-06-26 08:12:04,247 - __main__ - INFO - Numerical encoding categorical data for city_param_3
+2018-06-26 08:12:04,630 - __main__ - INFO - Saving label encoded features for city_param_3 and thresh 3
+2018-06-26 08:13:06,404 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:13:06,451 - __main__ - INFO - Numerical encoding categorical data for city_param_3
+2018-06-26 08:13:07,523 - __main__ - INFO - Numerical encoding categorical data for city_param_3
+2018-06-26 08:13:07,940 - __main__ - INFO - Saving label encoded features for city_param_3 and thresh 8
+2018-06-26 08:14:03,289 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:14:03,406 - __main__ - INFO - Numerical encoding categorical data for city_image_top_1
+2018-06-26 08:14:05,154 - __main__ - INFO - Numerical encoding categorical data for city_image_top_1
+2018-06-26 08:14:05,818 - __main__ - INFO - Saving label encoded features for city_image_top_1 and thresh 3
+2018-06-26 08:15:10,896 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:15:10,996 - __main__ - INFO - Numerical encoding categorical data for city_image_top_1
+2018-06-26 08:15:12,394 - __main__ - INFO - Numerical encoding categorical data for city_image_top_1
+2018-06-26 08:15:13,046 - __main__ - INFO - Saving label encoded features for city_image_top_1 and thresh 8
+2018-06-26 08:16:07,897 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:16:07,900 - __main__ - INFO - Numerical encoding categorical data for city_user_type
+2018-06-26 08:16:08,835 - __main__ - INFO - Numerical encoding categorical data for city_user_type
+2018-06-26 08:16:09,192 - __main__ - INFO - Saving label encoded features for city_user_type and thresh 3
+2018-06-26 08:17:13,721 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:17:13,724 - __main__ - INFO - Numerical encoding categorical data for city_user_type
+2018-06-26 08:17:14,662 - __main__ - INFO - Numerical encoding categorical data for city_user_type
+2018-06-26 08:17:14,993 - __main__ - INFO - Saving label encoded features for city_user_type and thresh 8
+2018-06-26 08:18:07,658 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:18:07,659 - __main__ - INFO - Numerical encoding categorical data for parent_category_name_param_1
+2018-06-26 08:18:08,486 - __main__ - INFO - Numerical encoding categorical data for parent_category_name_param_1
+2018-06-26 08:18:08,818 - __main__ - INFO - Saving label encoded features for parent_category_name_param_1 and thresh 3
+2018-06-26 08:19:12,028 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:19:12,029 - __main__ - INFO - Numerical encoding categorical data for parent_category_name_param_1
+2018-06-26 08:19:12,727 - __main__ - INFO - Numerical encoding categorical data for parent_category_name_param_1
+2018-06-26 08:19:13,047 - __main__ - INFO - Saving label encoded features for parent_category_name_param_1 and thresh 8
+2018-06-26 08:20:07,032 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:20:07,032 - __main__ - INFO - Numerical encoding categorical data for parent_category_name_param_2
+2018-06-26 08:20:07,796 - __main__ - INFO - Numerical encoding categorical data for parent_category_name_param_2
+2018-06-26 08:20:08,085 - __main__ - INFO - Saving label encoded features for parent_category_name_param_2 and thresh 3
+2018-06-26 08:21:12,406 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:21:12,407 - __main__ - INFO - Numerical encoding categorical data for parent_category_name_param_2
+2018-06-26 08:21:13,140 - __main__ - INFO - Numerical encoding categorical data for parent_category_name_param_2
+2018-06-26 08:21:13,475 - __main__ - INFO - Saving label encoded features for parent_category_name_param_2 and thresh 8
+2018-06-26 08:22:08,818 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:22:08,820 - __main__ - INFO - Numerical encoding categorical data for parent_category_name_param_3
+2018-06-26 08:22:09,527 - __main__ - INFO - Numerical encoding categorical data for parent_category_name_param_3
+2018-06-26 08:22:09,785 - __main__ - INFO - Saving label encoded features for parent_category_name_param_3 and thresh 3
+2018-06-26 08:23:14,800 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:23:14,801 - __main__ - INFO - Numerical encoding categorical data for parent_category_name_param_3
+2018-06-26 08:23:15,531 - __main__ - INFO - Numerical encoding categorical data for parent_category_name_param_3
+2018-06-26 08:23:15,890 - __main__ - INFO - Saving label encoded features for parent_category_name_param_3 and thresh 8
+2018-06-26 08:24:09,937 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:24:09,947 - __main__ - INFO - Numerical encoding categorical data for parent_category_name_image_top_1
+2018-06-26 08:24:10,779 - __main__ - INFO - Numerical encoding categorical data for parent_category_name_image_top_1
+2018-06-26 08:24:11,082 - __main__ - INFO - Saving label encoded features for parent_category_name_image_top_1 and thresh 3
+2018-06-26 08:25:14,536 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:25:14,545 - __main__ - INFO - Numerical encoding categorical data for parent_category_name_image_top_1
+2018-06-26 08:25:15,407 - __main__ - INFO - Numerical encoding categorical data for parent_category_name_image_top_1
+2018-06-26 08:25:15,789 - __main__ - INFO - Saving label encoded features for parent_category_name_image_top_1 and thresh 8
+2018-06-26 08:26:09,266 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:26:09,267 - __main__ - INFO - Numerical encoding categorical data for parent_category_name_user_type
+2018-06-26 08:26:09,958 - __main__ - INFO - Numerical encoding categorical data for parent_category_name_user_type
+2018-06-26 08:26:10,309 - __main__ - INFO - Saving label encoded features for parent_category_name_user_type and thresh 3
+2018-06-26 08:27:13,245 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:27:13,245 - __main__ - INFO - Numerical encoding categorical data for parent_category_name_user_type
+2018-06-26 08:27:13,931 - __main__ - INFO - Numerical encoding categorical data for parent_category_name_user_type
+2018-06-26 08:27:14,245 - __main__ - INFO - Saving label encoded features for parent_category_name_user_type and thresh 8
+2018-06-26 08:28:08,908 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:28:08,909 - __main__ - INFO - Numerical encoding categorical data for category_name_param_1
+2018-06-26 08:28:09,887 - __main__ - INFO - Numerical encoding categorical data for category_name_param_1
+2018-06-26 08:28:10,247 - __main__ - INFO - Saving label encoded features for category_name_param_1 and thresh 3
+2018-06-26 08:29:13,735 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:29:13,736 - __main__ - INFO - Numerical encoding categorical data for category_name_param_1
+2018-06-26 08:29:14,579 - __main__ - INFO - Numerical encoding categorical data for category_name_param_1
+2018-06-26 08:29:15,049 - __main__ - INFO - Saving label encoded features for category_name_param_1 and thresh 8
+2018-06-26 08:30:07,354 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:30:07,355 - __main__ - INFO - Numerical encoding categorical data for category_name_param_2
+2018-06-26 08:30:08,215 - __main__ - INFO - Numerical encoding categorical data for category_name_param_2
+2018-06-26 08:30:08,646 - __main__ - INFO - Saving label encoded features for category_name_param_2 and thresh 3
+2018-06-26 08:31:12,975 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:31:12,975 - __main__ - INFO - Numerical encoding categorical data for category_name_param_2
+2018-06-26 08:31:13,815 - __main__ - INFO - Numerical encoding categorical data for category_name_param_2
+2018-06-26 08:31:14,233 - __main__ - INFO - Saving label encoded features for category_name_param_2 and thresh 8
+2018-06-26 08:32:08,022 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:32:08,023 - __main__ - INFO - Numerical encoding categorical data for category_name_param_3
+2018-06-26 08:32:08,755 - __main__ - INFO - Numerical encoding categorical data for category_name_param_3
+2018-06-26 08:32:09,051 - __main__ - INFO - Saving label encoded features for category_name_param_3 and thresh 3
+2018-06-26 08:33:15,284 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:33:15,286 - __main__ - INFO - Numerical encoding categorical data for category_name_param_3
+2018-06-26 08:33:16,085 - __main__ - INFO - Numerical encoding categorical data for category_name_param_3
+2018-06-26 08:33:16,449 - __main__ - INFO - Saving label encoded features for category_name_param_3 and thresh 8
+2018-06-26 08:34:08,993 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:34:09,012 - __main__ - INFO - Numerical encoding categorical data for category_name_image_top_1
+2018-06-26 08:34:10,016 - __main__ - INFO - Numerical encoding categorical data for category_name_image_top_1
+2018-06-26 08:34:10,385 - __main__ - INFO - Saving label encoded features for category_name_image_top_1 and thresh 3
+2018-06-26 08:35:14,855 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:35:14,872 - __main__ - INFO - Numerical encoding categorical data for category_name_image_top_1
+2018-06-26 08:35:15,797 - __main__ - INFO - Numerical encoding categorical data for category_name_image_top_1
+2018-06-26 08:35:16,221 - __main__ - INFO - Saving label encoded features for category_name_image_top_1 and thresh 8
+2018-06-26 08:36:09,478 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:36:09,479 - __main__ - INFO - Numerical encoding categorical data for category_name_user_type
+2018-06-26 08:36:10,387 - __main__ - INFO - Numerical encoding categorical data for category_name_user_type
+2018-06-26 08:36:10,833 - __main__ - INFO - Saving label encoded features for category_name_user_type and thresh 3
+2018-06-26 08:37:16,828 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:37:16,829 - __main__ - INFO - Numerical encoding categorical data for category_name_user_type
+2018-06-26 08:37:17,532 - __main__ - INFO - Numerical encoding categorical data for category_name_user_type
+2018-06-26 08:37:17,849 - __main__ - INFO - Saving label encoded features for category_name_user_type and thresh 8
+2018-06-26 08:38:13,538 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:38:13,539 - __main__ - INFO - Numerical encoding categorical data for param_1_param_2
+2018-06-26 08:38:14,429 - __main__ - INFO - Numerical encoding categorical data for param_1_param_2
+2018-06-26 08:38:14,746 - __main__ - INFO - Saving label encoded features for param_1_param_2 and thresh 3
+2018-06-26 08:39:20,873 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:39:20,874 - __main__ - INFO - Numerical encoding categorical data for param_1_param_2
+2018-06-26 08:39:21,537 - __main__ - INFO - Numerical encoding categorical data for param_1_param_2
+2018-06-26 08:39:21,811 - __main__ - INFO - Saving label encoded features for param_1_param_2 and thresh 8
+2018-06-26 08:40:16,587 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:40:16,589 - __main__ - INFO - Numerical encoding categorical data for param_1_param_3
+2018-06-26 08:40:17,339 - __main__ - INFO - Numerical encoding categorical data for param_1_param_3
+2018-06-26 08:40:17,633 - __main__ - INFO - Saving label encoded features for param_1_param_3 and thresh 3
+2018-06-26 08:41:25,225 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:41:25,226 - __main__ - INFO - Numerical encoding categorical data for param_1_param_3
+2018-06-26 08:41:25,913 - __main__ - INFO - Numerical encoding categorical data for param_1_param_3
+2018-06-26 08:41:26,210 - __main__ - INFO - Saving label encoded features for param_1_param_3 and thresh 8
+2018-06-26 08:42:21,102 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:42:21,132 - __main__ - INFO - Numerical encoding categorical data for param_1_image_top_1
+2018-06-26 08:42:22,075 - __main__ - INFO - Numerical encoding categorical data for param_1_image_top_1
+2018-06-26 08:42:22,467 - __main__ - INFO - Saving label encoded features for param_1_image_top_1 and thresh 3
+2018-06-26 08:43:30,363 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:43:30,391 - __main__ - INFO - Numerical encoding categorical data for param_1_image_top_1
+2018-06-26 08:43:31,407 - __main__ - INFO - Numerical encoding categorical data for param_1_image_top_1
+2018-06-26 08:43:31,830 - __main__ - INFO - Saving label encoded features for param_1_image_top_1 and thresh 8
+2018-06-26 08:44:26,224 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:44:26,226 - __main__ - INFO - Numerical encoding categorical data for param_1_user_type
+2018-06-26 08:44:27,056 - __main__ - INFO - Numerical encoding categorical data for param_1_user_type
+2018-06-26 08:44:27,407 - __main__ - INFO - Saving label encoded features for param_1_user_type and thresh 3
+2018-06-26 08:45:36,308 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:45:36,309 - __main__ - INFO - Numerical encoding categorical data for param_1_user_type
+2018-06-26 08:45:37,128 - __main__ - INFO - Numerical encoding categorical data for param_1_user_type
+2018-06-26 08:45:37,472 - __main__ - INFO - Saving label encoded features for param_1_user_type and thresh 8
+2018-06-26 08:46:30,827 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:46:30,829 - __main__ - INFO - Numerical encoding categorical data for param_2_param_3
+2018-06-26 08:46:31,630 - __main__ - INFO - Numerical encoding categorical data for param_2_param_3
+2018-06-26 08:46:31,930 - __main__ - INFO - Saving label encoded features for param_2_param_3 and thresh 3
+2018-06-26 08:47:40,490 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:47:40,492 - __main__ - INFO - Numerical encoding categorical data for param_2_param_3
+2018-06-26 08:47:41,325 - __main__ - INFO - Numerical encoding categorical data for param_2_param_3
+2018-06-26 08:47:41,697 - __main__ - INFO - Saving label encoded features for param_2_param_3 and thresh 8
+2018-06-26 08:48:36,458 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:48:36,474 - __main__ - INFO - Numerical encoding categorical data for param_2_image_top_1
+2018-06-26 08:48:37,572 - __main__ - INFO - Numerical encoding categorical data for param_2_image_top_1
+2018-06-26 08:48:37,936 - __main__ - INFO - Saving label encoded features for param_2_image_top_1 and thresh 3
+2018-06-26 08:49:45,061 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:49:45,075 - __main__ - INFO - Numerical encoding categorical data for param_2_image_top_1
+2018-06-26 08:49:45,900 - __main__ - INFO - Numerical encoding categorical data for param_2_image_top_1
+2018-06-26 08:49:46,252 - __main__ - INFO - Saving label encoded features for param_2_image_top_1 and thresh 8
+2018-06-26 08:50:43,789 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:50:43,803 - __main__ - INFO - Numerical encoding categorical data for param_3_image_top_1
+2018-06-26 08:50:44,587 - __main__ - INFO - Numerical encoding categorical data for param_3_image_top_1
+2018-06-26 08:50:44,969 - __main__ - INFO - Saving label encoded features for param_3_image_top_1 and thresh 3
+2018-06-26 08:51:52,869 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:51:52,883 - __main__ - INFO - Numerical encoding categorical data for param_3_image_top_1
+2018-06-26 08:51:53,678 - __main__ - INFO - Numerical encoding categorical data for param_3_image_top_1
+2018-06-26 08:51:54,063 - __main__ - INFO - Saving label encoded features for param_3_image_top_1 and thresh 8
+2018-06-26 08:52:48,355 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:52:48,361 - __main__ - INFO - Numerical encoding categorical data for image_top_1_user_type
+2018-06-26 08:52:49,183 - __main__ - INFO - Numerical encoding categorical data for image_top_1_user_type
+2018-06-26 08:52:49,578 - __main__ - INFO - Saving label encoded features for image_top_1_user_type and thresh 3
+2018-06-26 08:53:57,138 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:53:57,142 - __main__ - INFO - Numerical encoding categorical data for image_top_1_user_type
+2018-06-26 08:53:57,786 - __main__ - INFO - Numerical encoding categorical data for image_top_1_user_type
+2018-06-26 08:53:58,107 - __main__ - INFO - Saving label encoded features for image_top_1_user_type and thresh 8
+2018-06-26 08:54:51,935 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:54:51,940 - __main__ - INFO - Numerical encoding categorical data for region_category_name_param_1
+2018-06-26 08:54:53,192 - __main__ - INFO - Numerical encoding categorical data for region_category_name_param_1
+2018-06-26 08:54:53,699 - __main__ - INFO - Saving label encoded features for region_category_name_param_1 and thresh 3
+2018-06-26 08:56:02,329 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:56:02,334 - __main__ - INFO - Numerical encoding categorical data for region_category_name_param_1
+2018-06-26 08:56:03,507 - __main__ - INFO - Numerical encoding categorical data for region_category_name_param_1
+2018-06-26 08:56:04,003 - __main__ - INFO - Saving label encoded features for region_category_name_param_1 and thresh 8
+2018-06-26 08:56:57,729 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:56:57,731 - __main__ - INFO - Numerical encoding categorical data for user_type_region_parent_category_name
+2018-06-26 08:56:58,550 - __main__ - INFO - Numerical encoding categorical data for user_type_region_parent_category_name
+2018-06-26 08:56:58,909 - __main__ - INFO - Saving label encoded features for user_type_region_parent_category_name and thresh 3
+2018-06-26 08:58:09,975 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 08:58:09,976 - __main__ - INFO - Numerical encoding categorical data for user_type_region_parent_category_name
+2018-06-26 08:58:10,946 - __main__ - INFO - Numerical encoding categorical data for user_type_region_parent_category_name
+2018-06-26 08:58:11,298 - __main__ - INFO - Saving label encoded features for user_type_region_parent_category_name and thresh 8
+2018-06-26 08:59:07,350 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 08:59:07,363 - __main__ - INFO - Numerical encoding categorical data for user_type_region_category_name_param_1
+2018-06-26 08:59:08,589 - __main__ - INFO - Numerical encoding categorical data for user_type_region_category_name_param_1
+2018-06-26 08:59:09,202 - __main__ - INFO - Saving label encoded features for user_type_region_category_name_param_1 and thresh 3
+2018-06-26 09:00:20,786 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 09:00:20,798 - __main__ - INFO - Numerical encoding categorical data for user_type_region_category_name_param_1
+2018-06-26 09:00:22,063 - __main__ - INFO - Numerical encoding categorical data for user_type_region_category_name_param_1
+2018-06-26 09:00:22,510 - __main__ - INFO - Saving label encoded features for user_type_region_category_name_param_1 and thresh 8
+2018-06-26 09:01:19,336 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 09:01:19,358 - __main__ - INFO - Numerical encoding categorical data for user_type_region_category_name_param_1_param_2
+2018-06-26 09:01:20,877 - __main__ - INFO - Numerical encoding categorical data for user_type_region_category_name_param_1_param_2
+2018-06-26 09:01:21,606 - __main__ - INFO - Saving label encoded features for user_type_region_category_name_param_1_param_2 and thresh 3
+2018-06-26 09:02:34,023 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 09:02:34,042 - __main__ - INFO - Numerical encoding categorical data for user_type_region_category_name_param_1_param_2
+2018-06-26 09:02:35,456 - __main__ - INFO - Numerical encoding categorical data for user_type_region_category_name_param_1_param_2
+2018-06-26 09:02:36,108 - __main__ - INFO - Saving label encoded features for user_type_region_category_name_param_1_param_2 and thresh 8
+2018-06-26 09:03:34,669 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 09:03:34,729 - __main__ - INFO - Numerical encoding categorical data for user_type_city_category_name_param_1
+2018-06-26 09:03:36,692 - __main__ - INFO - Numerical encoding categorical data for user_type_city_category_name_param_1
+2018-06-26 09:03:37,472 - __main__ - INFO - Saving label encoded features for user_type_city_category_name_param_1 and thresh 3
+2018-06-26 09:04:53,665 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 09:04:53,716 - __main__ - INFO - Numerical encoding categorical data for user_type_city_category_name_param_1
+2018-06-26 09:04:55,176 - __main__ - INFO - Numerical encoding categorical data for user_type_city_category_name_param_1
+2018-06-26 09:04:55,861 - __main__ - INFO - Saving label encoded features for user_type_city_category_name_param_1 and thresh 8
+2018-06-26 09:05:53,655 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 3
+2018-06-26 09:05:53,737 - __main__ - INFO - Numerical encoding categorical data for user_type_city_category_name_param_1_param_2
+2018-06-26 09:05:55,514 - __main__ - INFO - Numerical encoding categorical data for user_type_city_category_name_param_1_param_2
+2018-06-26 09:05:56,398 - __main__ - INFO - Saving label encoded features for user_type_city_category_name_param_1_param_2 and thresh 3
+2018-06-26 09:07:12,951 - __main__ - INFO - Fitting dictionary with label to number mapping with threshold 8
+2018-06-26 09:07:13,022 - __main__ - INFO - Numerical encoding categorical data for user_type_city_category_name_param_1_param_2
+2018-06-26 09:07:14,687 - __main__ - INFO - Numerical encoding categorical data for user_type_city_category_name_param_1_param_2
+2018-06-26 09:07:15,471 - __main__ - INFO - Saving label encoded features for user_type_city_category_name_param_1_param_2 and thresh 8
+2018-06-26 09:07:15,586 - __main__ - INFO - Generating target encoding features
+2018-06-26 09:16:56,487 - __main__ - INFO - Saving target encoded features for user_id, thresh: 1
+2018-06-26 09:26:44,698 - __main__ - INFO - Saving target encoded features for user_id, thresh: 3
+2018-06-26 09:27:06,754 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:27:29,057 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:27:53,367 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:28:15,862 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:28:37,455 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:29:00,627 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:29:20,950 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:29:43,136 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:30:05,630 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:30:25,864 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:30:47,741 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:31:09,776 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:31:29,796 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:31:51,698 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:32:16,203 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:32:40,133 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:33:00,051 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:33:22,178 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:33:22,179 - __main__ - INFO - Generating target encoding features for combinations
+2018-06-26 09:33:45,818 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:34:09,271 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:34:32,799 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:34:55,993 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:35:20,348 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:35:43,873 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:36:07,020 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:36:29,990 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:36:53,090 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:37:16,539 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:37:43,575 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:38:21,944 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:38:44,983 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:39:07,805 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:39:34,821 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:40:02,677 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:40:32,829 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:41:02,046 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:41:32,865 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:42:03,549 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:42:32,329 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:43:01,425 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:43:30,385 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:43:59,740 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:44:37,675 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:45:15,204 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:45:40,173 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:46:04,748 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:46:27,573 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:46:50,246 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:47:12,519 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:47:34,652 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:47:58,914 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:48:22,067 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:48:50,145 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:49:14,583 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:49:35,924 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:49:58,897 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:50:22,845 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:50:46,488 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:51:10,573 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:51:33,957 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:51:57,503 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:52:21,973 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:52:50,254 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:53:16,794 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:53:40,289 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:54:03,253 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:54:25,943 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:54:49,757 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:55:13,359 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:55:37,179 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:56:05,517 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:56:32,778 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:56:55,059 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:57:18,882 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:57:42,037 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:58:06,356 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:58:32,831 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:58:59,150 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:59:25,017 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 09:59:51,471 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 10:00:16,788 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 10:00:42,156 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 10:01:08,228 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 10:01:33,560 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 10:01:59,171 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 10:02:25,424 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 10:02:54,829 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 10:03:24,683 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 10:03:57,596 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 10:04:30,206 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 10:05:07,557 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 10:05:44,669 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 10:05:56,989 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 10:06:00,295 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 10:06:01,214 - __main__ - INFO - Generating target encoding features
+2018-06-26 10:06:15,914 - __main__ - INFO - Could not find a valid transformation

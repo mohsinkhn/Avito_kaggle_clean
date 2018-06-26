@@ -67,3 +67,37 @@
 2018-06-24 09:47:49,587 - __main__ - INFO - Saving label encoded features for param_3 and thresh 5
 2018-06-24 09:47:55,188 - __main__ - INFO - Saving label encoded features for image_top_1 and thresh 5
 2018-06-24 09:47:59,582 - __main__ - INFO - Saving label encoded features for user_type and thresh 5
+2018-06-26 10:10:01,141 - __main__ - INFO - Reading data
+2018-06-26 10:11:02,805 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-26 10:11:02,805 - __main__ - INFO - Cleaning and binning price
+2018-06-26 10:11:03,002 - __main__ - INFO - Fill missing price with category mean
+2018-06-26 10:11:03,698 - __main__ - INFO - Missing values for price in train and test after imputation are                 0  and 0
+2018-06-26 10:11:03,698 - __main__ - INFO - 
+2018-06-26 10:11:03,698 - __main__ - INFO - Binning price
+2018-06-26 10:11:18,408 - __main__ - INFO - Generating target encoding features for combinations
+2018-06-26 10:11:31,187 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 10:11:39,848 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 10:11:44,534 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 10:11:46,626 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 10:14:46,655 - __main__ - INFO - Reading data
+2018-06-26 10:15:48,357 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-26 10:15:48,358 - __main__ - INFO - Cleaning and binning price
+2018-06-26 10:15:48,530 - __main__ - INFO - Fill missing price with category mean
+2018-06-26 10:15:49,394 - __main__ - INFO - Missing values for price in train and test after imputation are                 0  and 0
+2018-06-26 10:15:49,396 - __main__ - INFO - 
+2018-06-26 10:15:49,397 - __main__ - INFO - Binning price
+2018-06-26 10:16:23,848 - __main__ - INFO - Generating target encoding features for combinations
+2018-06-26 10:16:36,168 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 10:16:42,529 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 10:16:51,919 - __main__ - INFO - Could not find a valid transformation
+2018-06-26 10:17:04,814 - __main__ - INFO - Reading data
+2018-06-26 10:18:03,941 - __main__ - INFO - Done. Read data with shape (1503424, 19) and (508438, 19)
+2018-06-26 10:18:03,942 - __main__ - INFO - Cleaning and binning price
+2018-06-26 10:18:04,090 - __main__ - INFO - Fill missing price with category mean
+2018-06-26 10:18:04,737 - __main__ - INFO - Missing values for price in train and test after imputation are                 0  and 0
+2018-06-26 10:18:04,741 - __main__ - INFO - 
+2018-06-26 10:18:04,744 - __main__ - INFO - Binning price
+2018-06-26 10:18:34,389 - __main__ - INFO - Generating target encoding features for combinations
+2018-06-26 10:19:30,709 - __main__ - INFO - Generating target encoding features for combinations
+2018-06-26 10:20:25,253 - __main__ - INFO - Generating target encoding features for combinations
+2018-06-26 10:20:37,236 - __main__ - INFO - Saving label encoded features for price_binned_param_1_2_3 and thresh 5
