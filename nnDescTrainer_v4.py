@@ -19,55 +19,50 @@ if __name__=="__main__":
     #########################################################
     ##  Set Parameters for NN ##
     #########################################################
-    LOGGER_FILE = "logs/nnCategorical_trainerv1.log"
-    MODEL_ID = "catnum_v1"
+    LOGGER_FILE = "logs/nnDesc_trainerv4.log"
+    MODEL_ID = "desc_v4"
     MODEL_CHECK_FILENAME = "{}.check".format(MODEL_ID)
-    CAT_NAMES = ["region_lbenc_1", "image_top_1_lbenc_1", "city_lbenc_1",
-                 "parent_category_name_lbenc_1", "category_name_lbenc_1",
-                 "param_1_lbenc_1", "param_2_lbenc_1", "param_3_lbenc_1",
-                 "user_type_lbenc_1", "param_1_param_2_lbenc_3",
-                #"user_id_lbenc_8"
+    DESC_NAMES = ["desctokens_2",
+                   "desc2gramtokens_1"
                  ]
 
     #Settings for categoricals
-    CAT_DIMS = [1] * len(CAT_NAMES)
-    CAT_TYPES = ["embedding"] * len(CAT_NAMES)
-    CAT_EMBED_INPS = [28, 1752, 3063, 9, 47, 372, 278, 1277, 3, 727]
-    CAT_EMBED_OUTS = [24, 32,     32, 16, 32, 16, 6,   16, 8 , 8]
-    CAT_EMBED_KWARGS = [{"input_dim": inp, "output_dim": out, "embeddings_initializer":"glorot_uniform"}
-                          for inp, out in zip(CAT_EMBED_INPS, CAT_EMBED_OUTS)] #+\
-                        #[{"input_dim": 584637, "output_dim": 16, "embeddings_initializer":"glorot_uniform",
-                        #  "embeddings_regularizer": regularizers.l2(1e-6)}]
-
-    CAT_RNN_KWARGS = [None] * len(CAT_NAMES)
-    CAT_POOLING = ["flatten"] * len(CAT_NAMES)
+    DESC_DIMS = [80, 20]
+    DESC_TYPES = ["embedding"] * 2
+    DESC_EMBED_KWARGS = [{"input_dim": 50000, "output_dim": 24,
+                           "input_length": 80, },
+                          {"input_dim": 20000, "output_dim": 12,
+                           "input_length": 20, }
+                          ]
+    DESC_RNN_KWARGS = [None, None]
+    DESC_POOLING = ["attention"] * 2
 
     #Settings for Continous
-    CONTS = ["price", "item_seq_number", "image_top_1_cont", "user_id_trenc_1"]
-    COUNTS = ['user_id_counts', 'param_1_counts', 'user_type_counts', 'param_1_user_type_activation_date_counts',
-                  'param_2_user_type_activation_date_counts',
-                  'region_param_1_user_type_activation_date_counts',
-                  'city_category_name_param_1_user_type_counts',
-                  'city_category_name_param_2_user_type_counts']
-    CONT_NAMES = CONTS + COUNTS
-    CONT_DIMS = [1] * (len(CONT_NAMES))
-    CONT_TYPES = ["dense"] * (len(CONT_NAMES))
-    CONT_DENSE_DIMS = [24, 16, 16, 16] + [12] * len(COUNTS)
-    CONT_DENSE_KWARGS = [{"units": units, "kernel_initializer": "glorot_normal"} for units in CONT_DENSE_DIMS]
-    CONT_RNN_KWARGS = [None] * (len(CONT_NAMES))
-    CONT_POOLING = [None] * (len(CONT_NAMES))
+    #CONTS = ["price", "item_seq_number", "image_top_1_cont", "user_id_trenc_1"]
+    #COUNTS = ['user_id_counts', 'param_1_counts', 'user_type_counts', 'param_1_user_type_activation_date_counts',
+    #              'param_2_user_type_activation_date_counts',
+    #              'region_param_1_user_type_activation_date_counts',
+    #              'city_category_name_param_1_user_type_counts',
+    #              'city_category_name_param_2_user_type_counts']
+    #CONT_NAMES = CONTS + COUNTS
+    #CONT_DIMS = [1] * (len(CONT_NAMES))
+    #CONT_TYPES = ["dense"] * (len(CONT_NAMES))
+    #CONT_DENSE_DIMS = [24, 16, 16, 16] + [12] * len(COUNTS)
+    #CONT_DENSE_KWARGS = [{"units": units, "kernel_initializer": "glorot_normal"} for units in CONT_DENSE_DIMS]
+    #CONT_RNN_KWARGS = [None] * (len(CONT_NAMES))
+    #CONT_POOLING = [None] * (len(CONT_NAMES))
 
-    FC1_PARAMS = [0.0, 300, "prelu", True]
+    FC1_PARAMS = [0.0, 36, "prelu", True]
     FC2_PARAMS = [0.0, 128, "prelu", True]
     FC3_PARAMS = [0.0, 128, "prelu", True]
 
-    INPUT_NAMES = CAT_NAMES + CONT_NAMES
-    INPUT_DIMS = CAT_DIMS + CONT_DIMS
-    INPUT_TYPES = CAT_TYPES + CONT_TYPES
-    HIDDEN_KWARGS = CAT_EMBED_KWARGS + CONT_DENSE_KWARGS
-    INPUT_RNN_KWARGS = CAT_RNN_KWARGS + CONT_RNN_KWARGS
-    INPUT_POOLING = CAT_POOLING + CONT_POOLING
-    FC_LIST = [FC1_PARAMS, FC2_PARAMS, FC3_PARAMS]
+    INPUT_NAMES = DESC_NAMES #CAT_NAMES + CONT_NAMES
+    INPUT_DIMS =  DESC_DIMS#CAT_DIMS + CONT_DIMS
+    INPUT_TYPES = DESC_TYPES#CAT_TYPES + CONT_TYPES
+    HIDDEN_KWARGS = DESC_EMBED_KWARGS#CAT_EMBED_KWARGS + CONT_DENSE_KWARGS
+    INPUT_RNN_KWARGS = DESC_RNN_KWARGS#CAT_RNN_KWARGS + CONT_RNN_KWARGS
+    INPUT_POOLING = DESC_POOLING#CAT_POOLING + CONT_POOLING
+    FC_LIST = [FC1_PARAMS]
 
     NNREG = nnRegressorGRU( input_names=INPUT_NAMES,
                             input_dims=INPUT_DIMS,
@@ -81,8 +76,8 @@ if __name__=="__main__":
                             loss=root_mean_squared_error,
                             batch_size=800,
                             optimizer="adam",
-                            opt_kwargs={"lr": 0.001},
-                            epochs=10,
+                            opt_kwargs={"lr": 0.001, "decay": 0.001},
+                            epochs=2,
                             verbose=1,
                             model_file=MODEL_CHECK_FILENAME)
 
@@ -106,35 +101,40 @@ if __name__=="__main__":
 
     X_train = []
     X_test = []
-    for col in CAT_NAMES:
-        arr = np.load("../utility/X_train_{}.npy".format(col), mmap_mode='r').reshape(-1,1)
+
+    for col in DESC_NAMES:
+        arr = np.load("../utility/X_train_{}.npy".format(col), mmap_mode='r')
         X_train.append(arr)
 
-    for col in CAT_NAMES:
-        arr = np.load("../utility/X_test_{}.npy".format(col), mmap_mode='r').reshape(-1,1)
+        arr = np.load("../utility/X_test_{}.npy".format(col), mmap_mode='r')
         X_test.append(arr)
 
-    scaler = QuantileTransformer(output_distribution="normal")
-    for col in CONTS:
-        tmp = np.load("../utility/X_train_{}.npy".format(col), mmap_mode='r').reshape(-1,1)
-        tmp = scaler.fit_transform(tmp)
-        X_train.append(tmp)
+    #for col in CAT_NAMES:
+    #    arr = np.load("../utility/X_train_{}.npy".format(col), mmap_mode='r').reshape(-1,1)
+    #    X_train.append(arr)
 
-    for col in CONTS:
-        tmp = np.load("../utility/X_test_{}.npy".format(col), mmap_mode='r').reshape(-1,1)
-        tmp = scaler.transform(tmp)
-        X_test.append(tmp)
+    #    arr = np.load("../utility/X_test_{}.npy".format(col), mmap_mode='r').reshape(-1,1)
+    #    X_test.append(arr)
 
-    scaler = MinMaxScaler((-1,1))
-    for col in COUNTS:
-        tmp = np.load("../utility/X_train_{}.npy".format(col), mmap_mode='r').reshape(-1,1)
-        tmp = scaler.fit_transform(tmp)
-        X_train.append(tmp)
+    #scaler = QuantileTransformer(output_distribution="normal")
+    #for col in CONTS:
+    #    tmp = np.load("../utility/X_train_{}.npy".format(col), mmap_mode='r').reshape(-1,1)
+    #    tmp = scaler.fit_transform(tmp)
+    #    X_train.append(tmp)
 
-    for col in COUNTS:
-        tmp = np.load("../utility/X_test_{}.npy".format(col), mmap_mode='r').reshape(-1,1)
-        tmp = scaler.transform(tmp)
-        X_test.append(tmp)
+    #    tmp = np.load("../utility/X_test_{}.npy".format(col), mmap_mode='r').reshape(-1,1)
+    #    tmp = scaler.transform(tmp)
+    #    X_test.append(tmp)
+
+    #scaler = MinMaxScaler((-1,1))
+    #for col in COUNTS:
+    #    tmp = np.load("../utility/X_train_{}.npy".format(col), mmap_mode='r').reshape(-1,1)
+    #    tmp = scaler.fit_transform(tmp)
+    #    X_train.append(tmp)
+
+    #    tmp = np.load("../utility/X_test_{}.npy".format(col), mmap_mode='r').reshape(-1,1)
+    #    tmp = scaler.transform(tmp)
+    #    X_test.append(tmp)
 
     #########################################################
     ## Run MODEL                                    ###
@@ -150,7 +150,7 @@ if __name__=="__main__":
         logger.info("Val RMSE for {}th iteration is {}".format(i, rmse(y_trues, y_preds)))
         y_preds_mean.append(y_preds)
         y_test_mean.append(y_test)
-
+        #break
     y_preds_mean = np.mean(y_preds_mean, axis=0)
     y_test_mean = np.mean(y_test_mean, axis=0)
 

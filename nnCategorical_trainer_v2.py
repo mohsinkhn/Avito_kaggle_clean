@@ -19,8 +19,8 @@ if __name__=="__main__":
     #########################################################
     ##  Set Parameters for NN ##
     #########################################################
-    LOGGER_FILE = "logs/nnCategorical_trainerv1.log"
-    MODEL_ID = "catnum_v1"
+    LOGGER_FILE = "logs/nnCategorical_trainerv2.log"
+    MODEL_ID = "catnum_lgbcats_v2"
     MODEL_CHECK_FILENAME = "{}.check".format(MODEL_ID)
     CAT_NAMES = ["region_lbenc_1", "image_top_1_lbenc_1", "city_lbenc_1",
                  "parent_category_name_lbenc_1", "category_name_lbenc_1",
@@ -43,16 +43,12 @@ if __name__=="__main__":
     CAT_POOLING = ["flatten"] * len(CAT_NAMES)
 
     #Settings for Continous
-    CONTS = ["price", "item_seq_number", "image_top_1_cont", "user_id_trenc_1"]
-    COUNTS = ['user_id_counts', 'param_1_counts', 'user_type_counts', 'param_1_user_type_activation_date_counts',
-                  'param_2_user_type_activation_date_counts',
-                  'region_param_1_user_type_activation_date_counts',
-                  'city_category_name_param_1_user_type_counts',
-                  'city_category_name_param_2_user_type_counts']
+    CONTS = ["price", "item_seq_number", "image_top_1_cont", "user_id_trenc_1", "lgbcats_0", "lgbcats_1"]
+    COUNTS = ['user_id_counts']
     CONT_NAMES = CONTS + COUNTS
     CONT_DIMS = [1] * (len(CONT_NAMES))
     CONT_TYPES = ["dense"] * (len(CONT_NAMES))
-    CONT_DENSE_DIMS = [24, 16, 16, 16] + [12] * len(COUNTS)
+    CONT_DENSE_DIMS = [24, 16, 16, 16, 16, 16] + [12] * len(COUNTS)
     CONT_DENSE_KWARGS = [{"units": units, "kernel_initializer": "glorot_normal"} for units in CONT_DENSE_DIMS]
     CONT_RNN_KWARGS = [None] * (len(CONT_NAMES))
     CONT_POOLING = [None] * (len(CONT_NAMES))

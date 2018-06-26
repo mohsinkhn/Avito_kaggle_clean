@@ -60,12 +60,23 @@ class nnRegressorGRU(BaseEstimator, RegressorMixin):
         x = activation_layer(x)
         return x
 
-    def __first_block(self, inp_layer, hidden_layer, pooling_layer=None, rnn_layer=None):
-        emb = hidden_layer(inp_layer)
-        if rnn_layer:
-            emb = rnn_layer(emb)
-        if pooling_layer:
-            emb = pooling_layer(emb)
+    def __first_block(self, inp_type, inp_layer, hidden_layer, pooling_layer=None, rnn_layer=None):
+        if inp_type == "dense":
+            if hidden_layer:
+                bnorm_layer = BatchNormalization()(inp_layer)
+                dense_layer = hidden_layer(bnorm_layer)
+                emb = PReLU()(dense_layer)
+            else:
+                return inp_layer
+        else:
+            if hidden_layer:
+                emb = hidden_layer(inp_layer)
+            if rnn_layer:
+                emb = rnn_layer(emb)
+            if pooling_layer:
+                emb = pooling_layer(emb)
+            else:
+                return inp_layer
         return emb
 
     def __prep_input(self, inps):
@@ -76,7 +87,8 @@ class nnRegressorGRU(BaseEstimator, RegressorMixin):
         elif inp_type == "dense":
             hidden_layer = Dense(**hidden_kwargs, name=inp_name + "_dense")
         else:
-            hidden_layer = Dense(10)
+            hidden_layer = None
+
         if inp_pooling:
             if inp_pooling == "attention":
                 pooling_layer = Attention(inp_dim)
@@ -94,7 +106,7 @@ class nnRegressorGRU(BaseEstimator, RegressorMixin):
             rnn_layer = CuDNNGRU(**rnn_kwargs, return_sequences=True)
         else:
             rnn_layer = None
-        emb = self.__first_block(inp_layer, hidden_layer, pooling_layer, rnn_layer)
+        emb = self.__first_block(inp_type, inp_layer, hidden_layer, pooling_layer, rnn_layer)
         return inp_layer, emb
 
     def __prep_fc(self, x, inps):
@@ -109,7 +121,7 @@ class nnRegressorGRU(BaseEstimator, RegressorMixin):
         else:
             drop_layer = Dropout(0.0)
 
-        dense_layer = Dense(dense_dim)
+        dense_layer = Dense(dense_dim, kernel_initializer="glorot_uniform")
 
         if act_layer_type == "leakyrelu":
             activation_layer = LeakyReLU()
@@ -136,16 +148,16 @@ class nnRegressorGRU(BaseEstimator, RegressorMixin):
         if self.out_kwargs:
             out = Dense(self.out_dim, **self.out_kwargs)(x)
         else:
-            out = Dense(self.out_dim)
+            out = Dense(self.out_dim)(x)
 
         if self.optimizer == 'adam':
-            opt = Adam(**self.opt_kwargs, clipvalue=1.0)
+            opt = Adam(**self.opt_kwargs)
         if self.optimizer == 'nadam':
             opt = Nadam(**self.opt_kwargs)
         if self.optimizer == 'sgd':
             opt = SGD(**self.opt_kwargs)
         elif self.optimizer == 'rmsprop':
-            opt = RMSprop(lr=0.009, decay=0.006, clipnorm=1.0, clipvalue=1)
+            opt = RMSprop(**self.opt_kwargs)
 
         model = Model(inputs=self.input_layers, outputs=out)
         model.compile(optimizer=self.optimizer, loss=self.loss)
